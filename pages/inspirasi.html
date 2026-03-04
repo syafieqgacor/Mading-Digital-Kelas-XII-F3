@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inspirasi — Mading Digital Ramadhan 1447 H</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<canvas id="bg-canvas"></canvas>
+<div id="pattern-overlay"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="../index.html" class="nav-logo">Mading<span> Asvorma</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../index.html">🏠 Beranda</a></li>
+    <li><a href="artikel.html">📰 Artikel</a></li>
+    <li><a href="opini.html">💬 Opini</a></li>
+    <li><a href="infografis-karya.html">📊 Infografis</a></li>
+    <li><a href="#quotes">Inspirasi</a></li>
+    <li><a href="#tips">Tips</a></li>
+    <li><a href="#doa">Doa</a></li>
+    <li><a href="#cerpen">Sastra</a></li>
+    <li><a href="#quiz">Kuis</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-btn" id="themeBtn" title="Toggle tema">🌙</button>
+    <button class="nav-btn" id="audioNavBtn" title="Toggle audio">🎵</button>
+    <button class="ham" id="hamBtn" title="Menu" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-geo"></div>
+  <a class="back-btn rv" href="../index.html">← Kembali ke Beranda</a>
+  <span class="page-hero-tag">✦ Mutiara & Panduan ✦</span>
+  <h1 class="page-hero-title">Inspirasi, Tips & <em>Doa</em></h1>
+</div>
+
+<!-- QUOTES -->
+<section id="quotes">
+  <div class="sc">
+    <div class="sh rv"><span class="se">✦ Mutiara Kata ✦</span><h2 class="st">Inspirasi <em>Ramadhan</em></h2><div class="sl2"></div></div>
+    <div class="q-wrap">
+      <div class="q-slide active"><span class="q-ar">أيُّ الصَّدَقَةِ أفْضَلُ؟ قَالَ صَدَقَةٌ فَيْ رَمَضَانَ</span><p class="q-txt">Rasulullah saw pernah ditanya, "Sedekah apakah yang paling mulia?" Beliau menjawab: <span class="hl">"Yaitu sedekah di bulan Ramadhan"</span></p><span class="q-src">— HR. Tirmidzi</span></div>
+      <div class="q-slide"><span class="q-ar">ثَلَاثُ دَعَوَاتٍ مُسْتَجَابَاتٍ ؛دَعْوَةُ الصَّائِمِ وَدَعْوَةُ الْمُسَافِرِ وَدَعْوَةُ الْمَظْلُوْمِ</span><p class="q-txt">Ada tiga macam doa yang mustajab, yaitu <span class="hl">doa orang yang sedang puasa, doa musafir dan doa orang yang teraniaya.</span></p><span class="q-src">— HR. Bukhari & Muslim</span></div>
+      <div class="q-slide"><span class="q-ar">لَيْلَةُ الْقَدْرِ ەۙ خَيْرٌ مِّنْ اَلْفِ شَهْرٍۗ</span><p class="q-txt"><span class="hl">Lailatulqadar</span> itu lebih baik daripada seribu bulan.</p><span class="q-src">— QS. Al-Qadr: 3</span></div>
+      <div class="q-slide"><span class="q-ar">الصِّيَامُ جُنَّةٌ مِنَ النَّارِ</span><p class="q-txt">Puasa itu adalah <span class="hl">perisai</span> dari api neraka.</p><span class="q-src">— HR. Ibnu Majah</span></div>
+    </div>
+    <div class="q-nav"><button class="q-dot active" data-i="0"></button><button class="q-dot" data-i="1"></button><button class="q-dot" data-i="2"></button><button class="q-dot" data-i="3"></button></div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section id="tips" style="background:var(--bg2);">
+  <div class="sc">
+    <div class="sh rv"><span class="se">✦ Panduan Amal ✦</span><h2 class="st">Tips <em>Ibadah & Produktivitas</em></h2><div class="sl2"></div></div>
+    <div class="tips-grid">
+      <div class="tip-c rv"><span class="tip-n">01</span><span class="tip-ico">🌅</span><h3 class="tip-title">Optimalkan Waktu Sahur</h3><p class="tip-desc">Sahur bukan cuma soal makan. Gunakan untuk shalat tahajud, dzikir pagi, dan tilawah minimal 1 halaman sebelum Subuh. Mulai hari dengan penuh berkah.</p></div>
+      <div class="tip-c rv"><span class="tip-n">02</span><span class="tip-ico">📖</span><h3 class="tip-title">Target Khatam Al-Qur'an</h3><p class="tip-desc">1 juz per hari = khatam dalam 30 hari. Bagi menjadi 4 sesi kecil: Subuh, Dzuhur, Ashar, dan sebelum tidur. Yang penting konsisten, bukan ngebut di awal.</p></div>
+      <div class="tip-c rv"><span class="tip-n">03</span><span class="tip-ico">📵</span><h3 class="tip-title">Puasa Media Sosial</h3><p class="tip-desc">Batasi screen time maksimal 30 menit/hari. Ganti scrolling dengan hal bermakna. Kamu akan kaget betapa banyak waktu yang kamu dapatkan kembali.</p></div>
+      <div class="tip-c rv"><span class="tip-n">04</span><span class="tip-ico">💰</span><h3 class="tip-title">Sedekah Setiap Hari</h3><p class="tip-desc">Sisihkan minimal Rp5.000 per hari. Sebulan = Rp150.000 yang mengalirkan berkah berlipat. Sedekah tidak mengurangi rezeki — ia justru memperbanyaknya.</p></div>
+      <div class="tip-c rv"><span class="tip-n">05</span><span class="tip-ico">🤲</span><h3 class="tip-title">Khusyuk di Tarawih</h3><p class="tip-desc">Hadir berjamaah dan fokus pada makna, bukan kecepatan. Pahami satu ayat yang dibaca imam setiap malam. Shalat adalah percakapan dengan Allah.</p></div>
+      <div class="tip-c rv"><span class="tip-n">06</span><span class="tip-ico">🌙</span><h3 class="tip-title">Maksimalkan 10 Malam Terakhir</h3><p class="tip-desc">I'tikaf, perbanyak doa, cari Lailatul Qadar. Hafal: <em>"Allahumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'anni."</em> Satu malam ini lebih baik dari seribu bulan.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOA HARIAN -->
+<section id="doa">
+  <div class="sc">
+    <div class="sh rv"><span class="se">✦ Amalan Harian ✦</span><h2 class="st">Doa-Doa <em>Ramadhan</em></h2><div class="sl2"></div></div>
+    <div class="doa-grid">
+      <div class="doa-card rv">
+        <span class="doa-label">Doa Wajib</span>
+        <div class="doa-title">🌙 Niat Puasa Ramadhan</div>
+        <span class="doa-arabic">نَوَيْتُ صَوْمَ غَدٍ عَنْ أَدَاءِ فَرْضِ شَهْرِ رَمَضَانَ هٰذِهِ السَّنَةِ لِلّٰهِ تَعَالَى</span>
+        <p class="doa-latin">Nawaitu shauma ghadin 'an ada'i fardhi syahri ramadhana hadzihis sanati lillahi ta'ala.</p>
+        <div class="doa-divider"></div>
+        <p class="doa-arti">Artinya: "Saya niat berpuasa esok hari untuk menunaikan kewajiban bulan Ramadhan tahun ini karena Allah Ta'ala."</p>
+      </div>
+      <div class="doa-card rv">
+        <span class="doa-label">Doa Wajib</span>
+        <div class="doa-title">☀️ Doa Berbuka Puasa</div>
+        <span class="doa-arabic">اَللّٰهُمَّ لَكَ صُمْتُ وَبِكَ آمَنْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ بِرَحْمَتِكَ يَا أَرْحَمَ الرَّاحِمِيْنَ</span>
+        <p class="doa-latin">Allahumma laka shumtu wa bika amantu wa 'ala rizqika afthartu birahmatika ya arhamar rahimin.</p>
+        <div class="doa-divider"></div>
+        <p class="doa-arti">Artinya: "Ya Allah, untuk-Mu aku berpuasa, kepada-Mu aku beriman, dan dengan rezeki-Mu aku berbuka, dengan rahmat-Mu wahai Yang Maha Penyayang."</p>
+      </div>
+      <div class="doa-card rv">
+        <span class="doa-label">Amalan Malam</span>
+        <div class="doa-title">🌟 Doa Lailatul Qadar</div>
+        <span class="doa-arabic">اَللّٰهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</span>
+        <p class="doa-latin">Allahumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'anni.</p>
+        <div class="doa-divider"></div>
+        <p class="doa-arti">Artinya: "Ya Allah, sesungguhnya Engkau Maha Pemaaf, Engkau menyukai maaf, maka maafkanlah aku." Dibaca memperbanyak di 10 malam terakhir Ramadhan.</p>
+      </div>
+      <div class="doa-card rv">
+        <span class="doa-label">Dzikir Pagi</span>
+        <div class="doa-title">🤲 Dzikir Setelah Shalat</div>
+        <span class="doa-arabic">سُبْحَانَ اللهِ ٣٣× · اَلْحَمْدُ لِلّٰهِ ٣٣× · اَللهُ أَكْبَرُ ٣٣×</span>
+        <p class="doa-latin">Subhanallah (33×) · Alhamdulillah (33×) · Allahu Akbar (33×)</p>
+        <div class="doa-divider"></div>
+        <p class="doa-arti">Artinya: "Maha Suci Allah · Segala puji bagi Allah · Allah Maha Besar." Diamalkan setiap selesai shalat fardhu untuk membersihkan hati dan mendapat pahala berlimpah.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERPEN & PUISI -->
+<section id="cerpen" style="background:var(--bg2);">
+  <div class="sc">
+    <div class="sh rv"><span class="se">✦ Karya Sastra Siswa ✦</span><h2 class="st">Cerpen &amp; <em>Puisi</em></h2><div class="sl2"></div></div>
+    <div class="cerpen-tabs">
+      <button class="cerpen-tab active" data-tab="cerpen-pane">📖 Cerpen</button>
+      <button class="cerpen-tab" data-tab="puisi-pane">🖊️ Puisi</button>
+    </div>
+    <div id="cerpen-pane" class="cerpen-pane active rv">
+      <div class="cerpen-card">
+        <div class="cerpen-meta">
+          <span class="cerpen-author">✏️ Oleh: Asvorma · Kelas XII F3</span>
+          <span class="cerpen-tag">Cerpen Ramadhan</span>
+        </div>
+        <h3 class="cerpen-title">Sebungkus Kurma di Hari Pertama</h3>
+        <div class="cerpen-body">
+          <p>Azan Subuh baru saja selesai ketika Farhan menutup Al-Qur'an dan menatap langit dari jendela kamarnya. Langit masih gelap, tapi ada sesuatu yang berbeda pagi ini — ketenangan yang aneh, seolah seluruh dunia ikut menahan nafas bersama jutaan orang yang memulai puasa pertama mereka.</p>
+          <p>Di tangannya, sebungkus kurma yang tadi menjadi teman sahurnya. Kecil. Murah. Tapi ibu selalu membeli kurma setiap Ramadhan, katanya mengikuti sunnah.</p>
+          <p>"Far, udah selesai tilawah?" Suara ibu dari bawah tangga.</p>
+          <p>"Udah, Bu. Tapi cuma satu halaman."</p>
+          <p>"Satu halaman dengan hati yang sungguh-sungguh lebih baik dari satu juz yang terburu-buru."</p>
+          <p>Farhan tersenyum. Mungkin Ramadhan kali ini tidak perlu menjadi yang paling spektakuler dalam hidupnya. Mungkin cukup menjadi yang paling tulus.</p>
+          <p>Ia membuka kembali Al-Qur'an. Dua halaman. Hari pertama. Permulaan yang baik.</p>
+        </div>
+      </div>
+    </div>
+    <div id="puisi-pane" class="cerpen-pane rv">
+      <div class="cerpen-card">
+        <div class="cerpen-meta">
+          <span class="cerpen-author">✏️ Oleh: Asvorma · Kelas XII F3</span>
+          <span class="cerpen-tag">Puisi Ramadhan</span>
+        </div>
+        <h3 class="cerpen-title">Bulan yang Memanggil</h3>
+        <div class="puisi-body">
+          <p>Di antara dua adzan<br>ada ruang yang selalu kutunggu —</p>
+          <p>bukan sekadar menahan lapar<br>tapi <span class="highlight">melatih hati untuk tidak serakah</span></p>
+          <p>Ramadhan datang lagi<br>dengan tangan terbuka<br>menawarkan ampunan yang lebih luas<br>dari semua salahku yang terlanjur</p>
+          <p>Dan aku —<br>kembali belajar<br>bahwa puasa yang sesungguhnya<br>bukan tentang menahan makan</p>
+          <p>tapi tentang <span class="highlight">memberi makan jiwa</span><br>yang selama sebelas bulan<br>kelaparan tanpa kusadari</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="sc">
+    <div class="sh rv"><span class="se">✦ Uji Pengetahuanmu ✦</span><h2 class="st">Kuis <em>Ramadhan</em></h2><div class="sl2"></div></div>
+    <div class="quiz-wrap rv">
+      <div class="quiz-progress-wrap">
+        <div class="quiz-dots" id="quizDots"></div>
+        <span class="quiz-score-lbl" id="quizScoreLbl">Nilai: 0 / 0</span>
+      </div>
+      <div class="quiz-card" id="quizCard"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-geo"></div>
+  <span class="ft-moon">🌙</span>
+  <div class="ft-title">MADING DIGITAL RAMADHAN</div>
+  <p class="ft-tag">Spirituality · Solidarity · Synergy in Action</p>
+  <div class="ft-credits">Dibuat oleh <strong>Tim Mading Digital Kelas XII F3</strong> &nbsp;·&nbsp; Ramadhan 1447 H &nbsp;·&nbsp; <strong>SMAN 1 Sampit</strong></div>
+</footer>
+
+<div id="yt-hidden" style="display:none;width:1px;height:1px;position:fixed;bottom:0;left:0;pointer-events:none;"></div>
+<button class="afab" id="audioFab" title="Toggle audio">🎵</button>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

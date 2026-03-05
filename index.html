@@ -1,875 +1,738 @@
-<!DOCTYPE html>
-<html lang="id" data-theme="light">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mading Digital — Ramadhan 1447 H</title>
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <style>
-    /* ─── HERO ─── */
-    #hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;z-index:1;background:linear-gradient(160deg,#f7f0e3 0%,#f0e5cc 40%,#e8d8b8 100%);}
-    [data-theme="dark"] #hero{background:none;}
-    .geo-bg{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(0deg,transparent,transparent 60px,var(--gold) 60px,var(--gold) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,var(--gold) 60px,var(--gold) 61px),repeating-linear-gradient(45deg,transparent,transparent 42px,var(--sage) 42px,var(--sage) 43px),repeating-linear-gradient(-45deg,transparent,transparent 42px,var(--sage) 42px,var(--sage) 43px);}
-    .geo-ov{position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,transparent 40%,var(--bg) 100%);}
-    .hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 20% 30%,rgba(212,160,23,.08),transparent 60%),radial-gradient(ellipse 50% 60% at 80% 70%,rgba(107,158,107,.1),transparent 60%);}
-    .lnt{position:absolute;pointer-events:none;animation:floatL 8s ease-in-out infinite;}
-    .lnt:nth-child(1){left:6%;top:12%;}
-    .lnt:nth-child(2){right:7%;top:16%;animation-delay:-2.5s;}
-    .lnt:nth-child(3){left:17%;bottom:20%;animation-delay:-4.5s;scale:.6;}
-    .lnt:nth-child(4){right:15%;bottom:26%;animation-delay:-6s;scale:.5;}
-    @keyframes floatL{0%,100%{translate:0 0;rotate:-2deg;}50%{translate:0 -20px;rotate:2deg;}}
-    .hero-c{text-align:center;position:relative;z-index:2;max-width:900px;padding:0 2rem;}
-    .h-bismillah{font-family:'Scheherazade New',serif;font-size:2.4rem;color:var(--gold);opacity:.6;display:block;margin-bottom:1.2rem;animation:fD 1s .1s both;}
-    .h-eye{font-size:.65rem;letter-spacing:5px;font-weight:600;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;display:block;animation:fD 1s .25s both;}
-    .h-title{font-family:'Cinzel',serif;font-size:clamp(3rem,9vw,7rem);font-weight:700;line-height:1;animation:fD 1s .4s both;display:block;}
-    .shimmer{background:linear-gradient(90deg,var(--gold),var(--gold-bright),var(--teal),var(--gold));background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shim 4s linear infinite;}
-    @keyframes shim{from{background-position:200% center;}to{background-position:-200% center;}}
-    .h-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.2vw,1.6rem);color:var(--text-muted);margin:1rem 0 1.6rem;animation:fD 1s .6s both;}
-    .h-div{width:60px;height:1px;background:var(--gold);margin:0 auto 1.6rem;position:relative;animation:expW 1s .8s both;}
-    .h-div::before,.h-div::after{content:'◆';position:absolute;top:50%;transform:translateY(-50%);color:var(--gold);font-size:.4rem;}
-    .h-div::before{right:100%;margin-right:6px;}
-    .h-div::after{left:100%;margin-left:6px;}
-    @keyframes expW{from{width:0;}to{width:60px;}}
-    .cd{display:flex;gap:1.2rem;justify-content:center;animation:fU 1s 1s both;}
-    .cd-item{text-align:center;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem 1.4rem;min-width:76px;position:relative;overflow:hidden;transition:all .3s;}
-    .cd-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
-    .cd-item:hover{border-color:var(--gold);box-shadow:var(--gg);transform:translateY(-3px);}
-    .cd-n{font-family:'Cinzel',serif;font-size:2rem;font-weight:700;color:var(--gold);display:block;line-height:1;}
-    .cd-l{font-size:.55rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-top:.3rem;display:block;}
-    .scroll-h{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--text-dim);font-size:.55rem;letter-spacing:3px;text-transform:uppercase;animation:pulse 2.5s infinite;}
-    .sl-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);animation:dL 2s infinite;}
-    @keyframes dL{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
-    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
-    /* lantern SVG */
-    .lnt svg{width:70px;height:120px;}
+  <!DOCTYPE html>
+  <html lang="id" data-theme="light">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mading Digital — Ramadhan 1447 H</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+      /* ─── HERO ─── */
+      #hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;z-index:1;background:linear-gradient(160deg,#f7f0e3 0%,#f0e5cc 40%,#e8d8b8 100%);}
+      [data-theme="dark"] #hero{background:none;}
+      .geo-bg{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(0deg,transparent,transparent 60px,var(--gold) 60px,var(--gold) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,var(--gold) 60px,var(--gold) 61px),repeating-linear-gradient(45deg,transparent,transparent 42px,var(--sage) 42px,var(--sage) 43px),repeating-linear-gradient(-45deg,transparent,transparent 42px,var(--sage) 42px,var(--sage) 43px);}
+      .geo-ov{position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,transparent 40%,var(--bg) 100%);}
+      .hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 20% 30%,rgba(212,160,23,.08),transparent 60%),radial-gradient(ellipse 50% 60% at 80% 70%,rgba(107,158,107,.1),transparent 60%);}
+      .lnt{position:absolute;pointer-events:none;animation:floatL 8s ease-in-out infinite;}
+      .lnt:nth-child(1){left:6%;top:12%;}
+      .lnt:nth-child(2){right:7%;top:16%;animation-delay:-2.5s;}
+      .lnt:nth-child(3){left:17%;bottom:20%;animation-delay:-4.5s;scale:.6;}
+      .lnt:nth-child(4){right:15%;bottom:26%;animation-delay:-6s;scale:.5;}
+      @keyframes floatL{0%,100%{translate:0 0;rotate:-2deg;}50%{translate:0 -20px;rotate:2deg;}}
+      .hero-c{text-align:center;position:relative;z-index:2;max-width:900px;padding:0 2rem;}
+      .h-bismillah{font-family:'Scheherazade New',serif;font-size:2.4rem;color:var(--gold);opacity:.6;display:block;margin-bottom:1.2rem;animation:fD 1s .1s both;}
+      .h-eye{font-size:.65rem;letter-spacing:5px;font-weight:600;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;display:block;animation:fD 1s .25s both;}
+      .h-title{font-family:'Cinzel',serif;font-size:clamp(3rem,9vw,7rem);font-weight:700;line-height:1;animation:fD 1s .4s both;display:block;}
+      .shimmer{background:linear-gradient(90deg,var(--gold),var(--gold-bright),var(--teal),var(--gold));background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shim 4s linear infinite;}
+      @keyframes shim{from{background-position:200% center;}to{background-position:-200% center;}}
+      .h-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.2vw,1.6rem);color:var(--text-muted);margin:1rem 0 1.6rem;animation:fD 1s .6s both;}
+      .h-div{width:60px;height:1px;background:var(--gold);margin:0 auto 1.6rem;position:relative;animation:expW 1s .8s both;}
+      .h-div::before,.h-div::after{content:'◆';position:absolute;top:50%;transform:translateY(-50%);color:var(--gold);font-size:.4rem;}
+      .h-div::before{right:100%;margin-right:6px;}
+      .h-div::after{left:100%;margin-left:6px;}
+      @keyframes expW{from{width:0;}to{width:60px;}}
+      .cd{display:flex;gap:1.2rem;justify-content:center;animation:fU 1s 1s both;}
+      .cd-item{text-align:center;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem 1.4rem;min-width:76px;position:relative;overflow:hidden;transition:all .3s;}
+      .cd-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+      .cd-item:hover{border-color:var(--gold);box-shadow:var(--gg);transform:translateY(-3px);}
+      .cd-n{font-family:'Cinzel',serif;font-size:2rem;font-weight:700;color:var(--gold);display:block;line-height:1;}
+      .cd-l{font-size:.55rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-top:.3rem;display:block;}
+      .scroll-h{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--text-dim);font-size:.55rem;letter-spacing:3px;text-transform:uppercase;animation:pulse 2.5s infinite;}
+      .sl-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);animation:dL 2s infinite;}
+      @keyframes dL{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+      @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+      /* lantern SVG */
+      .lnt svg{width:70px;height:120px;}
 
-    /* ─── EDITORIAL ─── */
-    #editorial{background:var(--bg2);}
-    .ed-card{max-width:740px;margin:0 auto;background:white;border:1px solid var(--border);border-radius:20px;padding:2.8rem;position:relative;overflow:hidden;box-shadow:0 4px 32px rgba(139,107,58,.1);}
-    [data-theme="dark"] .ed-card{background:var(--surface);}
-    .ed-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--sage),transparent);}
-    .ed-arabic{font-family:'Scheherazade New',serif;font-size:1.9rem;color:var(--gold);opacity:.65;text-align:center;display:block;margin-bottom:1.4rem;}
-    .ed-body{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;line-height:1.9;color:var(--text-muted);text-align:center;}
-    .ed-body strong{color:var(--gold);font-style:normal;}
-    .ed-body em{color:var(--sage-mid);font-style:normal;}
-    [data-theme="dark"] .ed-body em{color:var(--teal);}
-    .ed-sig{text-align:right;margin-top:1.6rem;padding-top:1.1rem;border-top:1px solid var(--border);}
-    .ed-sig span{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);}
-    .ed-sig strong{display:block;color:var(--gold);font-family:'Cinzel',serif;font-size:.82rem;margin-top:.3rem;}
+      /* ─── EDITORIAL ─── */
+      #editorial{background:var(--bg2);}
+      .ed-card{max-width:740px;margin:0 auto;background:white;border:1px solid var(--border);border-radius:20px;padding:2.8rem;position:relative;overflow:hidden;box-shadow:0 4px 32px rgba(139,107,58,.1);}
+      [data-theme="dark"] .ed-card{background:var(--surface);}
+      .ed-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--sage),transparent);}
+      .ed-arabic{font-family:'Scheherazade New',serif;font-size:1.9rem;color:var(--gold);opacity:.65;text-align:center;display:block;margin-bottom:1.4rem;}
+      .ed-body{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;line-height:1.9;color:var(--text-muted);text-align:center;}
+      .ed-body strong{color:var(--gold);font-style:normal;}
+      .ed-body em{color:var(--sage-mid);font-style:normal;}
+      [data-theme="dark"] .ed-body em{color:var(--teal);}
+      .ed-sig{text-align:right;margin-top:1.6rem;padding-top:1.1rem;border-top:1px solid var(--border);}
+      .ed-sig span{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);}
+      .ed-sig strong{display:block;color:var(--gold);font-family:'Cinzel',serif;font-size:.82rem;margin-top:.3rem;}
 
-    /* ─── FAKTA ─── */
-    #fakta{background:var(--bg);}
-    .fakta-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.4rem;}
-    .fakta-flip{cursor:pointer;perspective:800px;height:200px;}
-    .fakta-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .7s var(--ease);}
-    .fakta-flip.flipped .fakta-inner{transform:rotateY(180deg);}
-    .fakta-f,.fakta-b{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;border:1px solid var(--border);}
-    .fakta-f{background:var(--surface);}
-    .fakta-b{background:linear-gradient(135deg,var(--bg2),var(--bg3));transform:rotateY(180deg);}
-    .fakta-ico{font-size:2.2rem;margin-bottom:.8rem;}
-    .fakta-q{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--text);line-height:1.4;}
-    .fakta-hint{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-top:.7rem;}
-    .fakta-num{font-family:'Cinzel',serif;font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1;}
-    .fakta-unit{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-top:.3rem;}
-    .fakta-desc{font-size:.78rem;color:var(--text-muted);margin-top:.6rem;line-height:1.6;}
+      /* ─── FAKTA ─── */
+      #fakta{background:var(--bg);}
+      .fakta-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.4rem;}
+      .fakta-flip{cursor:pointer;perspective:800px;height:200px;}
+      .fakta-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .7s var(--ease);}
+      .fakta-flip.flipped .fakta-inner{transform:rotateY(180deg);}
+      .fakta-f,.fakta-b{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;border:1px solid var(--border);}
+      .fakta-f{background:var(--surface);}
+      .fakta-b{background:linear-gradient(135deg,var(--bg2),var(--bg3));transform:rotateY(180deg);}
+      .fakta-ico{font-size:2.2rem;margin-bottom:.8rem;}
+      .fakta-q{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--text);line-height:1.4;}
+      .fakta-hint{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-top:.7rem;}
+      .fakta-num{font-family:'Cinzel',serif;font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1;}
+      .fakta-unit{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-top:.3rem;}
+      .fakta-desc{font-size:.78rem;color:var(--text-muted);margin-top:.6rem;line-height:1.6;}
 
-    /* ─── SCROLL-SNAP CARD SLIDER ─── */
-    #slider-section{background:var(--bg2);}
-    .slider-outer{
-      width:100%;overflow:hidden;
-      -webkit-mask-image:linear-gradient(to right,transparent 0%,black 6%,black 94%,transparent 100%);
-      mask-image:linear-gradient(to right,transparent 0%,black 6%,black 94%,transparent 100%);
-    }
-    .slider-track{
-      display:flex;gap:1.2rem;
-      padding:1rem 0 1.8rem;
-      padding-left:max(2rem, calc(50% - 155px));
-      padding-right:max(2rem, calc(50% - 155px));
-      overflow-x:auto;
-      scroll-snap-type:x mandatory;
-      -webkit-overflow-scrolling:touch;
-      scrollbar-width:none;
-      cursor:grab;
-    }
-    .slider-track:active{cursor:grabbing;}
-    .slider-track::-webkit-scrollbar{display:none;}
-    .s-card{
-      flex:0 0 310px;width:310px;
-      border-radius:20px;border:1px solid var(--border);background:white;
-      cursor:pointer;overflow:hidden;
-      scroll-snap-align:center;scroll-snap-stop:always;
-      box-shadow:0 4px 20px rgba(139,107,58,.1);
-      transition:transform .35s cubic-bezier(0.16,1,0.3,1),box-shadow .35s,opacity .35s;
-      opacity:.7;transform:scale(.94);
-    }
-    [data-theme="dark"] .s-card{background:var(--bg3);}
-    .s-card.is-active{opacity:1;transform:scale(1);box-shadow:0 16px 56px rgba(184,134,11,.22);border-color:rgba(184,134,11,.35);}
-    .s-card:hover{opacity:.88;transform:scale(.97);}
-    .s-card.is-active:hover{transform:scale(1.01);}
-    .s-card-img{width:100%;height:170px;background:linear-gradient(135deg,var(--bg2),var(--bg3));display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;overflow:hidden;}
-    [data-theme="dark"] .s-card-img{background:linear-gradient(135deg,#0d1f24,#081419);}
-    .s-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(139,107,58,.1));}
-    .s-card-body{padding:1.3rem 1.4rem 1.5rem;}
-    .s-card-tag{font-size:.56rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--sage-mid);background:rgba(107,158,107,.12);padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:.7rem;}
-    [data-theme="dark"] .s-card-tag{color:var(--teal);background:rgba(20,184,166,.1);}
-    .s-card-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:.5rem;}
-    .s-card-desc{font-size:.76rem;color:var(--text-muted);line-height:1.72;}
-    .s-card-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--gold);font-size:.73rem;font-weight:700;margin-top:.85rem;text-decoration:none;transition:gap .3s;}
-    .s-card-link:hover{gap:.65rem;}
-    .slider-controls{display:flex;align-items:center;justify-content:center;gap:.75rem;margin-top:1.2rem;}
-    .slider-btn{background:var(--surface);border:1px solid var(--border);color:var(--gold);cursor:pointer;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .3s;flex-shrink:0;}
-    .slider-btn:hover{background:var(--gold);color:#fff;border-color:var(--gold);box-shadow:var(--gg);}
-    .slider-dots{display:flex;gap:.5rem;align-items:center;}
-    .slider-dot{width:7px;height:7px;border-radius:50%;background:var(--border);transition:all .35s;cursor:pointer;border:none;padding:0;flex-shrink:0;}
-    .slider-dot.active{background:var(--gold);width:22px;border-radius:4px;}
-    @media(max-width:500px){
-      .s-card{flex:0 0 88vw;width:88vw;}
-      .slider-track{padding-left:calc(50% - 44vw);padding-right:calc(50% - 44vw);}
-      .slider-outer{-webkit-mask-image:none;mask-image:none;}
-    }
+      /* ─── SCROLL-SNAP CARD SLIDER ─── */
+      #slider-section{background:var(--bg2);}
+      .slider-outer{
+        width:100%;overflow:hidden;
+        -webkit-mask-image:linear-gradient(to right,transparent 0%,black 6%,black 94%,transparent 100%);
+        mask-image:linear-gradient(to right,transparent 0%,black 6%,black 94%,transparent 100%);
+      }
+      .slider-track{
+        display:flex;gap:1.2rem;
+        padding:1rem 0 1.8rem;
+        padding-left:max(2rem, calc(50% - 155px));
+        padding-right:max(2rem, calc(50% - 155px));
+        overflow-x:auto;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+        cursor:grab;
+      }
+      .slider-track:active{cursor:grabbing;}
+      .slider-track::-webkit-scrollbar{display:none;}
+      .s-card{
+        flex:0 0 310px;width:310px;
+        border-radius:20px;border:1px solid var(--border);background:white;
+        cursor:pointer;overflow:hidden;
+        scroll-snap-align:center;scroll-snap-stop:always;
+        box-shadow:0 4px 20px rgba(139,107,58,.1);
+        transition:transform .35s cubic-bezier(0.16,1,0.3,1),box-shadow .35s,opacity .35s;
+        opacity:.7;transform:scale(.94);
+      }
+      [data-theme="dark"] .s-card{background:var(--bg3);}
+      .s-card.is-active{opacity:1;transform:scale(1);box-shadow:0 16px 56px rgba(184,134,11,.22);border-color:rgba(184,134,11,.35);}
+      .s-card:hover{opacity:.88;transform:scale(.97);}
+      .s-card.is-active:hover{transform:scale(1.01);}
+      .s-card-img{width:100%;height:170px;background:linear-gradient(135deg,var(--bg2),var(--bg3));display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;overflow:hidden;}
+      /* ── Foto di dalam .s-card-img: wajib terkurung di area thumbnail ── */
+      .s-card-img img{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center;
+        display:block;
+        /* Hapus emoji/gradient background saat foto berhasil load */
+        z-index:1;
+      }
+      /* Emoji fallback — muncul di belakang foto, tampil otomatis jika foto gagal */
+      .s-card-img-fallback{
+        position:absolute;
+        inset:0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:4rem;
+        z-index:0;
+      }
+      /* Gradient overlay tetap di atas foto */
+      .s-card-img > div{z-index:2;}
+      [data-theme="dark"] .s-card-img{background:linear-gradient(135deg,#0d1f24,#081419);}
+      .s-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(139,107,58,.1));}
+      .s-card-body{padding:1.3rem 1.4rem 1.5rem;}
+      .s-card-tag{font-size:.56rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--sage-mid);background:rgba(107,158,107,.12);padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:.7rem;}
+      [data-theme="dark"] .s-card-tag{color:var(--teal);background:rgba(20,184,166,.1);}
+      .s-card-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:.5rem;}
+      .s-card-desc{font-size:.76rem;color:var(--text-muted);line-height:1.72;}
+      .s-card-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--gold);font-size:.73rem;font-weight:700;margin-top:.85rem;text-decoration:none;transition:gap .3s;}
+      .s-card-link:hover{gap:.65rem;}
+      .slider-controls{display:flex;align-items:center;justify-content:center;gap:.75rem;margin-top:1.2rem;}
+      .slider-btn{background:var(--surface);border:1px solid var(--border);color:var(--gold);cursor:pointer;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .3s;flex-shrink:0;}
+      .slider-btn:hover{background:var(--gold);color:#fff;border-color:var(--gold);box-shadow:var(--gg);}
+      .slider-dots{display:flex;gap:.5rem;align-items:center;}
+      .slider-dot{width:7px;height:7px;border-radius:50%;background:var(--border);transition:all .35s;cursor:pointer;border:none;padding:0;flex-shrink:0;}
+      .slider-dot.active{background:var(--gold);width:22px;border-radius:4px;}
+      @media(max-width:500px){
+        .s-card{flex:0 0 88vw;width:88vw;}
+        .slider-track{padding-left:calc(50% - 44vw);padding-right:calc(50% - 44vw);}
+        .slider-outer{-webkit-mask-image:none;mask-image:none;}
+      }
 
-    /* ─── JADWAL ─── */
-    #jadwal{background:var(--bg2);}
+      /* ─── JADWAL ─── */
+      #jadwal{background:var(--bg2);}
 
-    /* ─── TIM ─── */
-    #tim{background:var(--bg);}
-    .tim-cats{display:flex;gap:.6rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap;}
-    .tim-avatar-wrap{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--sage-mid),var(--gold));display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 1rem;border:2px solid var(--border);overflow:hidden;position:relative;}
-    .tim-photo{width:100%;height:100%;object-fit:cover;border-radius:50%;}
-    .tim-initials{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:1.3rem;font-weight:700;color:white;}
+      /* ─── TIM ─── */
+      #tim{background:var(--bg);}
+      .tim-cats{display:flex;gap:.6rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap;}
+      .tim-avatar-wrap{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--sage-mid),var(--gold));display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 1rem;border:2px solid var(--border);overflow:hidden;position:relative;}
+      .tim-photo{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+      .tim-initials{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:1.3rem;font-weight:700;color:white;}
 
-    /* ─── FOOTER ─── */
-    .ft-geo{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),var(--sage),var(--gold),transparent);}
-    footer{background:var(--bg3);border-top:1px solid var(--border);padding:3rem 2rem 2rem;text-align:center;position:relative;z-index:1;overflow:hidden;}
-    .ft-moon{font-size:2rem;display:block;margin-bottom:.8rem;}
-    .ft-title{font-family:'Cinzel',serif;font-size:1rem;color:var(--gold);letter-spacing:4px;margin-bottom:.4rem;}
-    .ft-tag{font-size:.72rem;color:var(--text-muted);letter-spacing:2px;margin-bottom:1.2rem;}
-    .ft-ar{font-family:'Scheherazade New',serif;font-size:1.4rem;color:var(--gold);opacity:.5;display:block;margin-bottom:.8rem;}
-    .ft-q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;color:var(--text-muted);max-width:600px;margin:0 auto 1.4rem;line-height:1.7;}
-    .ft-credits{font-size:.7rem;color:var(--text-dim);letter-spacing:.5px;}
-    .ft-credits strong{color:var(--gold);}
-    .ft-nav{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1.2rem;flex-wrap:wrap;list-style:none;}
-    .ft-nav a{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-muted);transition:color .3s;}
-    .ft-nav a:hover{color:var(--gold);}
+      /* ─── FOOTER ─── */
+      .ft-geo{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),var(--sage),var(--gold),transparent);}
+      footer{background:var(--bg3);border-top:1px solid var(--border);padding:3rem 2rem 2rem;text-align:center;position:relative;z-index:1;overflow:hidden;}
+      .ft-moon{font-size:2rem;display:block;margin-bottom:.8rem;}
+      .ft-title{font-family:'Cinzel',serif;font-size:1rem;color:var(--gold);letter-spacing:4px;margin-bottom:.4rem;}
+      .ft-tag{font-size:.72rem;color:var(--text-muted);letter-spacing:2px;margin-bottom:1.2rem;}
+      .ft-ar{font-family:'Scheherazade New',serif;font-size:1.4rem;color:var(--gold);opacity:.5;display:block;margin-bottom:.8rem;}
+      .ft-q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;color:var(--text-muted);max-width:600px;margin:0 auto 1.4rem;line-height:1.7;}
+      .ft-credits{font-size:.7rem;color:var(--text-dim);letter-spacing:.5px;}
+      .ft-credits strong{color:var(--gold);}
+      .ft-nav{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1.2rem;flex-wrap:wrap;list-style:none;}
+      .ft-nav a{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--text-muted);transition:color .3s;}
+      .ft-nav a:hover{color:var(--gold);}
 
-    /* ─── AUDIO PLAYER ─── */
-    #yt-player{display:none;}
-    .afab{position:fixed;bottom:2rem;right:2rem;z-index:500;width:48px;height:48px;border-radius:50%;background:var(--gold);color:white;border:none;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(184,134,11,.4);transition:all .3s;}
-    .afab:hover{transform:scale(1.1);}
-    .afab.playing{animation:pf 2s infinite;}
-    @keyframes pf{0%,100%{box-shadow:0 4px 20px rgba(184,134,11,.4);}50%{box-shadow:0 4px 36px rgba(184,134,11,.8);}}
-
-    /* ─── LOGO KELAS ─── */
-    .logo-kelas-wrap{
-      display:inline-flex;align-items:center;gap:.9rem;
-      background:rgba(255,255,255,.55);backdrop-filter:blur(8px);
-      border:1px solid rgba(184,134,11,.25);border-radius:50px;
-      padding:.5rem 1.2rem .5rem .5rem;
-      margin-bottom:1.6rem;
-      box-shadow:0 2px 16px rgba(184,134,11,.1);
-      transition:all .3s;
-    }
-    .logo-kelas-wrap:hover{box-shadow:0 4px 24px rgba(184,134,11,.2);border-color:var(--gold);}
-    [data-theme="dark"] .logo-kelas-wrap{background:rgba(5,14,18,.55);}
-    .logo-kelas-ph{
-      width:44px;height:44px;border-radius:50%;
-      background:linear-gradient(135deg,var(--sage-deep),var(--gold));
-      display:flex;align-items:center;justify-content:center;
-      flex-shrink:0;overflow:hidden;
-      border:2px solid rgba(184,134,11,.4);
-      position:relative;
-    }
-    /* When real logo is inserted: */
-    .logo-kelas-img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
-    .logo-kelas-initials{font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;color:white;text-align:center;line-height:1.2;letter-spacing:1px;}
-    .logo-kelas-info{display:flex;flex-direction:column;gap:.15rem;}
-    .logo-kelas-name{font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;color:var(--gold);letter-spacing:3px;}
-    .logo-kelas-sub{font-size:.52rem;letter-spacing:1.5px;color:var(--text-muted);text-transform:uppercase;}
-
-    /* ─── AYAT SPOTLIGHT STRIP ─── */
-    #ayat-strip{
-      position:relative;z-index:1;
-      background:linear-gradient(160deg,#2a1a06 0%,#3d2510 50%,#2a1a06 100%);
-      padding:3.5rem 2rem;
-      text-align:center;
-      overflow:hidden;
-    }
-    #ayat-strip::before{
-      content:'';position:absolute;inset:0;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30Z' fill='none' stroke='%23b8860b' stroke-width='.5' opacity='.12'/%3E%3C/svg%3E");
-      opacity:1;
-    }
-    #ayat-strip::after{
-      content:'';position:absolute;
-      top:0;left:0;right:0;height:1px;
-      background:linear-gradient(90deg,transparent,var(--gold-bright),transparent);
-    }
-    .ayat-strip-bottom-line{position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-bright),transparent);}
-    .ayat-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;}
-    .ayat-label{
-      font-size:.58rem;letter-spacing:4px;text-transform:uppercase;
-      color:rgba(212,160,23,.65);display:block;margin-bottom:1.2rem;
-    }
-    .ayat-ar{
-      font-family:'Scheherazade New',serif;
-      font-size:clamp(1.6rem,4.5vw,3rem);
-      color:#f0d080;
-      line-height:2;
-      text-shadow:0 0 40px rgba(212,160,23,.3);
-      margin-bottom:1.2rem;
-      direction:rtl;
-    }
-    .ayat-tr{
-      font-family:'Cormorant Garamond',serif;
-      font-style:italic;
-      font-size:clamp(.9rem,1.8vw,1.15rem);
-      color:rgba(240,208,128,.7);
-      line-height:1.7;
-      max-width:580px;
-      margin:0 auto;
-    }
-    /* Ornamental SVG lines */
-    .ayat-orn{
-      position:absolute;top:50%;transform:translateY(-50%);
-      width:130px;color:var(--gold);opacity:.45;
-      pointer-events:none;
-    }
-    .ayat-orn-l{left:2rem;}
-    .ayat-orn-r{right:2rem;}
-    @media(max-width:700px){.ayat-orn{display:none;}}
-
-    /* ─── SLIDER PHOTO PLACEHOLDERS ─── */
-    .s-card-img{
-      width:100%;height:170px;
-      background:linear-gradient(135deg,var(--bg2),var(--bg3));
-      position:relative;overflow:hidden;
-      display:flex;flex-direction:column;align-items:center;justify-content:center;
-      gap:.4rem;
-    }
-    [data-theme="dark"] .s-card-img{background:linear-gradient(135deg,#0d1f24,#081419);}
-    /* real photo fills the whole thumb */
-    .s-card-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1;}
-    .s-card-ph-ico{font-size:2.8rem;opacity:.35;position:relative;z-index:0;}
-    .s-card-ph-lbl{
-      font-size:.52rem;letter-spacing:1.5px;text-transform:uppercase;
-      color:var(--text-dim);background:rgba(255,255,255,.55);
-      padding:2px 8px;border-radius:20px;border:1px dashed var(--border);
-      position:relative;z-index:0;white-space:nowrap;
-      max-width:90%;overflow:hidden;text-overflow:ellipsis;
-    }
-    [data-theme="dark"] .s-card-ph-lbl{background:rgba(5,14,18,.55);}
-  </style>
-</head>
-<body>
-  <div id="progress-bar"></div>
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-  <canvas id="bg-canvas"></canvas>
-  <div id="mosque-bg">
-    <svg viewBox="0 0 1400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 500V320L80 280L120 240L160 200L200 180L240 160L280 140L300 100L320 60L340 40L360 60L380 100L400 140L440 160L480 180L520 200L560 240L600 280L680 320V500Z" fill="currentColor"/>
-      <path d="M700 500V300L760 270L800 240L830 210L850 180L870 150L890 120L910 100L930 80L950 60L970 80L990 100L1010 120L1030 150L1050 180L1070 210L1100 240L1140 270L1200 300V500Z" fill="currentColor"/>
-      <rect x="290" y="0" width="20" height="60" fill="currentColor"/>
-      <rect x="940" y="0" width="20" height="80" fill="currentColor"/>
-    </svg>
-  </div>
-  <div id="pattern-overlay"></div>
-
-  <!-- NAV -->
-  <nav id="navbar">
-    <a href="./index.html" class="nav-logo">Mading<span> Asvorma</span></a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="./index.html#editorial">Kata Pengantar</a></li>
-      <li><a href="./index.html#fakta">Fakta</a></li>
-      <li><a href="./pages/artikel-utama.html">Artikel</a></li>
-      <li><a href="./pages/opini.html">Opini</a></li>
-      <li><a href="./pages/infografis-karya.html">Karya</a></li>
-      <li><a href="./pages/inspirasi-tips-doa.html">Inspirasi</a></li>
-      <li><a href="./index.html#jadwal">Imsakiyah</a></li>
-      <li><a href="./index.html#tim">Tim</a></li>
-    </ul>
-    <div class="nav-right">
-      <button class="nav-btn" id="audioNavBtn" title="Musik">🎵</button>
-      <button class="nav-btn" id="themeBtn" title="Ganti tema">🌙</button>
-      <button class="ham" id="hamBtn"><span></span><span></span><span></span></button>
+      /* ─── AUDIO PLAYER ─── */
+      #yt-player{display:none;}
+      .afab{position:fixed;bottom:2rem;right:2rem;z-index:500;width:48px;height:48px;border-radius:50%;background:var(--gold);color:white;border:none;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(184,134,11,.4);transition:all .3s;}
+      .afab:hover{transform:scale(1.1);}
+      .afab.playing{animation:pf 2s infinite;}
+      @keyframes pf{0%,100%{box-shadow:0 4px 20px rgba(184,134,11,.4);}50%{box-shadow:0 4px 36px rgba(184,134,11,.8);}}
+    </style>
+  </head>
+  <body>
+    <div id="progress-bar"></div>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <canvas id="bg-canvas"></canvas>
+    <div id="mosque-bg">
+      <svg viewBox="0 0 1400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 500V320L80 280L120 240L160 200L200 180L240 160L280 140L300 100L320 60L340 40L360 60L380 100L400 140L440 160L480 180L520 200L560 240L600 280L680 320V500Z" fill="currentColor"/>
+        <path d="M700 500V300L760 270L800 240L830 210L850 180L870 150L890 120L910 100L930 80L950 60L970 80L990 100L1010 120L1030 150L1050 180L1070 210L1100 240L1140 270L1200 300V500Z" fill="currentColor"/>
+        <rect x="290" y="0" width="20" height="60" fill="currentColor"/>
+        <rect x="940" y="0" width="20" height="80" fill="currentColor"/>
+      </svg>
     </div>
-  </nav>
+    <div id="pattern-overlay"></div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="geo-bg"></div>
-    <div class="geo-ov"></div>
-    <div class="hero-glow"></div>
-    <div class="lnt">
-      <svg viewBox="0 0 70 120" fill="none"><path d="M35 8 C35 8 20 20 20 50 C20 80 35 105 35 105 C35 105 50 80 50 50 C50 20 35 8 35 8Z" fill="#b8860b" opacity=".4"/><rect x="31" y="2" width="8" height="10" rx="2" fill="#b8860b" opacity=".6"/><path d="M25 50 Q35 30 45 50 Q35 70 25 50Z" fill="#d4a017" opacity=".6"/><line x1="35" y1="105" x2="35" y2="118" stroke="#b8860b" stroke-width="2" opacity=".5"/></svg>
-    </div>
-    <div class="lnt">
-      <svg viewBox="0 0 70 120" fill="none"><path d="M35 8 C35 8 20 20 20 50 C20 80 35 105 35 105 C35 105 50 80 50 50 C50 20 35 8 35 8Z" fill="#6b9e6b" opacity=".4"/><rect x="31" y="2" width="8" height="10" rx="2" fill="#6b9e6b" opacity=".6"/><path d="M25 50 Q35 30 45 50 Q35 70 25 50Z" fill="#4a7a4a" opacity=".6"/><line x1="35" y1="105" x2="35" y2="118" stroke="#6b9e6b" stroke-width="2" opacity=".5"/></svg>
-    </div>
-    <div class="lnt"><svg viewBox="0 0 70 120" fill="none"><path d="M35 8 C35 8 20 20 20 50 C20 80 35 105 35 105 C35 105 50 80 50 50 C50 20 35 8 35 8Z" fill="#b8860b" opacity=".35"/><rect x="31" y="2" width="8" height="10" rx="2" fill="#b8860b" opacity=".5"/><line x1="35" y1="105" x2="35" y2="118" stroke="#b8860b" stroke-width="2" opacity=".4"/></svg></div>
-    <div class="lnt"><svg viewBox="0 0 70 120" fill="none"><path d="M35 8 C35 8 20 20 20 50 C20 80 35 105 35 105 C35 105 50 80 50 50 C50 20 35 8 35 8Z" fill="#6b9e6b" opacity=".3"/><rect x="31" y="2" width="8" height="10" rx="2" fill="#6b9e6b" opacity=".5"/><line x1="35" y1="105" x2="35" y2="118" stroke="#6b9e6b" stroke-width="2" opacity=".4"/></svg></div>
-    <div class="hero-c">
-      <!-- ══ LOGO KELAS ══ -->
-      <div class="logo-kelas-wrap rv" style="animation-delay:.05s;">
-        <!-- SWAP: Ganti dengan logo kelas kamu -->
-        <!-- <img class="logo-kelas-img" src="./images/logo-kelas.png" alt="Logo XII F3"> -->
-        <div class="logo-kelas-ph">
-          <span class="logo-kelas-initials">XII<br><span style="font-size:.9em;letter-spacing:3px;">F3</span></span>
-        </div>
-        <div class="logo-kelas-info">
-          <span class="logo-kelas-name">SMAN 1 SAMPIT</span>
-          <span class="logo-kelas-sub">Kelas XII · F3 · Kotawaringin Timur</span>
-        </div>
+    <!-- NAV -->
+    <nav id="navbar">
+      <a href="./index.html" class="nav-logo">Mading<span> Asvorma</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="./index.html#editorial">Kata Pengantar</a></li>
+        <li><a href="./index.html#fakta">Fakta</a></li>
+        <li><a href="./pages/artikel-utama.html">Artikel</a></li>
+        <li><a href="./pages/opini.html">Opini</a></li>
+        <li><a href="./pages/infografis-karya.html">Karya</a></li>
+        <li><a href="./pages/inspirasi-tips-doa.html">Inspirasi</a></li>
+        <li><a href="./index.html#jadwal">Imsakiyah</a></li>
+        <li><a href="./index.html#tim">Tim</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="nav-btn" id="audioNavBtn" title="Musik">🎵</button>
+        <button class="nav-btn" id="themeBtn" title="Ganti tema">🌙</button>
+        <button class="ham" id="hamBtn"><span></span><span></span><span></span></button>
       </div>
-      <span class="h-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
-      <span class="h-eye">✦ Mading Digital · Ramadhan 1447 H ✦</span>
-      <span class="h-title"><span class="shimmer">RAMADHAN</span></span>
-      <p class="h-sub">Spirituality · Solidarity · Synergy in Action</p>
-      <div class="h-div"></div>
-      <div class="cd">
-        <div class="cd-item"><span class="cd-n" id="cd-d">00</span><span class="cd-l">Hari</span></div>
-        <div class="cd-item"><span class="cd-n" id="cd-h">00</span><span class="cd-l">Jam</span></div>
-        <div class="cd-item"><span class="cd-n" id="cd-m">00</span><span class="cd-l">Menit</span></div>
-        <div class="cd-item"><span class="cd-n" id="cd-s">00</span><span class="cd-l">Detik</span></div>
-      </div>
-      <p style="font-size:.68rem;color:var(--text-dim);letter-spacing:2px;margin-top:1rem;animation:fD 1s 1.2s both;">Menuju Idul Fitri 1447 H · 20 Maret 2026</p>
-    </div>
-    <div class="scroll-h"><span>Gulir</span><div class="sl-line"></div></div>
-  </section>
+    </nav>
 
-  <!-- TICKER -->
-  <div class="ticker-wrap">
-    <div class="ticker-t">
-      <span class="ticker-i">Ramadhan Mubarak</span>
-      <span class="ticker-i">Mading Digital XII F3</span>
-      <span class="ticker-i">SMAN 1 Sampit</span>
-      <span class="ticker-i">Spirituality · Solidarity · Synergy</span>
-      <span class="ticker-i">Ramadhan 1447 H</span>
-      <span class="ticker-i">Kotawaringin Timur</span>
-      <span class="ticker-i">Mading Digital XII F3</span>
-      <span class="ticker-i">Ramadhan Mubarak</span>
-      <span class="ticker-i">Mading Digital XII F3</span>
-      <span class="ticker-i">SMAN 1 Sampit</span>
-      <span class="ticker-i">Spirituality · Solidarity · Synergy</span>
-      <span class="ticker-i">Ramadhan 1447 H</span>
-      <span class="ticker-i">Kotawaringin Timur</span>
-      <span class="ticker-i">Mading Digital XII F3</span>
-    </div>
-  </div>
-
-  <!-- KATA PENGANTAR -->
-  <section id="editorial">
-    <div class="sc">
-      <div class="sh rv">
-        <span class="se">✦ Sambutan Redaksi ✦</span>
-        <h2 class="st">Kata <em>Pengantar</em></h2>
-        <div class="sl2"></div>
+    <!-- HERO -->
+    <section id="hero">
+      <div class="geo-bg"></div>
+      <div class="geo-ov"></div>
+      <div class="hero-glow"></div>
+      <div class="lnt">
+        <svg viewBox="0 0 70 120" fill="none"><path d="M35 8 C35 8 20 20 20 50 C20 80 35 105 35 105 C35 105 50 80 50 50 C50 20 35 8 35 8Z" fill="#b8860b" opacity=".4"/><rect x="31" y="2" width="8" height="10" rx="2" fill="#b8860b" opacity=".6"/><path d="M25 50 Q35 30 45 50 Q35 70 25 50Z" fill="#d4a017" opacity=".6"/><line x1="35" y1="105" x2="35" y2="118" stroke="#b8860b" stroke-width="2" opacity=".5"/></svg>
       </div>
-      <div class="ed-card rv">
-        <span class="ed-arabic">شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ</span>
-        <div class="ed-body">
-          <p>Assalamu'alaikum Warahmatullahi Wabarakatuh.</p>
-          <p>Puji syukur kehadirat Allah SWT yang telah mempertemukan kita kembali dengan bulan suci Ramadhan — bulan yang penuh berkah, ampunan, dan momentum transformasi diri.</p>
-          <p>Mading Digital ini lahir dari semangat <strong>Spirituality, Solidarity & Synergy in Action</strong> — sebuah keyakinan bahwa Ramadhan bukan sekadar menahan lapar dan dahaga, melainkan <em>ruang untuk tumbuh bersama</em>, baik sebagai individu maupun sebagai komunitas kelas.</p>
-          <p>Melalui artikel, opini, infografis, dan karya kreatif yang kami hadirkan, kami berharap setiap pembaca dapat menemukan satu hal berharga yang dibawa pulang dari Ramadhan tahun ini.</p>
-          <p>Selamat membaca, dan selamat menjalani Ramadhan yang bermakna. 🌙</p>
+      <div class="lnt">
+        <svg viewBox="0 0 70 120" fill="none"><path d="M35 8 C35 8 20 20 20 50 C20 80 35 105 35 105 C35 105 50 80 50 50 C50 20 35 8 35 8Z" fill="#6b9e6b" opacity=".4"/><rect x="31" y="2" width="8" height="10" rx="2" fill="#6b9e6b" opacity=".6"/><path d="M25 50 Q35 30 45 50 Q35 70 25 50Z" fill="#4a7a4a" opacity=".6"/><line x1="35" y1="105" x2="35" y2="118" stroke="#6b9e6b" stroke-width="2" opacity=".5"/></svg>
+      </div>
+      <div class="lnt"><svg viewBox="0 0 70 120" fill="none"><path d="M35 8 C35 8 20 20 20 50 C20 80 35 105 35 105 C35 105 50 80 50 50 C50 20 35 8 35 8Z" fill="#b8860b" opacity=".35"/><rect x="31" y="2" width="8" height="10" rx="2" fill="#b8860b" opacity=".5"/><line x1="35" y1="105" x2="35" y2="118" stroke="#b8860b" stroke-width="2" opacity=".4"/></svg></div>
+      <div class="lnt"><svg viewBox="0 0 70 120" fill="none"><path d="M35 8 C35 8 20 20 20 50 C20 80 35 105 35 105 C35 105 50 80 50 50 C50 20 35 8 35 8Z" fill="#6b9e6b" opacity=".3"/><rect x="31" y="2" width="8" height="10" rx="2" fill="#6b9e6b" opacity=".5"/><line x1="35" y1="105" x2="35" y2="118" stroke="#6b9e6b" stroke-width="2" opacity=".4"/></svg></div>
+      <div class="hero-c">
+        <span class="h-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+        <span class="h-eye">✦ Mading Digital · Ramadhan 1447 H ✦</span>
+        <span class="h-title"><span class="shimmer">RAMADHAN</span></span>
+        <p class="h-sub">Spirituality · Solidarity · Synergy in Action</p>
+        <div class="h-div"></div>
+        <div class="cd">
+          <div class="cd-item"><span class="cd-n" id="cd-d">00</span><span class="cd-l">Hari</span></div>
+          <div class="cd-item"><span class="cd-n" id="cd-h">00</span><span class="cd-l">Jam</span></div>
+          <div class="cd-item"><span class="cd-n" id="cd-m">00</span><span class="cd-l">Menit</span></div>
+          <div class="cd-item"><span class="cd-n" id="cd-s">00</span><span class="cd-l">Detik</span></div>
         </div>
-        <div class="ed-sig">
-          <span>Ditulis oleh</span>
-          <strong>Tim Mading Digital · XII F3 · SMAN 1 Sampit</strong>
-        </div>
+        <p style="font-size:.68rem;color:var(--text-dim);letter-spacing:2px;margin-top:1rem;animation:fD 1s 1.2s both;">Menuju Idul Fitri 1447 H · 20 Maret 2026</p>
+      </div>
+      <div class="scroll-h"><span>Gulir</span><div class="sl-line"></div></div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker-wrap">
+      <div class="ticker-t">
+        <span class="ticker-i">Ramadhan Mubarak</span>
+        <span class="ticker-i">Mading Digital XII F3</span>
+        <span class="ticker-i">SMAN 1 Sampit</span>
+        <span class="ticker-i">Spirituality · Solidarity · Synergy</span>
+        <span class="ticker-i">Ramadhan 1447 H</span>
+        <span class="ticker-i">Kotawaringin Timur</span>
+        <span class="ticker-i">Mading Digital XII F3</span>
+        <span class="ticker-i">Ramadhan Mubarak</span>
+        <span class="ticker-i">Mading Digital XII F3</span>
+        <span class="ticker-i">SMAN 1 Sampit</span>
+        <span class="ticker-i">Spirituality · Solidarity · Synergy</span>
+        <span class="ticker-i">Ramadhan 1447 H</span>
+        <span class="ticker-i">Kotawaringin Timur</span>
+        <span class="ticker-i">Mading Digital XII F3</span>
       </div>
     </div>
-  </section>
 
-  <!-- ═══ AYAT SPOTLIGHT ═══ -->
-  <div id="ayat-strip">
-    <!-- Left ornament -->
-    <svg class="ayat-orn ayat-orn-l" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
-      <line x1="0" y1="20" x2="80" y2="20" stroke="currentColor" stroke-width=".8" opacity=".5"/>
-      <circle cx="88" cy="20" r="5" fill="none" stroke="currentColor" stroke-width=".8"/>
-      <circle cx="88" cy="20" r="2" fill="currentColor" opacity=".6"/>
-      <polygon points="100,20 108,14 116,20 108,26" fill="none" stroke="currentColor" stroke-width=".8" opacity=".7"/>
-    </svg>
-    <!-- Right ornament -->
-    <svg class="ayat-orn ayat-orn-r" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
-      <line x1="120" y1="20" x2="40" y2="20" stroke="currentColor" stroke-width=".8" opacity=".5"/>
-      <circle cx="32" cy="20" r="5" fill="none" stroke="currentColor" stroke-width=".8"/>
-      <circle cx="32" cy="20" r="2" fill="currentColor" opacity=".6"/>
-      <polygon points="20,20 12,14 4,20 12,26" fill="none" stroke="currentColor" stroke-width=".8" opacity=".7"/>
-    </svg>
-    <div class="ayat-inner rv">
-      <span class="ayat-label">✦ QS. Al-Baqarah: 185 ✦</span>
-      <p class="ayat-ar">شَهْرُ رَمَضَانَ ٱلَّذِىٓ أُنزِلَ فِيهِ ٱلْقُرْءَانُ هُدًى لِّلنَّاسِ</p>
-      <p class="ayat-tr">"Bulan Ramadhan adalah bulan yang di dalamnya diturunkan Al-Qur'an sebagai petunjuk bagi manusia."</p>
-    </div>
-    <div class="ayat-strip-bottom-line"></div>
-  </div>
-
-  <!-- FAKTA MENARIK -->
-  <section id="fakta">
-    <div class="sc">
-      <div class="sh rv">
-        <span class="se">✦ Tahukah Kamu? ✦</span>
-        <h2 class="st">Fakta Menarik <em>Ramadhan</em></h2>
-        <div class="sl2"></div>
+    <!-- KATA PENGANTAR -->
+    <section id="editorial">
+      <div class="sc">
+        <div class="sh rv">
+          <span class="se">✦ Sambutan Redaksi ✦</span>
+          <h2 class="st">Kata <em>Pengantar</em></h2>
+          <div class="sl2"></div>
+        </div>
+        <div class="ed-card rv">
+          <span class="ed-arabic">شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ</span>
+          <div class="ed-body">
+            <p>Assalamu'alaikum Warahmatullahi Wabarakatuh.</p>
+            <p>Puji syukur kehadirat Allah SWT yang telah mempertemukan kita kembali dengan bulan suci Ramadhan — bulan yang penuh berkah, ampunan, dan momentum transformasi diri.</p>
+            <p>Mading Digital ini lahir dari semangat <strong>Spirituality, Solidarity & Synergy in Action</strong> — sebuah keyakinan bahwa Ramadhan bukan sekadar menahan lapar dan dahaga, melainkan <em>ruang untuk tumbuh bersama</em>, baik sebagai individu maupun sebagai komunitas kelas.</p>
+            <p>Melalui artikel, opini, infografis, dan karya kreatif yang kami hadirkan, kami berharap setiap pembaca dapat menemukan satu hal berharga yang dibawa pulang dari Ramadhan tahun ini.</p>
+            <p>Selamat membaca, dan selamat menjalani Ramadhan yang bermakna. 🌙</p>
+          </div>
+          <div class="ed-sig">
+            <span>Ditulis oleh</span>
+            <strong>Tim Mading Digital · XII F3 · SMAN 1 Sampit</strong>
+          </div>
+        </div>
       </div>
-      <p style="text-align:center;font-size:.8rem;color:var(--text-dim);margin-bottom:2rem;letter-spacing:1px;" class="rv">Klik kartu untuk melihat jawabannya ✦</p>
-      <div class="fakta-grid">
-        <div class="fakta-flip rv">
-          <div class="fakta-inner">
-            <div class="fakta-f"><span class="fakta-ico">🌙</span><p class="fakta-q">Berapa hari rata-rata puasa Ramadhan dalam sejarah Islam?</p><span class="fakta-hint">Klik untuk jawaban</span></div>
-            <div class="fakta-b"><span class="fakta-num">30</span><span class="fakta-unit">Hari</span><p class="fakta-desc">Ramadhan berlangsung 29–30 hari bergantung penampakan hilal. Dalam 1400+ tahun sejarah, keduanya pernah terjadi.</p></div>
-          </div>
-        </div>
-        <div class="fakta-flip rv">
-          <div class="fakta-inner">
-            <div class="fakta-f"><span class="fakta-ico">🕌</span><p class="fakta-q">Di berapa negara umat Muslim berpuasa bersama di seluruh dunia?</p><span class="fakta-hint">Klik untuk jawaban</span></div>
-            <div class="fakta-b"><span class="fakta-num">57</span><span class="fakta-unit">Negara OKI</span><p class="fakta-desc">Lebih dari 1,9 miliar Muslim di 57 negara anggota OKI berpuasa bersama setiap Ramadhan — peristiwa ibadah kolektif terbesar di dunia.</p></div>
-          </div>
-        </div>
-        <div class="fakta-flip rv">
-          <div class="fakta-inner">
-            <div class="fakta-f"><span class="fakta-ico">📖</span><p class="fakta-q">Pada malam ke berapa Al-Qur'an pertama kali diturunkan?</p><span class="fakta-hint">Klik untuk jawaban</span></div>
-            <div class="fakta-b"><span class="fakta-num">17</span><span class="fakta-unit">Ramadhan</span><p class="fakta-desc">Nuzulul Qur'an — malam pertama wahyu turun kepada Rasulullah ﷺ di Gua Hira — diperingati setiap 17 Ramadhan.</p></div>
-          </div>
-        </div>
-        <div class="fakta-flip rv">
-          <div class="fakta-inner">
-            <div class="fakta-f"><span class="fakta-ico">⭐</span><p class="fakta-q">Lailatul Qadar lebih baik dari berapa malam biasa?</p><span class="fakta-hint">Klik untuk jawaban</span></div>
-            <div class="fakta-b"><span class="fakta-num">1000</span><span class="fakta-unit">Malam</span><p class="fakta-desc">QS. Al-Qadr: 3 — Lailatul Qadar lebih baik dari seribu bulan (83 tahun 4 bulan). Dicari di 10 malam ganjil terakhir Ramadhan.</p></div>
-          </div>
-        </div>
-        <div class="fakta-flip rv">
-          <div class="fakta-inner">
-            <div class="fakta-f"><span class="fakta-ico">🤲</span><p class="fakta-q">Berapa jam rata-rata puasa di negara dengan hari terpanjang?</p><span class="fakta-hint">Klik untuk jawaban</span></div>
-            <div class="fakta-b"><span class="fakta-num">22</span><span class="fakta-unit">Jam/hari</span><p class="fakta-desc">Di Islandia dan Finlandia saat musim panas, umat Islam berpuasa hingga 22 jam per hari — berbanding dengan Indonesia sekitar 13 jam.</p></div>
-          </div>
-        </div>
-        <div class="fakta-flip rv">
-          <div class="fakta-inner">
-            <div class="fakta-f"><span class="fakta-ico">🕋</span><p class="fakta-q">Tahun berapa puasa Ramadhan diwajibkan untuk pertama kali?</p><span class="fakta-hint">Klik untuk jawaban</span></div>
-            <div class="fakta-b"><span class="fakta-num">624</span><span class="fakta-unit">Masehi</span><p class="fakta-desc">Puasa Ramadhan diwajibkan pada tahun ke-2 Hijriah (sekitar 624 M) melalui QS. Al-Baqarah: 183 — ayat yang jadi landasan hukum puasa hingga kini.</p></div>
-          </div>
-        </div>
+    </section>
 
-        <div class="fakta-flip rv">
-          <div class="fakta-inner">
-            <div class="fakta-f"><span class="fakta-ico">📿</span><p class="fakta-q">Berapa kali kata "Ramadhan" disebut secara langsung dalam Al-Qur'an?</p><span class="fakta-hint">Klik untuk jawaban</span></div>
-            <div class="fakta-b"><span class="fakta-num">1</span><span class="fakta-unit">Kali saja</span><p class="fakta-desc">Kata "Ramadhan" hanya disebut sekali dalam seluruh Al-Qur'an — di QS. Al-Baqarah: 185. Meski hanya sekali, bulan ini mendapat keistimewaan yang tak tertandingi.</p></div>
-          </div>
+    <!-- FAKTA MENARIK -->
+    <section id="fakta">
+      <div class="sc">
+        <div class="sh rv">
+          <span class="se">✦ Tahukah Kamu? ✦</span>
+          <h2 class="st">Fakta Menarik <em>Ramadhan</em></h2>
+          <div class="sl2"></div>
         </div>
-
-        <div class="fakta-flip rv">
-          <div class="fakta-inner">
-            <div class="fakta-f"><span class="fakta-ico">🧠</span><p class="fakta-q">Apa yang terjadi pada hormon stres (kortisol) saat seseorang berpuasa secara rutin?</p><span class="fakta-hint">Klik untuk jawaban</span></div>
-            <div class="fakta-b"><span class="fakta-num">↓</span><span class="fakta-unit">Lebih Rendah</span><p class="fakta-desc">Penelitian medis menunjukkan puasa intermiten menurunkan kadar kortisol — hormon stres — secara signifikan. Puasa Ramadhan juga terbukti meningkatkan fokus dan kejernihan pikiran.</p></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SCROLL-SNAP CARD SLIDER — JELAJAHI KONTEN -->
-  <section id="slider-section">
-    <div class="sc" style="padding-bottom:1rem;">
-      <div class="sh rv">
-        <span class="se">✦ Jelajahi Konten ✦</span>
-        <h2 class="st">Apa yang Ada di <em>Mading Kami</em></h2>
-        <div class="sl2"></div>
-      </div>
-      <p class="rv" style="text-align:center;font-size:.8rem;color:var(--text-dim);margin-top:.5rem;">Geser atau klik panah untuk menjelajahi setiap rubrik</p>
-    </div>
-    <div class="slider-outer">
-      <div class="slider-track" id="sliderTrack">
-
-        <div class="s-card is-active">
-          <!-- SWAP: ganti placeholder dengan foto thumbnail rubrik ini -->
-          <img class="s-card-photo" src="./images/muslim-men-praying-tashahhud-posture.jpg" alt="Artikel Utama">
-          <div class="s-card-img">
-            <div class="s-card-ph-ico">📰</div>
-            <div class="s-card-ph-lbl">blman dpt gambar x</div>
-            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(107,158,107,.2),transparent 70%),radial-gradient(ellipse at 70% 30%,rgba(184,134,11,.15),transparent 60%);pointer-events:none;"></div>
-          </div>
-          <div class="s-card-body">
-            <span class="s-card-tag">Artikel Utama</span>
-            <h3 class="s-card-title">Ramadhan: Waktu Upgrade Versi Terbaik Diri</h3>
-            <p class="s-card-desc">Seberapa sering kamu masih scrolling FYP padahal udah masuk waktu shalat? Ramadhan hadir tepat waktu untuk jadi momen reset-mu.</p>
-            <a href="pages/artikel.html" class="s-card-link">Baca Artikel →</a>
-          </div>
-        </div>
-
-        <div class="s-card">
-          <!-- SWAP: ganti placeholder dengan foto thumbnail rubrik ini -->
-          <img class="s-card-photo" src="./images/DSC_1083.jpg" alt="Artikel Pendukung">
-          <div class="s-card-img">
-            <div class="s-card-ph-ico">🤝</div>
-            <div class="s-card-ph-lbl">blman dpt gambar x</div>
-            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(107,158,107,.22),transparent 70%);pointer-events:none;"></div>
-          </div>
-          <div class="s-card-body">
-            <span class="s-card-tag">Artikel Pendukung</span>
-            <h3 class="s-card-title">Solidaritas Remaja di Lingkungan Sekolah</h3>
-            <p class="s-card-desc">Ramadhan mengajarkan kepedulian bukan soal besar-kecilnya tindakan, tapi tentang ketulusan hati yang menggerakkan.</p>
-            <a href="pages/artikel.html#pendukung" class="s-card-link">Baca →</a>
-          </div>
-        </div>
-
-        <div class="s-card">
-          <!-- SWAP: ganti placeholder dengan foto thumbnail rubrik ini -->
-          <img class="s-card-photo" src="./images/thumb-opini.jpg" alt="Opini">
-          <div class="s-card-img">
-            <div class="s-card-ph-ico">💭</div>
-            <div class="s-card-ph-lbl">blman dpt gambar x</div>
-            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(184,134,11,.18),transparent 70%);pointer-events:none;"></div>
-          </div>
-          <div class="s-card-body">
-            <span class="s-card-tag">Opini</span>
-            <h3 class="s-card-title">Remaja & Tantangan Konsistensi Ibadah</h3>
-            <p class="s-card-desc">Hampir semua dari kita pernah mengalaminya — semangat membara di hari pertama, lalu perlahan redup.</p>
-            <a href="pages/opini.html" class="s-card-link">Baca Opini →</a>
-          </div>
-        </div>
-
-        <div class="s-card">
-          <!-- SWAP: ganti placeholder dengan foto thumbnail rubrik ini -->
-          <img class="s-card-photo" src="./images/aa61a9b4-281b-43ae-9dfd-bb4648e53964.jpg" alt="Infografis & Karya">
-          <div class="s-card-img">
-            <div class="s-card-ph-ico">📊</div>
-            <div class="s-card-ph-lbl">blman dpt gambar x</div>
-            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(184,134,11,.18),transparent 70%);pointer-events:none;"></div>
-          </div>
-          <div class="s-card-body">
-            <span class="s-card-tag">Infografis & Karya Siswa</span>
-            <h3 class="s-card-title">Data, Visual & Karya Kreatif</h3>
-            <p class="s-card-desc">Tiga pilar Ramadhan dalam visualisasi data, statistik sains puasa, dan poster kreatif karya tim designer kelas kita.</p>
-            <a href="pages/infografis-karya.html" class="s-card-link">Lihat →</a>
-          </div>
-        </div>
-
-        <div class="s-card">
-          <!-- SWAP: ganti placeholder dengan foto thumbnail rubrik ini -->
-          <img class="s-card-photo" src="./images/top-view-islamic-new-year-with-quran-book.jpg" alt="Inspirasi & Doa">
-          <div class="s-card-img">
-            <div class="s-card-ph-ico">✨</div>
-            <div class="s-card-ph-lbl">blman dpt gambar x</div>
-            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(107,158,107,.18),rgba(184,134,11,.12),transparent 70%);pointer-events:none;"></div>
-          </div>
-          <div class="s-card-body">
-            <span class="s-card-tag">Inspirasi · Tips · Doa</span>
-            <h3 class="s-card-title">Tips, Motivasi & Doa Harian</h3>
-            <p class="s-card-desc">Panduan amalan, doa-doa pilihan, dan kutipan inspiratif untuk menemani hari-hari Ramadhanmu.</p>
-            <a href="pages/inspirasi.html" class="s-card-link">Jelajahi →</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <div class="slider-controls">
-      <button class="slider-btn" id="sliderPrev" aria-label="Sebelumnya">‹</button>
-      <div class="slider-dots" id="sliderDots">
-        <button class="slider-dot active"></button>
-        <button class="slider-dot"></button>
-        <button class="slider-dot"></button>
-        <button class="slider-dot"></button>
-        <button class="slider-dot"></button>
-      </div>
-      <button class="slider-btn" id="sliderNext" aria-label="Berikutnya">›</button>
-    </div>
-  </section>
-
-  <!-- IMSAKIYAH -->
-  <section id="jadwal">
-    <div class="sc">
-      <div class="sh rv"><span class="se">✦ Jadwal Shalat & Puasa ✦</span><h2 class="st">Imsakiyah <em>Kotawaringin Timur</em></h2><div class="sl2"></div></div>
-      <div class="jadwal-wrap rv">
-        <div class="jadwal-head">
-          <div class="jadwal-city">
-            <span class="jadwal-city-ico">🕌</span>
-            <div>
-              <span class="jadwal-city-name">Kotawaringin Timur</span>
-              <span class="jadwal-city-sub">Kalimantan Tengah · WIB (UTC+7)</span>
+        <p style="text-align:center;font-size:.8rem;color:var(--text-dim);margin-bottom:2rem;letter-spacing:1px;" class="rv">Klik kartu untuk melihat jawabannya ✦</p>
+        <div class="fakta-grid">
+          <div class="fakta-flip rv">
+            <div class="fakta-inner">
+              <div class="fakta-f"><span class="fakta-ico">🌙</span><p class="fakta-q">Berapa hari rata-rata puasa Ramadhan dalam sejarah Islam?</p><span class="fakta-hint">Klik untuk jawaban</span></div>
+              <div class="fakta-b"><span class="fakta-num">30</span><span class="fakta-unit">Hari</span><p class="fakta-desc">Ramadhan berlangsung 29–30 hari bergantung penampakan hilal. Dalam 1400+ tahun sejarah, keduanya pernah terjadi.</p></div>
             </div>
           </div>
-          <div class="jadwal-date-nav">
-            <button class="jadwal-nav-btn" onclick="changeDay(-1)">‹</button>
-            <div class="jadwal-date-label" id="jadwalDateLabel">—</div>
-            <button class="jadwal-nav-btn" onclick="changeDay(1)">›</button>
+          <div class="fakta-flip rv">
+            <div class="fakta-inner">
+              <div class="fakta-f"><span class="fakta-ico">🕌</span><p class="fakta-q">Di berapa negara umat Muslim berpuasa bersama di seluruh dunia?</p><span class="fakta-hint">Klik untuk jawaban</span></div>
+              <div class="fakta-b"><span class="fakta-num">57</span><span class="fakta-unit">Negara OKI</span><p class="fakta-desc">Lebih dari 1,9 miliar Muslim di 57 negara anggota OKI berpuasa bersama setiap Ramadhan — peristiwa ibadah kolektif terbesar di dunia.</p></div>
+            </div>
+          </div>
+          <div class="fakta-flip rv">
+            <div class="fakta-inner">
+              <div class="fakta-f"><span class="fakta-ico">📖</span><p class="fakta-q">Pada malam ke berapa Al-Qur'an pertama kali diturunkan?</p><span class="fakta-hint">Klik untuk jawaban</span></div>
+              <div class="fakta-b"><span class="fakta-num">17</span><span class="fakta-unit">Ramadhan</span><p class="fakta-desc">Nuzulul Qur'an — malam pertama wahyu turun kepada Rasulullah ﷺ di Gua Hira — diperingati setiap 17 Ramadhan.</p></div>
+            </div>
+          </div>
+          <div class="fakta-flip rv">
+            <div class="fakta-inner">
+              <div class="fakta-f"><span class="fakta-ico">⭐</span><p class="fakta-q">Lailatul Qadar lebih baik dari berapa malam biasa?</p><span class="fakta-hint">Klik untuk jawaban</span></div>
+              <div class="fakta-b"><span class="fakta-num">1000</span><span class="fakta-unit">Malam</span><p class="fakta-desc">QS. Al-Qadr: 3 — Lailatul Qadar lebih baik dari seribu bulan (83 tahun 4 bulan). Dicari di 10 malam ganjil terakhir Ramadhan.</p></div>
+            </div>
+          </div>
+          <div class="fakta-flip rv">
+            <div class="fakta-inner">
+              <div class="fakta-f"><span class="fakta-ico">🤲</span><p class="fakta-q">Berapa jam rata-rata puasa di negara dengan hari terpanjang?</p><span class="fakta-hint">Klik untuk jawaban</span></div>
+              <div class="fakta-b"><span class="fakta-num">22</span><span class="fakta-unit">Jam/hari</span><p class="fakta-desc">Di Islandia dan Finlandia saat musim panas, umat Islam berpuasa hingga 22 jam per hari — berbanding dengan Indonesia sekitar 13 jam.</p></div>
+            </div>
+          </div>
+          <div class="fakta-flip rv">
+            <div class="fakta-inner">
+              <div class="fakta-f"><span class="fakta-ico">🕋</span><p class="fakta-q">Tahun berapa puasa Ramadhan diwajibkan untuk pertama kali?</p><span class="fakta-hint">Klik untuk jawaban</span></div>
+              <div class="fakta-b"><span class="fakta-num">624</span><span class="fakta-unit">Masehi</span><p class="fakta-desc">Puasa Ramadhan diwajibkan pada tahun ke-2 Hijriah (sekitar 624 M) melalui QS. Al-Baqarah: 183 — ayat yang jadi landasan hukum puasa hingga kini.</p></div>
+            </div>
           </div>
         </div>
-        <div class="jadwal-body" id="jadwalBody"></div>
-        <div class="jadwal-footer">Kementrian Agama Republik Indonesia</div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- TIM -->
-  <section id="tim">
-    <div class="sc">
-      <div class="sh rv"><span class="se">✦ Dibalik Layar ✦</span><h2 class="st">Tim <em>Mading Digital</em></h2><div class="sl2"></div></div>
-      <div class="tim-cats rv">
-        <button class="tim-cat active" data-role="all">Semua</button>
-        <button class="tim-cat" data-role="redaksi">🗂️ Redaksi</button>
-        <button class="tim-cat" data-role="penulis">✍️ Penulis</button>
-        <button class="tim-cat" data-role="designer">🎨 Designer</button>
+    <!-- SCROLL-SNAP CARD SLIDER — JELAJAHI KONTEN -->
+    <section id="slider-section">
+      <div class="sc" style="padding-bottom:1rem;">
+        <div class="sh rv">
+          <span class="se">✦ Jelajahi Konten ✦</span>
+          <h2 class="st">Apa yang Ada di <em>Mading Kami</em></h2>
+          <div class="sl2"></div>
+        </div>
+        <p class="rv" style="text-align:center;font-size:.8rem;color:var(--text-dim);margin-top:.5rem;">Geser atau klik panah untuk menjelajahi setiap rubrik</p>
       </div>
-      <div class="tim-grid" id="timGrid">
-        <div class="tim-card rv" data-role="redaksi"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/zia.JPG" alt="Zia" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">Z</div></div><div class="tim-name">Zia</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
-        <div class="tim-card rv" data-role="redaksi" style="transition-delay:.04s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/caca.JPG" alt="Caca" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">C</div></div><div class="tim-name">Caca</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
-        <div class="tim-card rv" data-role="redaksi" style="transition-delay:.08s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/zelot.JPG" alt="Zelot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">Z</div></div><div class="tim-name">Zelot</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
-        <div class="tim-card rv" data-role="redaksi" style="transition-delay:.12s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/fathi.JPG" alt="Fathi" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">F</div></div><div class="tim-name">Fathi</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
-        <div class="tim-card rv" data-role="redaksi" style="transition-delay:.16s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/damar.JPG" alt="Damar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">D</div></div><div class="tim-name">Damar</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
-        <div class="tim-card rv" data-role="redaksi" style="transition-delay:.20s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/ega.JPG" alt="Ega" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">E</div></div><div class="tim-name">Ega</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
-        <div class="tim-card rv" data-role="redaksi" style="transition-delay:.24s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/husein.JPG" alt="Husein" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">H</div></div><div class="tim-name">Husein</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
-        <div class="tim-card rv" data-role="redaksi" style="transition-delay:.28s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/syafiq.JPG" alt="Syafiq" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">S</div></div><div class="tim-name">Syafiq</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
-        <div class="tim-card rv" data-role="redaksi" style="transition-delay:.32s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/romy.JPG" alt="Romy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">R</div></div><div class="tim-name">Romy</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
-        <div class="tim-card rv" data-role="redaksi" style="transition-delay:.36s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/farhan.JPG" alt="Farhan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">F</div></div><div class="tim-name">Farhan</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
-        <div class="tim-card rv" data-role="penulis" style="transition-delay:.40s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/felisha.JPG" alt="Felisha" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">F</div></div><div class="tim-name">Felisha</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
-        <div class="tim-card rv" data-role="penulis" style="transition-delay:.44s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/anas.JPG" alt="Anas" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">A</div></div><div class="tim-name">Anas</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
-        <div class="tim-card rv" data-role="penulis" style="transition-delay:.48s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/cyra.JPG" alt="Cyra" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">C</div></div><div class="tim-name">Cyra</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
-        <div class="tim-card rv" data-role="penulis" style="transition-delay:.52s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/zenardy.JPG" alt="Zenardy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">Z</div></div><div class="tim-name">Zenardy</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
-        <div class="tim-card rv" data-role="penulis" style="transition-delay:.56s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/kaindra.JPG" alt="Kaindra" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">K</div></div><div class="tim-name">Kaindra</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
-        <div class="tim-card rv" data-role="penulis" style="transition-delay:.60s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/galih.JPG" alt="Galih" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">G</div></div><div class="tim-name">Galih</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
-        <div class="tim-card rv" data-role="penulis" style="transition-delay:.64s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/ibnu.JPG" alt="Ibnu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">I</div></div><div class="tim-name">Ibnu</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
-        <div class="tim-card rv" data-role="penulis" style="transition-delay:.68s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/wisnu.JPG" alt="Wisnu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">W</div></div><div class="tim-name">Wisnu</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
-        <div class="tim-card rv" data-role="penulis" style="transition-delay:.72s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/fernanda.JPG" alt="Fernanda" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">F</div></div><div class="tim-name">Fernanda</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
-        <div class="tim-card rv" data-role="penulis" style="transition-delay:.76s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/rivaldo.JPG" alt="Rivaldo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">R</div></div><div class="tim-name">Rivaldo</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:.80s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/adel.JPG" alt="Adel" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">A</div></div><div class="tim-name">Adel</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:.84s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/ghazi.JPG" alt="Ghazi" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">G</div></div><div class="tim-name">Ghazi</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:.88s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/ataya.JPG" alt="Ataya" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">A</div></div><div class="tim-name">Ataya</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:.92s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/syeba.JPG" alt="Syeba" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">S</div></div><div class="tim-name">Syeba</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:.96s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/cantika.JPG" alt="Cantika" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">C</div></div><div class="tim-name">Cantika</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:1s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/luckas.JPG" alt="Luckas" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">L</div></div><div class="tim-name">Luckas</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:1.04s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/neza.JPG" alt="Neza" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">N</div></div><div class="tim-name">Neza</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:1.08s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/irham.JPG" alt="Irham" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">I</div></div><div class="tim-name">Irham</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:1.12s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/aal.JPG" alt="Aal" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">A</div></div><div class="tim-name">Aal</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:1.16s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/tata.JPG" alt="Tata" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">T</div></div><div class="tim-name">Tata</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:1.20s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/panji.JPG" alt="Panji" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">P</div></div><div class="tim-name">Panji</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:1.24s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/rj.JPG" alt="RJ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">RJ</div></div><div class="tim-name">RJ</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:1.28s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/hasbie.JPG" alt="Hasbie" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">H</div></div><div class="tim-name">Hasbie</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:1.32s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/dimas.JPG" alt="Dimas" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">D</div></div><div class="tim-name">Dimas</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:1.36s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/ridwan.JPG" alt="Ridwan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">R</div></div><div class="tim-name">Ridwan</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:1.40s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/arya.JPG" alt="Arya" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">A</div></div><div class="tim-name">Arya</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:1.44s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/rizky.JPG" alt="Rizky" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">R</div></div><div class="tim-name">Rizky</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:1.48s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/jonathan.JPG" alt="Jonathan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">J</div></div><div class="tim-name">Jonathan</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:1.52s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/nopal.JPG" alt="Nopal" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">N</div></div><div class="tim-name">Nopal</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
-        <div class="tim-card rv" data-role="designer" style="transition-delay:1.56s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/gilang.JPG" alt="Gilang" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">G</div></div><div class="tim-name">Gilang</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+      <div class="slider-outer">
+        <div class="slider-track" id="sliderTrack">
+
+          <div class="s-card is-active">
+            <div class="s-card-img">
+              <img src="./images/thumb-artikel-utama.jpg" alt="Artikel Utama" onerror="this.style.display='none';">
+              <span class="s-card-img-fallback">📰</span>
+              <div style="position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse at 40% 60%,rgba(20,184,166,.2),transparent 70%),radial-gradient(ellipse at 70% 30%,rgba(201,168,76,.15),transparent 60%);"></div>
+            </div>
+            <div class="s-card-body">
+              <span class="s-card-tag">Artikel Utama</span>
+              <h3 class="s-card-title">Ramadhan: Waktu Upgrade Versi Terbaik Diri</h3>
+              <p class="s-card-desc">Seberapa sering kamu masih scrolling FYP padahal udah masuk waktu shalat? Ramadhan hadir tepat waktu untuk jadi momen reset-mu.</p>
+              <a href="pages/artikel.html" class="s-card-link">Baca Artikel →</a>
+            </div>
+          </div>
+
+          <div class="s-card">
+            <div class="s-card-img">
+              <img src="./images/thumb-artikel-pendukung.jpg" alt="Artikel Pendukung" onerror="this.style.display='none';">
+              <span class="s-card-img-fallback">🤝</span>
+              <div style="position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse at 50% 50%,rgba(107,158,107,.22),transparent 70%);"></div>
+            </div>
+            <div class="s-card-body">
+              <span class="s-card-tag">Artikel Pendukung</span>
+              <h3 class="s-card-title">Solidaritas Remaja di Lingkungan Sekolah</h3>
+              <p class="s-card-desc">Ramadhan mengajarkan kepedulian bukan soal besar-kecilnya tindakan, tapi tentang ketulusan hati yang menggerakkan.</p>
+              <a href="pages/artikel.html#pendukung" class="s-card-link">Baca →</a>
+            </div>
+          </div>
+
+          <div class="s-card">
+            <div class="s-card-img">
+              <img src="./images/thumb-opini.jpg" alt="Opini" onerror="this.style.display='none';">
+              <span class="s-card-img-fallback">💭</span>
+              <div style="position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,.18),transparent 70%);"></div>
+            </div>
+            <div class="s-card-body">
+              <span class="s-card-tag">Opini</span>
+              <h3 class="s-card-title">Remaja & Tantangan Konsistensi Ibadah</h3>
+              <p class="s-card-desc">Hampir semua dari kita pernah mengalaminya — semangat membara di hari pertama, lalu perlahan redup.</p>
+              <a href="pages/opini.html" class="s-card-link">Baca Opini →</a>
+            </div>
+          </div>
+
+          <div class="s-card">
+            <div class="s-card-img">
+              <img src="./images/thumb-infografis.jpg" alt="Infografis & Karya" onerror="this.style.display='none';">
+              <span class="s-card-img-fallback">📊</span>
+              <div style="position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse at 50% 50%,rgba(184,134,11,.18),transparent 70%);"></div>
+            </div>
+            <div class="s-card-body">
+              <span class="s-card-tag">Infografis & Karya Siswa</span>
+              <h3 class="s-card-title">Data, Visual & Karya Kreatif</h3>
+              <p class="s-card-desc">Tiga pilar Ramadhan dalam visualisasi data, statistik sains puasa, dan poster kreatif karya tim designer kelas kita.</p>
+              <a href="pages/infografis-karya.html" class="s-card-link">Lihat →</a>
+            </div>
+          </div>
+
+          <div class="s-card">
+            <div class="s-card-img">
+              <img src="./images/thumb-inspirasi.jpg" alt="Inspirasi" onerror="this.style.display='none';">
+              <span class="s-card-img-fallback">✨</span>
+              <div style="position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse at 50% 50%,rgba(20,184,166,.18),rgba(201,168,76,.12),transparent 70%);"></div>
+            </div>
+            <div class="s-card-body">
+              <span class="s-card-tag">Inspirasi · Tips · Doa</span>
+              <h3 class="s-card-title">Tips, Motivasi & Doa Harian</h3>
+              <p class="s-card-desc">Panduan amalan, doa-doa pilihan, dan kutipan inspiratif untuk menemani hari-hari Ramadhanmu.</p>
+              <a href="pages/inspirasi.html" class="s-card-link">Jelajahi →</a>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
-  </section>
+      <div class="slider-controls">
+        <button class="slider-btn" id="sliderPrev" aria-label="Sebelumnya">‹</button>
+        <div class="slider-dots" id="sliderDots">
+          <button class="slider-dot active"></button>
+          <button class="slider-dot"></button>
+          <button class="slider-dot"></button>
+          <button class="slider-dot"></button>
+          <button class="slider-dot"></button>
+        </div>
+        <button class="slider-btn" id="sliderNext" aria-label="Berikutnya">›</button>
+      </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="ft-geo"></div>
-    <span class="ft-moon">🌙</span>
-    <div class="ft-title">MADING DIGITAL RAMADHAN</div>
-    <p class="ft-tag">Spirituality · Solidarity · Synergy in Action</p>
-    <ul class="ft-nav">
-      <li><a href="./pages/artikel-utama.html">Artikel Utama</a></li>
-      <li><a href="./pages/artikel-pendukung.html">Artikel Pendukung</a></li>
-      <li><a href="./pages/opini.html">Opini</a></li>
-      <li><a href="./pages/infografis-karya.html">Infografis & Karya</a></li>
-      <li><a href="./pages/inspirasi-tips-doa.html">Inspirasi & Doa</a></li>
-    </ul>
-    <span class="ft-ar">اجعلوا رمضان هذا شهر تحول حقيقي</span>
-    <p class="ft-q">"Jadikan Ramadhan ini sebagai momentum transformasi nyata, bukan sekadar rutinitas tahunan."</p>
-    <div class="ft-credits">Dibuat oleh <strong>Tim Mading Digital Kelas XII F3</strong> &nbsp;·&nbsp; Ramadhan 1447 H &nbsp;·&nbsp; <strong>SMAN 1 Sampit</strong></div>
-  </footer>
+    <!-- IMSAKIYAH -->
+    <section id="jadwal">
+      <div class="sc">
+        <div class="sh rv"><span class="se">✦ Jadwal Shalat & Puasa ✦</span><h2 class="st">Imsakiyah <em>Kotawaringin Timur</em></h2><div class="sl2"></div></div>
+        <div class="jadwal-wrap rv">
+          <div class="jadwal-head">
+            <div class="jadwal-city">
+              <span class="jadwal-city-ico">🕌</span>
+              <div>
+                <span class="jadwal-city-name">Kotawaringin Timur</span>
+                <span class="jadwal-city-sub">Kalimantan Tengah · WIB (UTC+7)</span>
+              </div>
+            </div>
+            <div class="jadwal-date-nav">
+              <button class="jadwal-nav-btn" onclick="changeDay(-1)">‹</button>
+              <div class="jadwal-date-label" id="jadwalDateLabel">—</div>
+              <button class="jadwal-nav-btn" onclick="changeDay(1)">›</button>
+            </div>
+          </div>
+          <div class="jadwal-body" id="jadwalBody"></div>
+          <div class="jadwal-footer">Kementrian Agama Republik Indonesia</div>
+        </div>
+      </div>
+    </section>
 
-  <!-- AUDIO -->
-  <div id="yt-player"></div>
-  <button class="afab" id="audioFab" title="Musik Ramadhan">🎵</button>
+    <!-- TIM -->
+    <section id="tim">
+      <div class="sc">
+        <div class="sh rv"><span class="se">✦ Dibalik Layar ✦</span><h2 class="st">Tim <em>Mading Digital</em></h2><div class="sl2"></div></div>
+        <div class="tim-cats rv">
+          <button class="tim-cat active" data-role="all">Semua</button>
+          <button class="tim-cat" data-role="redaksi">🗂️ Redaksi</button>
+          <button class="tim-cat" data-role="penulis">✍️ Penulis</button>
+          <button class="tim-cat" data-role="designer">🎨 Designer</button>
+        </div>
+        <div class="tim-grid" id="timGrid">
+          <div class="tim-card rv" data-role="redaksi"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/zia.jpg" alt="Zia" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">Z</div></div><div class="tim-name">Zia</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
+          <div class="tim-card rv" data-role="redaksi" style="transition-delay:.04s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/caca.jpg" alt="Caca" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">C</div></div><div class="tim-name">Caca</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
+          <div class="tim-card rv" data-role="redaksi" style="transition-delay:.08s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/zelot.jpg" alt="Zelot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">Z</div></div><div class="tim-name">Zelot</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
+          <div class="tim-card rv" data-role="redaksi" style="transition-delay:.12s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/fathi.jpg" alt="Fathi" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">F</div></div><div class="tim-name">Fathi</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
+          <div class="tim-card rv" data-role="redaksi" style="transition-delay:.16s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/damar.jpg" alt="Damar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">D</div></div><div class="tim-name">Damar</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
+          <div class="tim-card rv" data-role="redaksi" style="transition-delay:.20s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/ega.jpg" alt="Ega" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">E</div></div><div class="tim-name">Ega</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
+          <div class="tim-card rv" data-role="redaksi" style="transition-delay:.24s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/husein.jpg" alt="Husein" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">H</div></div><div class="tim-name">Husein</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
+          <div class="tim-card rv" data-role="redaksi" style="transition-delay:.28s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/syafiq.jpg" alt="Syafiq" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">S</div></div><div class="tim-name">Syafiq</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
+          <div class="tim-card rv" data-role="redaksi" style="transition-delay:.32s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/romy.jpg" alt="Romy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">R</div></div><div class="tim-name">Romy</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
+          <div class="tim-card rv" data-role="redaksi" style="transition-delay:.36s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/farhan.jpg" alt="Farhan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">F</div></div><div class="tim-name">Farhan</div><div class="tim-role" style="color:#b8860b">Redaksi</div></div>
+          <div class="tim-card rv" data-role="penulis" style="transition-delay:.40s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/felisha.jpg" alt="Felisha" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">F</div></div><div class="tim-name">Felisha</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
+          <div class="tim-card rv" data-role="penulis" style="transition-delay:.44s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/anas.jpg" alt="Anas" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">A</div></div><div class="tim-name">Anas</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
+          <div class="tim-card rv" data-role="penulis" style="transition-delay:.48s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/cyra.jpg" alt="Cyra" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">C</div></div><div class="tim-name">Cyra</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
+          <div class="tim-card rv" data-role="penulis" style="transition-delay:.52s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/zenardy.jpg" alt="Zenardy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">Z</div></div><div class="tim-name">Zenardy</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
+          <div class="tim-card rv" data-role="penulis" style="transition-delay:.56s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/kaindra.jpg" alt="Kaindra" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">K</div></div><div class="tim-name">Kaindra</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
+          <div class="tim-card rv" data-role="penulis" style="transition-delay:.60s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/galih.jpg" alt="Galih" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">G</div></div><div class="tim-name">Galih</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
+          <div class="tim-card rv" data-role="penulis" style="transition-delay:.64s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/ibnu.jpg" alt="Ibnu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">I</div></div><div class="tim-name">Ibnu</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
+          <div class="tim-card rv" data-role="penulis" style="transition-delay:.68s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/wisnu.jpg" alt="Wisnu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">W</div></div><div class="tim-name">Wisnu</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
+          <div class="tim-card rv" data-role="penulis" style="transition-delay:.72s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/fernanda.jpg" alt="Fernanda" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">F</div></div><div class="tim-name">Fernanda</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
+          <div class="tim-card rv" data-role="penulis" style="transition-delay:.76s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/rivaldo.jpg" alt="Rivaldo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">R</div></div><div class="tim-name">Rivaldo</div><div class="tim-role" style="color:#4a7a4a">Penulis</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:.80s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/adel.jpg" alt="Adel" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">A</div></div><div class="tim-name">Adel</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:.84s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/ghazi.jpg" alt="Ghazi" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">G</div></div><div class="tim-name">Ghazi</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:.88s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/ataya.jpg" alt="Ataya" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">A</div></div><div class="tim-name">Ataya</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:.92s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/syeba.jpg" alt="Syeba" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">S</div></div><div class="tim-name">Syeba</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:.96s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/cantika.jpg" alt="Cantika" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">C</div></div><div class="tim-name">Cantika</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:1s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/luckas.jpg" alt="Luckas" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">L</div></div><div class="tim-name">Luckas</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:1.04s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/neza.jpg" alt="Neza" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">N</div></div><div class="tim-name">Neza</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:1.08s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/irham.jpg" alt="Irham" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">I</div></div><div class="tim-name">Irham</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:1.12s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/aal.jpg" alt="Aal" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">A</div></div><div class="tim-name">Aal</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:1.16s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/tata.jpg" alt="Tata" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">T</div></div><div class="tim-name">Tata</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:1.20s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/panji.jpg" alt="Panji" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">P</div></div><div class="tim-name">Panji</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:1.24s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/rj.jpg" alt="RJ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">RJ</div></div><div class="tim-name">RJ</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:1.28s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/hasbie.jpg" alt="Hasbie" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">H</div></div><div class="tim-name">Hasbie</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:1.32s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/dimas.jpg" alt="Dimas" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">D</div></div><div class="tim-name">Dimas</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:1.36s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/ridwan.jpg" alt="Ridwan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">R</div></div><div class="tim-name">Ridwan</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:1.40s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/arya.jpg" alt="Arya" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">A</div></div><div class="tim-name">Arya</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:1.44s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/rizky.jpg" alt="Rizky" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">R</div></div><div class="tim-name">Rizky</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:1.48s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/jonathan.jpg" alt="Jonathan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">J</div></div><div class="tim-name">Jonathan</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:1.52s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/nopal.jpg" alt="Nopal" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">N</div></div><div class="tim-name">Nopal</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+          <div class="tim-card rv" data-role="designer" style="transition-delay:1.56s"><div class="tim-avatar-wrap"><img class="tim-photo" src="./foto-tim/gilang.jpg" alt="Gilang" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="tim-initials" style="display:none">G</div></div><div class="tim-name">Gilang</div><div class="tim-role" style="color:#7a5c3a">Designer</div></div>
+        </div>
+      </div>
+    </section>
 
-  <!-- YT IFrame API -->
-  <script src="https://www.youtube.com/iframe_api"></script>
+    <!-- FOOTER -->
+    <footer>
+      <div class="ft-geo"></div>
+      <span class="ft-moon">🌙</span>
+      <div class="ft-title">MADING DIGITAL RAMADHAN</div>
+      <p class="ft-tag">Spirituality · Solidarity · Synergy in Action</p>
+      <ul class="ft-nav">
+        <li><a href="./pages/artikel-utama.html">Artikel Utama</a></li>
+        <li><a href="./pages/artikel-pendukung.html">Artikel Pendukung</a></li>
+        <li><a href="./pages/opini.html">Opini</a></li>
+        <li><a href="./pages/infografis-karya.html">Infografis & Karya</a></li>
+        <li><a href="./pages/inspirasi-tips-doa.html">Inspirasi & Doa</a></li>
+      </ul>
+      <span class="ft-ar">اجعلوا رمضان هذا شهر تحول حقيقي</span>
+      <p class="ft-q">"Jadikan Ramadhan ini sebagai momentum transformasi nyata, bukan sekadar rutinitas tahunan."</p>
+      <div class="ft-credits">Dibuat oleh <strong>Tim Mading Digital Kelas XII F3</strong> &nbsp;·&nbsp; Ramadhan 1447 H &nbsp;·&nbsp; <strong>SMAN 1 Sampit</strong></div>
+    </footer>
 
-  <script>
-  // CURSOR
-  const cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-  (function aR(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(aR);})();
-  document.querySelectorAll('a,button').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{cur.style.width='16px';cur.style.height='16px';ring.style.width='44px';ring.style.height='44px';});
-    el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='34px';ring.style.height='34px';});
-  });
+    <!-- AUDIO -->
+    <div id="yt-player"></div>
+    <button class="afab" id="audioFab" title="Musik Ramadhan">🎵</button>
 
-  // PARTICLES
-  const cv=document.getElementById('bg-canvas'),ctx=cv.getContext('2d');
-  function rs(){cv.width=innerWidth;cv.height=innerHeight;}rs();addEventListener('resize',rs);
-  const pts=Array.from({length:80},()=>rp({}));
-  function rp(p){p.x=Math.random()*cv.width;p.y=Math.random()*cv.height;p.r=Math.random()*1.4+.3;p.vx=(Math.random()-.5)*.18;p.vy=-Math.random()*.25-.05;p.o=Math.random()*.25+.05;p.c=Math.random()>.5?'#b8860b':'#6b9e6b';return p;}
-  (function dp(){ctx.clearRect(0,0,cv.width,cv.height);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.o-=.0007;if(p.y<0||p.o<=0)rp(p);ctx.save();ctx.globalAlpha=p.o;ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();ctx.restore();});requestAnimationFrame(dp);})();
+    <!-- YT IFrame API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
 
-  // NAVBAR
-  window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>50));
-  window.addEventListener('scroll',()=>{const pb=document.getElementById('progress-bar');const total=document.body.scrollHeight-window.innerHeight;pb.style.width=(scrollY/total*100)+'%';});
+    <script>
+    // CURSOR
+    const cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+    (function aR(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(aR);})();
+    document.querySelectorAll('a,button').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{cur.style.width='16px';cur.style.height='16px';ring.style.width='44px';ring.style.height='44px';});
+      el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='34px';ring.style.height='34px';});
+    });
 
-  // HAMBURGER
-  const ham=document.getElementById('hamBtn'),nl=document.getElementById('navLinks');
-  ham.addEventListener('click',function(){this.classList.toggle('open');nl.classList.toggle('open');});
-  nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');nl.classList.remove('open');}));
+    // PARTICLES
+    const cv=document.getElementById('bg-canvas'),ctx=cv.getContext('2d');
+    function rs(){cv.width=innerWidth;cv.height=innerHeight;}rs();addEventListener('resize',rs);
+    const pts=Array.from({length:80},()=>rp({}));
+    function rp(p){p.x=Math.random()*cv.width;p.y=Math.random()*cv.height;p.r=Math.random()*1.4+.3;p.vx=(Math.random()-.5)*.18;p.vy=-Math.random()*.25-.05;p.o=Math.random()*.25+.05;p.c=Math.random()>.5?'#b8860b':'#6b9e6b';return p;}
+    (function dp(){ctx.clearRect(0,0,cv.width,cv.height);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.o-=.0007;if(p.y<0||p.o<=0)rp(p);ctx.save();ctx.globalAlpha=p.o;ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();ctx.restore();});requestAnimationFrame(dp);})();
 
-  // THEME
-  let dark=false;
-  document.getElementById('themeBtn').addEventListener('click',()=>{dark=!dark;document.documentElement.setAttribute('data-theme',dark?'dark':'light');document.getElementById('themeBtn').textContent=dark?'☀️':'🌙';});
+    // NAVBAR
+    window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>50));
+    window.addEventListener('scroll',()=>{const pb=document.getElementById('progress-bar');const total=document.body.scrollHeight-window.innerHeight;pb.style.width=(scrollY/total*100)+'%';});
 
-  // COUNTDOWN to Idul Fitri
-  function tick(){
-    const e=new Date('2026-03-20T00:00:00'),n=new Date(),d=e-n;
-    if(d>0){
-      document.getElementById('cd-d').textContent=String(Math.floor(d/86400000)).padStart(2,'0');
-      document.getElementById('cd-h').textContent=String(Math.floor(d%86400000/3600000)).padStart(2,'0');
-      document.getElementById('cd-m').textContent=String(Math.floor(d%3600000/60000)).padStart(2,'0');
-      document.getElementById('cd-s').textContent=String(Math.floor(d%60000/1000)).padStart(2,'0');
-    }else['cd-d','cd-h','cd-m','cd-s'].forEach(id=>document.getElementById(id).textContent='🎉');
-  }
-  tick();setInterval(tick,1000);
+    // HAMBURGER
+    const ham=document.getElementById('hamBtn'),nl=document.getElementById('navLinks');
+    ham.addEventListener('click',function(){this.classList.toggle('open');nl.classList.toggle('open');});
+    nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');nl.classList.remove('open');}));
 
-  // FAKTA FLIP
-  document.querySelectorAll('.fakta-flip').forEach(f=>f.addEventListener('click',()=>f.classList.toggle('flipped')));
+    // THEME
+    let dark=false;
+    document.getElementById('themeBtn').addEventListener('click',()=>{dark=!dark;document.documentElement.setAttribute('data-theme',dark?'dark':'light');document.getElementById('themeBtn').textContent=dark?'☀️':'🌙';});
 
-  // SCROLL-SNAP CARD SLIDER
-  (function(){
-    const track=document.getElementById('sliderTrack');
-    if(!track)return;
-    const cards=[...track.querySelectorAll('.s-card')];
-    const dots=[...document.querySelectorAll('#sliderDots .slider-dot')];
-    const N=cards.length;
-    let cur=0,isDragging=false,startX=0,scrollStart=0,autoTimer;
-
-    // Snap-to-card by index
-    function snapTo(idx,smooth){
-      cur=((idx%N)+N)%N;
-      const card=cards[cur];
-      const cardCenter=card.offsetLeft+card.offsetWidth/2;
-      const scrollTarget=cardCenter-track.clientWidth/2;
-      track.scrollTo({left:scrollTarget,behavior:smooth?'smooth':'instant'});
+    // COUNTDOWN to Idul Fitri
+    function tick(){
+      const e=new Date('2026-03-20T00:00:00'),n=new Date(),d=e-n;
+      if(d>0){
+        document.getElementById('cd-d').textContent=String(Math.floor(d/86400000)).padStart(2,'0');
+        document.getElementById('cd-h').textContent=String(Math.floor(d%86400000/3600000)).padStart(2,'0');
+        document.getElementById('cd-m').textContent=String(Math.floor(d%3600000/60000)).padStart(2,'0');
+        document.getElementById('cd-s').textContent=String(Math.floor(d%60000/1000)).padStart(2,'0');
+      }else['cd-d','cd-h','cd-m','cd-s'].forEach(id=>document.getElementById(id).textContent='🎉');
     }
+    tick();setInterval(tick,1000);
 
-    // Update active states
-    function updateActive(){
-      cards.forEach((c,i)=>c.classList.toggle('is-active',i===cur));
-      dots.forEach((d,i)=>d.classList.toggle('active',i===cur));
-    }
+    // FAKTA FLIP
+    document.querySelectorAll('.fakta-flip').forEach(f=>f.addEventListener('click',()=>f.classList.toggle('flipped')));
 
-    // Detect which card is centred after scroll
-    function detectCenter(){
-      const center=track.scrollLeft+track.clientWidth/2;
-      let closest=0,minDist=Infinity;
-      cards.forEach((c,i)=>{
-        const cardCenter=c.offsetLeft+c.offsetWidth/2;
-        const dist=Math.abs(cardCenter-center);
-        if(dist<minDist){minDist=dist;closest=i;}
+    // SCROLL-SNAP CARD SLIDER
+    (function(){
+      const track=document.getElementById('sliderTrack');
+      if(!track)return;
+      const cards=[...track.querySelectorAll('.s-card')];
+      const dots=[...document.querySelectorAll('#sliderDots .slider-dot')];
+      const N=cards.length;
+      let cur=0,isDragging=false,startX=0,scrollStart=0,autoTimer;
+
+      // Snap-to-card by index
+      function snapTo(idx,smooth){
+        cur=((idx%N)+N)%N;
+        const card=cards[cur];
+        const cardCenter=card.offsetLeft+card.offsetWidth/2;
+        const scrollTarget=cardCenter-track.clientWidth/2;
+        track.scrollTo({left:scrollTarget,behavior:smooth?'smooth':'instant'});
+      }
+
+      // Update active states
+      function updateActive(){
+        cards.forEach((c,i)=>c.classList.toggle('is-active',i===cur));
+        dots.forEach((d,i)=>d.classList.toggle('active',i===cur));
+      }
+
+      // Detect which card is centred after scroll
+      function detectCenter(){
+        const center=track.scrollLeft+track.clientWidth/2;
+        let closest=0,minDist=Infinity;
+        cards.forEach((c,i)=>{
+          const cardCenter=c.offsetLeft+c.offsetWidth/2;
+          const dist=Math.abs(cardCenter-center);
+          if(dist<minDist){minDist=dist;closest=i;}
+        });
+        cur=closest;updateActive();
+      }
+
+      // Scroll event
+      let scrollTimer;
+      track.addEventListener('scroll',()=>{clearTimeout(scrollTimer);scrollTimer=setTimeout(detectCenter,80);},{passive:true});
+
+      // Buttons
+      document.getElementById('sliderPrev').addEventListener('click',()=>{snapTo(cur-1,true);clearInterval(autoTimer);startAuto();});
+      document.getElementById('sliderNext').addEventListener('click',()=>{snapTo(cur+1,true);clearInterval(autoTimer);startAuto();});
+
+      // Dot clicks
+      dots.forEach((d,i)=>d.addEventListener('click',()=>{snapTo(i,true);clearInterval(autoTimer);startAuto();}));
+
+      // Mouse drag
+      track.addEventListener('mousedown',e=>{isDragging=true;startX=e.pageX;scrollStart=track.scrollLeft;track.style.userSelect='none';});
+      document.addEventListener('mouseup',()=>{if(!isDragging)return;isDragging=false;track.style.userSelect='';detectCenter();clearInterval(autoTimer);startAuto();});
+      track.addEventListener('mousemove',e=>{if(!isDragging)return;const dx=e.pageX-startX;track.scrollLeft=scrollStart-dx;});
+
+      // Auto-advance
+      function startAuto(){autoTimer=setInterval(()=>snapTo(cur+1,true),4500);}
+
+      // Init
+      setTimeout(()=>{snapTo(0,false);updateActive();startAuto();},120);
+    })();
+
+    // TIM FILTER
+    document.querySelectorAll('.tim-cat').forEach(btn=>{
+      btn.addEventListener('click',function(){
+        document.querySelectorAll('.tim-cat').forEach(b=>b.classList.remove('active'));
+        this.classList.add('active');
+        const role=this.dataset.role;
+        document.querySelectorAll('.tim-card').forEach(card=>{
+          const show=role==='all'||card.dataset.role===role;
+          card.style.display=show?'':'none';
+        });
       });
-      cur=closest;updateActive();
-    }
+    });
 
-    // Scroll event
-    let scrollTimer;
-    track.addEventListener('scroll',()=>{clearTimeout(scrollTimer);scrollTimer=setTimeout(detectCenter,80);},{passive:true});
+    // REVEAL
+    const obs=new IntersectionObserver(es=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i%4*80);obs.unobserve(e.target);}});},{threshold:.1});
+    document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>obs.observe(el));
 
-    // Buttons
-    document.getElementById('sliderPrev').addEventListener('click',()=>{snapTo(cur-1,true);clearInterval(autoTimer);startAuto();});
-    document.getElementById('sliderNext').addEventListener('click',()=>{snapTo(cur+1,true);clearInterval(autoTimer);startAuto();});
-
-    // Dot clicks
-    dots.forEach((d,i)=>d.addEventListener('click',()=>{snapTo(i,true);clearInterval(autoTimer);startAuto();}));
-
-    // Mouse drag
-    track.addEventListener('mousedown',e=>{isDragging=true;startX=e.pageX;scrollStart=track.scrollLeft;track.style.userSelect='none';});
-    document.addEventListener('mouseup',()=>{if(!isDragging)return;isDragging=false;track.style.userSelect='';detectCenter();clearInterval(autoTimer);startAuto();});
-    track.addEventListener('mousemove',e=>{if(!isDragging)return;const dx=e.pageX-startX;track.scrollLeft=scrollStart-dx;});
-
-    // Auto-advance
-    function startAuto(){autoTimer=setInterval(()=>snapTo(cur+1,true),4500);}
-
-    // Init
-    setTimeout(()=>{snapTo(0,false);updateActive();startAuto();},120);
-  })();
-
-  // TIM FILTER
-  document.querySelectorAll('.tim-cat').forEach(btn=>{
-    btn.addEventListener('click',function(){
-      document.querySelectorAll('.tim-cat').forEach(b=>b.classList.remove('active'));
-      this.classList.add('active');
-      const role=this.dataset.role;
-      document.querySelectorAll('.tim-card').forEach(card=>{
-        const show=role==='all'||card.dataset.role===role;
-        card.style.display=show?'':'none';
+    // IMSAKIYAH
+    const jadwalData=[
+      ['04:11','04:21','11:45','14:59','17:51','19:00'],['04:11','04:21','11:45','14:59','17:50','19:00'],
+      ['04:11','04:21','11:45','14:58','17:50','19:00'],['04:11','04:21','11:45','14:58','17:50','18:59'],
+      ['04:11','04:21','11:45','14:57','17:50','18:59'],['04:11','04:21','11:45','14:56','17:50','18:59'],
+      ['04:11','04:21','11:45','14:56','17:49','18:58'],['04:11','04:21','11:45','14:55','17:49','18:58'],
+      ['04:11','04:21','11:44','14:54','17:49','18:58'],['04:11','04:21','11:44','15:53','17:49','18:57'],
+      ['04:11','04:21','11:44','14:53','17:48','18:57'],['04:11','04:21','11:44','14:52','17:48','18:57'],
+      ['04:11','04:21','11:44','14:51','17:48','18:56'],['04:11','04:21','11:43','14:50','17:47','18:56'],
+      ['04:10','04:20','11:43','14:49','17:47','18:56'],['04:10','04:20','11:43','14:48','17:47','18:55'],
+      ['04:10','04:20','11:43','14:47','17:47','18:55'],['04:10','04:20','11:42','14:46','17:46','18:55'],
+      ['04:10','04:20','11:42','14:45','17:46','18:54'],['04:10','04:20','11:42','14:44','17:46','18:54'],
+      ['04:10','04:20','11:42','14:43','17:45','18:54'],['04:10','04:20','11:41','14:42','17:45','18:53'],
+      ['04:09','04:19','11:41','14:41','17:45','18:53'],['04:09','04:19','11:41','14:40','17:44','18:52'],
+      ['04:09','04:19','11:41','14:40','17:46','18:52'],['04:09','04:19','11:40','14:41','17:44','18:52'],
+      ['04:09','04:19','11:40','14:41','17:43','18:51'],['04:08','04:18','11:39','14:42','17:42','18:51'],
+      ['04:08','04:18','11:39','14:42','17:42','18:50'],
+    ];
+    const waktuNames=[
+      {n:'Imsak',k:'',ico:'🌙',hi:false},{n:'Subuh',k:'Shalat Subuh (2 rakaat)',ico:'⭐',hi:true},
+      {n:'Dzuhur',k:'Shalat Dzuhur (4 rakaat)',ico:'☀️',hi:true},{n:'Ashar',k:'Shalat Ashar (4 rakaat)',ico:'🌤️',hi:true},
+      {n:'Magrib',k:'Berbuka puasa & shalat',ico:'🌅',hi:true},{n:'Isya',k:'Shalat Isya & Tarawih',ico:'🌙',hi:true},
+    ];
+    const ramadhanStart=new Date('2026-02-18');
+    let jadwalDay=0;
+    function getTodayIdx(){const today=new Date();const diff=Math.floor((today-ramadhanStart)/(1000*60*60*24));return Math.max(0,Math.min(diff,jadwalData.length-1));}
+    function renderJadwal(){
+      const idx=Math.max(0,Math.min(jadwalDay,jadwalData.length-1));
+      const d=jadwalData[idx];
+      const date=new Date(ramadhanStart);date.setDate(date.getDate()+idx);
+      const opts={weekday:'long',day:'numeric',month:'long'};
+      const ramadhanDay=idx+1;
+      document.getElementById('jadwalDateLabel').innerHTML=
+        `<span style="display:block;font-size:.65rem;color:var(--text-muted)">${ramadhanDay} Ramadhan 1447H</span>`+
+        date.toLocaleDateString('id-ID',opts);
+      let html='';
+      waktuNames.forEach((w,i)=>{
+        html+=`<div class="jadwal-row${w.hi?' highlight':''}"><div class="jadwal-name"><span class="jadwal-ico">${w.ico}</span><div><div class="jadwal-nama">${w.n}</div><div class="jadwal-keterangan">${w.k}</div></div></div><span class="jadwal-time">${d[i]}</span></div>`;
       });
-    });
-  });
+      document.getElementById('jadwalBody').innerHTML=html;
+    }
+    function changeDay(dir){jadwalDay=Math.max(0,Math.min(jadwalDay+dir,jadwalData.length-1));renderJadwal();}
+    jadwalDay=getTodayIdx();renderJadwal();
 
-  // REVEAL
-  const obs=new IntersectionObserver(es=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i%4*80);obs.unobserve(e.target);}});},{threshold:.1});
-  document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>obs.observe(el));
-
-  // IMSAKIYAH
-  const jadwalData=[
-    ['04:11','04:21','11:45','14:59','17:51','19:00'],['04:11','04:21','11:45','14:59','17:50','19:00'],
-    ['04:11','04:21','11:45','14:58','17:50','19:00'],['04:11','04:21','11:45','14:58','17:50','18:59'],
-    ['04:11','04:21','11:45','14:57','17:50','18:59'],['04:11','04:21','11:45','14:56','17:50','18:59'],
-    ['04:11','04:21','11:45','14:56','17:49','18:58'],['04:11','04:21','11:45','14:55','17:49','18:58'],
-    ['04:11','04:21','11:44','14:54','17:49','18:58'],['04:11','04:21','11:44','15:53','17:49','18:57'],
-    ['04:11','04:21','11:44','14:53','17:48','18:57'],['04:11','04:21','11:44','14:52','17:48','18:57'],
-    ['04:11','04:21','11:44','14:51','17:48','18:56'],['04:11','04:21','11:43','14:50','17:47','18:56'],
-    ['04:10','04:20','11:43','14:49','17:47','18:56'],['04:10','04:20','11:43','14:48','17:47','18:55'],
-    ['04:10','04:20','11:43','14:47','17:47','18:55'],['04:10','04:20','11:42','14:46','17:46','18:55'],
-    ['04:10','04:20','11:42','14:45','17:46','18:54'],['04:10','04:20','11:42','14:44','17:46','18:54'],
-    ['04:10','04:20','11:42','14:43','17:45','18:54'],['04:10','04:20','11:41','14:42','17:45','18:53'],
-    ['04:09','04:19','11:41','14:41','17:45','18:53'],['04:09','04:19','11:41','14:40','17:44','18:52'],
-    ['04:09','04:19','11:41','14:40','17:46','18:52'],['04:09','04:19','11:40','14:41','17:44','18:52'],
-    ['04:09','04:19','11:40','14:41','17:43','18:51'],['04:08','04:18','11:39','14:42','17:42','18:51'],
-    ['04:08','04:18','11:39','14:42','17:42','18:50'],
-  ];
-  const waktuNames=[
-    {n:'Imsak',k:'',ico:'🌙',hi:false},{n:'Subuh',k:'Shalat Subuh (2 rakaat)',ico:'⭐',hi:true},
-    {n:'Dzuhur',k:'Shalat Dzuhur (4 rakaat)',ico:'☀️',hi:true},{n:'Ashar',k:'Shalat Ashar (4 rakaat)',ico:'🌤️',hi:true},
-    {n:'Magrib',k:'Berbuka puasa & shalat',ico:'🌅',hi:true},{n:'Isya',k:'Shalat Isya & Tarawih',ico:'🌙',hi:true},
-  ];
-  const ramadhanStart=new Date('2026-02-18');
-  let jadwalDay=0;
-  function getTodayIdx(){const today=new Date();const diff=Math.floor((today-ramadhanStart)/(1000*60*60*24));return Math.max(0,Math.min(diff,jadwalData.length-1));}
-  function renderJadwal(){
-    const idx=Math.max(0,Math.min(jadwalDay,jadwalData.length-1));
-    const d=jadwalData[idx];
-    const date=new Date(ramadhanStart);date.setDate(date.getDate()+idx);
-    const opts={weekday:'long',day:'numeric',month:'long'};
-    const ramadhanDay=idx+1;
-    document.getElementById('jadwalDateLabel').innerHTML=
-      `<span style="display:block;font-size:.65rem;color:var(--text-muted)">${ramadhanDay} Ramadhan 1447H</span>`+
-      date.toLocaleDateString('id-ID',opts);
-    let html='';
-    waktuNames.forEach((w,i)=>{
-      html+=`<div class="jadwal-row${w.hi?' highlight':''}"><div class="jadwal-name"><span class="jadwal-ico">${w.ico}</span><div><div class="jadwal-nama">${w.n}</div><div class="jadwal-keterangan">${w.k}</div></div></div><span class="jadwal-time">${d[i]}</span></div>`;
-    });
-    document.getElementById('jadwalBody').innerHTML=html;
-  }
-  function changeDay(dir){jadwalDay=Math.max(0,Math.min(jadwalDay+dir,jadwalData.length-1));renderJadwal();}
-  jadwalDay=getTodayIdx();renderJadwal();
-
-  // YOUTUBE AUDIO
-  let ytPlayer=null,ytPlaying=false,ytReady=false;
-  window.onYouTubeIframeAPIReady=function(){
-    ytPlayer=new YT.Player('yt-player',{
-      height:'1',width:'1',videoId:'5uDY6hEYfPc',
-      playerVars:{autoplay:0,loop:1,playlist:'5uDY6hEYfPc'},
-      events:{onReady:()=>{ytReady=true;}}
-    });
-  };
-  function toggleAudio(){
-    if(!ytReady||!ytPlayer)return;
-    if(ytPlaying){ytPlayer.pauseVideo();ytPlaying=false;}
-    else{ytPlayer.playVideo();ytPlaying=true;}
-    const icon=ytPlaying?'🔊':'🎵';
-    document.getElementById('audioFab').textContent=icon;
-    document.getElementById('audioFab').classList.toggle('playing',ytPlaying);
-    document.getElementById('audioNavBtn').textContent=icon;
-  }
-  document.getElementById('audioFab').addEventListener('click',toggleAudio);
-  document.getElementById('audioNavBtn').addEventListener('click',toggleAudio);
-  </script>
-</body>
-</html>
+    // YOUTUBE AUDIO
+    let ytPlayer=null,ytPlaying=false,ytReady=false;
+    window.onYouTubeIframeAPIReady=function(){
+      ytPlayer=new YT.Player('yt-player',{
+        height:'1',width:'1',videoId:'5uDY6hEYfPc',
+        playerVars:{autoplay:0,loop:1,playlist:'5uDY6hEYfPc'},
+        events:{onReady:()=>{ytReady=true;}}
+      });
+    };
+    function toggleAudio(){
+      if(!ytReady||!ytPlayer)return;
+      if(ytPlaying){ytPlayer.pauseVideo();ytPlaying=false;}
+      else{ytPlayer.playVideo();ytPlaying=true;}
+      const icon=ytPlaying?'🔊':'🎵';
+      document.getElementById('audioFab').textContent=icon;
+      document.getElementById('audioFab').classList.toggle('playing',ytPlaying);
+      document.getElementById('audioNavBtn').textContent=icon;
+    }
+    document.getElementById('audioFab').addEventListener('click',toggleAudio);
+    document.getElementById('audioNavBtn').addEventListener('click',toggleAudio);
+    </script>
+  </body>
+  </html>

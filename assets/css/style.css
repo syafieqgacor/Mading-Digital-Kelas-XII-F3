@@ -59,9 +59,16 @@
       nav{padding:1rem 1.5rem;}
     }
 
-    /* CURSOR */
+    /* CURSOR — desktop only */
     .cursor{position:fixed;width:10px;height:10px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:difference;}
     .cursor-ring{position:fixed;width:34px;height:34px;border:1.5px solid var(--gold);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .1s ease-out,top .1s ease-out,width .3s,height .3s;}
+    /* Hide custom cursor on touch/mobile — restore system cursor */
+    @media (hover:none),(pointer:coarse){
+      .cursor,.cursor-ring{display:none !important;}
+      body{cursor:auto !important;}
+      .slider-track{cursor:default;}
+      .slider-track:active{cursor:default;}
+    }
 
     /* CANVAS & MOSQUE BG */
     #bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.18;}

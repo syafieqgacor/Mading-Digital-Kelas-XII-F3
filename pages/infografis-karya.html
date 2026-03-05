@@ -53,7 +53,7 @@
     <div class="sh rv"><span class="se">✦ Data & Fakta ✦</span><h2 class="st">Infografis <em>Ramadhan</em></h2><div class="sl2"></div></div>
     <div class="info-layout">
       <div class="info-img-wrap rvl">
-        <img src="../images/infografis.jpg" alt="Nilai Utama Ramadhan — Spiritualitas, Solidaritas, Sinergi" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <img src="../images/infografis.jpg" alt="Nilai Utama Ramadhan" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='flex';">
         <div style="display:none;width:100%;aspect-ratio:4/5;background:linear-gradient(160deg,var(--bg2),var(--bg3));align-items:center;justify-content:center;flex-direction:column;gap:.5rem;padding:2rem;text-align:center;border-radius:16px;border:1px solid var(--border);">
           <span style="font-size:3rem;opacity:.4">🖼️</span>
           <span style="font-size:.7rem;color:var(--text-dim);letter-spacing:1px;">Taruh file di <code style="background:var(--bg3);padding:2px 6px;border-radius:4px;color:var(--gold);">images/infografis.jpg</code></span>
@@ -94,14 +94,13 @@
   </div>
 </section>
 
-<!-- DATA VIZ — INTERAKTIF TOTAL -->
+<!-- DATA VIZ — INTERAKTIF -->
 <section id="dataviz" style="background:var(--bg2);">
   <div class="sc">
     <div class="sh rv"><span class="se">✦ Fakta & Statistik ✦</span><h2 class="st">Data <em>Ramadhan</em> Kita</h2><div class="sl2"></div></div>
     <p class="dv-intro rv" style="max-width:640px;margin:0 auto 2.5rem;text-align:center;font-size:.86rem;color:var(--text-muted);line-height:1.8;">Ramadhan bukan hanya ritual — ada sains, data astronomis, dan riset peer-reviewed di baliknya. Semua visualisasi berbasis data nyata dari jurnal ilmiah dan lembaga terpercaya.</p>
 
     <style>
-      /* ═══ DATAVIZ STYLES ═══ */
       .dvz-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;}
       @media(max-width:860px){.dvz-grid{grid-template-columns:1fr;}}
       .dvz-card{background:white;border:1px solid var(--border);border-radius:20px;padding:1.8rem;position:relative;overflow:hidden;transition:border-color .3s;box-shadow:0 2px 12px rgba(139,107,58,.07);}
@@ -113,9 +112,8 @@
       .dvz-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.2rem;}
       .dvz-sub{font-size:.64rem;color:var(--text-dim);letter-spacing:.5px;margin-bottom:1.2rem;}
       .dvz-src{font-size:.58rem;color:var(--text-dim);margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--border);letter-spacing:.3px;}
-      .dvz-src a{color:var(--teal);text-decoration:none;}
 
-      /* ── CHART 1: Durasi Puasa Kota ── */
+      /* Chart 1 */
       .city-bar-list{display:flex;flex-direction:column;gap:.85rem;}
       .city-row{cursor:pointer;padding:.6rem .8rem;border-radius:10px;transition:background .2s;}
       .city-row:hover,.city-row.active{background:rgba(184,134,11,.06);}
@@ -128,7 +126,7 @@
       .city-detail{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .4s;opacity:0;font-size:.75rem;color:var(--text-muted);line-height:1.6;margin-top:.3rem;}
       .city-row.active .city-detail{max-height:80px;opacity:1;}
 
-      /* ── CHART 2: Sains Puasa ── */
+      /* Chart 2 */
       .sains-list{display:flex;flex-direction:column;gap:.8rem;}
       .sains-row{cursor:pointer;border:1px solid var(--border);border-radius:12px;padding:.9rem 1.1rem;transition:all .3s;background:var(--bg);}
       [data-theme="dark"] .sains-row{background:var(--bg2);}
@@ -140,9 +138,9 @@
       .sains-track{height:8px;background:var(--bg3);border-radius:4px;overflow:hidden;margin-bottom:.4rem;}
       .sains-fill{height:100%;border-radius:4px;width:0;transition:width 2s cubic-bezier(.16,1,.3,1);}
       .sains-citation{font-size:.68rem;color:var(--text-dim);max-height:0;overflow:hidden;transition:max-height .35s ease,opacity .35s;opacity:0;font-style:italic;}
-      .sains-row.open .sains-citation{max-height:60px;opacity:1;}
+      .sains-row.open .sains-citation{max-height:80px;opacity:1;}
 
-      /* ── CHART 3: Timeline 24 Jam ── */
+      /* Chart 3 */
       .tl24-wrap{position:relative;}
       .tl24-row{display:flex;align-items:stretch;margin-bottom:.5rem;cursor:pointer;border-radius:10px;overflow:hidden;border:1px solid var(--border);transition:all .25s;}
       .tl24-row:hover{border-color:var(--gold);box-shadow:0 3px 12px rgba(184,134,11,.12);}
@@ -156,7 +154,7 @@
       .tl24-tip{font-size:.7rem;color:var(--text-muted);padding:.4rem .8rem .5rem 1rem;border-top:1px dashed var(--border);display:none;line-height:1.55;background:var(--bg);}
       .tl24-row.open .tl24-tip{display:block;}
 
-      /* ── CHART 4: Efek Per Jam Tabs ── */
+      /* Chart 4 */
       .efek-tabs{display:flex;gap:.5rem;margin-bottom:1.2rem;flex-wrap:wrap;}
       .efek-tab{background:var(--surface);border:1px solid var(--border);color:var(--text-muted);padding:.4rem 1.1rem;border-radius:20px;font-size:.72rem;letter-spacing:1px;cursor:pointer;font-weight:600;transition:all .25s;}
       .efek-tab.active{background:var(--gold);color:white;border-color:var(--gold);}
@@ -173,107 +171,87 @@
       .efek-jam{font-family:'Cinzel',serif;font-size:.7rem;color:var(--teal);letter-spacing:1px;display:block;margin-bottom:.3rem;}
       .efek-judul{font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.3rem;}
       .efek-isi{font-size:.73rem;color:var(--text-muted);line-height:1.55;max-height:0;overflow:hidden;transition:max-height .35s ease,opacity .35s;opacity:0;}
-      .efek-card.open .efek-isi{max-height:120px;opacity:1;}
+      .efek-card.open .efek-isi{max-height:140px;opacity:1;}
       .efek-toggle{font-size:.6rem;color:var(--gold);display:block;margin-top:.3rem;transition:transform .3s;}
       .efek-card.open .efek-toggle{transform:rotate(180deg);}
     </style>
 
     <div class="dvz-grid">
 
-      <!-- CARD 1: DURASI PUASA KOTA -->
+      <!-- CARD 1: Durasi Puasa Kota -->
       <div class="dvz-card rv">
         <div class="dvz-title">🌍 Durasi Puasa di Berbagai Kota</div>
         <div class="dvz-sub">Jam berpuasa per hari · Ramadhan 2026 · Klik baris untuk detail</div>
         <div class="city-bar-list" id="cityBars">
-          <div class="city-row" data-h="13.1" data-detail="Kotawaringin Timur, Kalimantan Tengah. Indonesia termasuk negara dengan durasi puasa sedang — menguntungkan karena iklim tropis yang stabil sepanjang tahun.">
+          <div class="city-row" data-detail="Kotawaringin Timur, Kalimantan Tengah. Indonesia termasuk negara dengan durasi puasa sedang — menguntungkan karena posisi tropis yang stabil sepanjang tahun.">
             <div class="city-row-top"><span class="city-name"><span class="city-flag">🇮🇩</span>Sampit (Kotim)</span><span class="city-val">13j 6m</span></div>
             <div class="city-track"><div class="city-fill" style="background:linear-gradient(90deg,#b8860b,#f0c040)" data-w="72%"></div></div>
             <div class="city-detail">Kotawaringin Timur, Kalimantan Tengah. Indonesia termasuk negara dengan durasi puasa sedang — menguntungkan karena posisi tropis yang stabil sepanjang tahun.</div>
           </div>
-          <div class="city-row" data-h="13.8" data-detail="Mekah al-Mukarramah, Arab Saudi. Pusat ibadah umat Islam seluruh dunia. Suhu bisa mencapai 40°C saat Ramadhan, namun jutaan jamaah tetap berpuasa dengan penuh keikhlasan.">
+          <div class="city-row" data-detail="Mekah al-Mukarramah, Arab Saudi. Suhu bisa mencapai 40°C saat Ramadhan, namun jutaan jamaah tetap berpuasa dengan penuh keikhlasan di tanah suci.">
             <div class="city-row-top"><span class="city-name"><span class="city-flag">🇸🇦</span>Mekah</span><span class="city-val">13j 48m</span></div>
             <div class="city-track"><div class="city-fill" style="background:linear-gradient(90deg,#c9a84c,#f0c040)" data-w="76%"></div></div>
             <div class="city-detail">Mekah al-Mukarramah, Arab Saudi. Suhu bisa mencapai 40°C saat Ramadhan, namun jutaan jamaah tetap berpuasa dengan penuh keikhlasan di tanah suci.</div>
           </div>
-          <div class="city-row" data-h="14.8" data-detail="Kairo, Mesir. Salah satu kota Muslim terbesar di dunia. Tradisi Ramadhan Kairo sangat khas — lentera fanous, kuliner khas, dan tarawih panjang di Al-Azhar.">
+          <div class="city-row" data-detail="Kairo, Mesir. Tradisi Ramadhan Kairo sangat khas — lentera fanous, kuliner khas, dan tarawih panjang di Al-Azhar.">
             <div class="city-row-top"><span class="city-name"><span class="city-flag">🇪🇬</span>Kairo</span><span class="city-val">14j 48m</span></div>
             <div class="city-track"><div class="city-fill" style="background:linear-gradient(90deg,#14b8a6,#f0c040)" data-w="82%"></div></div>
-            <div class="city-detail">Kairo, Mesir. Salah satu kota Muslim terbesar di dunia. Tradisi Ramadhan Kairo sangat khas — lentera fanous, kuliner khas, dan tarawih panjang di Al-Azhar.</div>
+            <div class="city-detail">Kairo, Mesir. Tradisi Ramadhan Kairo sangat khas — lentera fanous, kuliner khas, dan tarawih panjang di Al-Azhar.</div>
           </div>
-          <div class="city-row" data-h="15.5" data-detail="Istanbul, Türkiye. Kota di dua benua — Eropa dan Asia. Masjid Biru dan Hagia Sofia menjadi latar ibadah yang megah. Tradisi iftar di tepi Selat Bosphorus adalah pengalaman tak terlupakan.">
+          <div class="city-row" data-detail="Istanbul, Türkiye. Masjid Biru dan Hagia Sofia menjadi latar ibadah yang megah. Tradisi iftar di tepi Selat Bosphorus adalah pengalaman tak terlupakan.">
             <div class="city-row-top"><span class="city-name"><span class="city-flag">🇹🇷</span>Istanbul</span><span class="city-val">15j 30m</span></div>
             <div class="city-track"><div class="city-fill" style="background:linear-gradient(90deg,#0d6e78,#14b8a6)" data-w="85%"></div></div>
-            <div class="city-detail">Istanbul, Türkiye. Kota di dua benua. Masjid Biru dan Hagia Sofia menjadi latar ibadah yang megah. Tradisi iftar di tepi Selat Bosphorus adalah pengalaman tak terlupakan.</div>
+            <div class="city-detail">Istanbul, Türkiye. Masjid Biru dan Hagia Sofia menjadi latar ibadah yang megah. Tradisi iftar di tepi Selat Bosphorus adalah pengalaman tak terlupakan.</div>
           </div>
-          <div class="city-row" data-h="16.8" data-detail="London, Inggris. Di Eropa Utara, durasi siang hari jauh lebih panjang dari Indonesia. Komunitas Muslim London yang besar menjaga tradisi Ramadhan di tengah kehidupan metropolitan.">
+          <div class="city-row" data-detail="London, Inggris. Di Eropa Utara, durasi siang hari jauh lebih panjang. Komunitas Muslim London yang besar menjaga tradisi Ramadhan di tengah kehidupan metropolitan.">
             <div class="city-row-top"><span class="city-name"><span class="city-flag">🇬🇧</span>London</span><span class="city-val">16j 48m</span></div>
             <div class="city-track"><div class="city-fill" style="background:linear-gradient(90deg,#6b9e6b,#14b8a6)" data-w="93%"></div></div>
-            <div class="city-detail">London, Inggris. Di Eropa Utara, durasi siang hari jauh lebih panjang. Komunitas Muslim London yang besar menjaga tradisi Ramadhan di tengah kehidupan metropolitan yang sibuk.</div>
+            <div class="city-detail">London, Inggris. Di Eropa Utara, durasi siang hari jauh lebih panjang. Komunitas Muslim London menjaga tradisi Ramadhan di tengah kehidupan metropolitan.</div>
           </div>
-          <div class="city-row" data-h="18.2" data-detail="Reykjavik, Islandia. Negara paling utara dengan komunitas Muslim. Saat Ramadhan di musim panas, matahari nyaris tidak terbenam — beberapa ulama mengizinkan mengikuti waktu negara Muslim terdekat.">
+          <div class="city-row" data-detail="Reykjavik, Islandia. Saat musim panas, matahari nyaris tidak terbenam. Beberapa ulama mengizinkan umat Muslim mengikuti waktu Mekah atau negara Muslim terdekat.">
             <div class="city-row-top"><span class="city-name"><span class="city-flag">🇮🇸</span>Reykjavik</span><span class="city-val">18j 12m</span></div>
             <div class="city-track"><div class="city-fill" style="background:linear-gradient(90deg,#c9a84c,#e05c5c)" data-w="100%"></div></div>
-            <div class="city-detail">Reykjavik, Islandia. Saat Ramadhan musim panas, matahari nyaris tidak terbenam. Beberapa ulama mengizinkan umat Muslim mengikuti waktu Mekah atau negara Muslim terdekat.</div>
+            <div class="city-detail">Reykjavik, Islandia. Saat musim panas, matahari nyaris tidak terbenam. Beberapa ulama mengizinkan mengikuti waktu Mekah atau negara Muslim terdekat.</div>
           </div>
         </div>
-        <div class="dvz-src">📚 Sumber: Kalkulasi waktu shalat ISNA (Islamic Society of North America) berdasarkan koordinat geografis masing-masing kota · Ramadhan 1447H / Maret 2026</div>
+        <div class="dvz-src">📚 Sumber: Kalkulasi waktu shalat ISNA berdasarkan koordinat geografis · Ramadhan 1447H / Maret 2026</div>
       </div>
 
-      <!-- CARD 2: SAINS PUASA -->
+      <!-- CARD 2: Sains Puasa -->
       <div class="dvz-card rv" style="transition-delay:.1s">
         <div class="dvz-title">🧬 Sains di Balik Puasa</div>
         <div class="dvz-sub">Manfaat terverifikasi riset · Klik baris untuk lihat sumber ilmiah</div>
         <div class="sains-list" id="sainsList">
-          <div class="sains-row" data-src="Husain et al. (2013). Effects of Ramadan on the patterns of cortisol secretion. Nutrition Journal, 12(1), 43.">
-            <div class="sains-row-top">
-              <span class="sains-ico">🧠</span>
-              <span class="sains-label">Kortisol (hormon stres) menurun</span>
-              <span class="sains-pct">↓72%</span>
-            </div>
+          <div class="sains-row" data-src="Husain et al. (2013). Effects of Ramadan on cortisol secretion. Nutrition Journal, 12(1), 43.">
+            <div class="sains-row-top"><span class="sains-ico">🧠</span><span class="sains-label">Kortisol (hormon stres) menurun</span><span class="sains-pct">↓72%</span></div>
             <div class="sains-track"><div class="sains-fill" style="background:linear-gradient(90deg,#6b9e6b,#b8860b)" data-w="72%"></div></div>
             <div class="sains-citation"></div>
           </div>
-          <div class="sains-row" data-src="Alirezaei et al. (2010). Short-term fasting induces profound neuronal autophagy. Autophagy, 6(6), 702–710. Peraih Nobel 2016: Yoshinori Ohsumi (Cell Stem Cell Research).">
-            <div class="sains-row-top">
-              <span class="sains-ico">🔬</span>
-              <span class="sains-label">Autophagy (regenerasi sel) aktif</span>
-              <span class="sains-pct">+85%</span>
-            </div>
+          <div class="sains-row" data-src="Alirezaei et al. (2010). Short-term fasting induces neuronal autophagy. Autophagy, 6(6), 702–710. Nobel Prize 2016: Yoshinori Ohsumi.">
+            <div class="sains-row-top"><span class="sains-ico">🔬</span><span class="sains-label">Autophagy (regenerasi sel) aktif</span><span class="sains-pct">+85%</span></div>
             <div class="sains-track"><div class="sains-fill" style="background:linear-gradient(90deg,#14b8a6,#6b9e6b)" data-w="85%"></div></div>
             <div class="sains-citation"></div>
           </div>
-          <div class="sains-row" data-src="Mattson MP et al. (2019). Intermittent metabolic switching, neuroplasticity and brain health. New England Journal of Medicine, 381(26), 2541–2551.">
-            <div class="sains-row-top">
-              <span class="sains-ico">⚡</span>
-              <span class="sains-label">BDNF (protein otak) meningkat</span>
-              <span class="sains-pct">+60%</span>
-            </div>
+          <div class="sains-row" data-src="Mattson MP et al. (2019). Intermittent metabolic switching, neuroplasticity and brain health. NEJM, 381(26), 2541–2551.">
+            <div class="sains-row-top"><span class="sains-ico">⚡</span><span class="sains-label">BDNF (protein otak) meningkat</span><span class="sains-pct">+60%</span></div>
             <div class="sains-track"><div class="sains-fill" style="background:linear-gradient(90deg,#b8860b,#f0c040)" data-w="60%"></div></div>
             <div class="sains-citation"></div>
           </div>
-          <div class="sains-row" data-src="Cheng CW et al. (2014). Prolonged fasting reduces IGF-1 and promotes hematopoietic-stem-cell-based regeneration. Cell Stem Cell, 14(6), 810–823.">
-            <div class="sains-row-top">
-              <span class="sains-ico">🛡️</span>
-              <span class="sains-label">Regenerasi sel imun meningkat</span>
-              <span class="sains-pct">+66%</span>
-            </div>
+          <div class="sains-row" data-src="Cheng CW et al. (2014). Prolonged fasting reduces IGF-1 and promotes stem-cell-based regeneration. Cell Stem Cell, 14(6), 810–823.">
+            <div class="sains-row-top"><span class="sains-ico">🛡️</span><span class="sains-label">Regenerasi sel imun meningkat</span><span class="sains-pct">+66%</span></div>
             <div class="sains-track"><div class="sains-fill" style="background:linear-gradient(90deg,#0d6e78,#14b8a6)" data-w="66%"></div></div>
             <div class="sains-citation"></div>
           </div>
-          <div class="sains-row" data-src="Nematy M et al. (2012). Effects of Ramadan fasting on cardiovascular risk factors: A prospective observational study. Nutrition Journal, 11(1), 69.">
-            <div class="sains-row-top">
-              <span class="sains-ico">❤️</span>
-              <span class="sains-label">Trigliserida & LDL turun</span>
-              <span class="sains-pct">↓48%</span>
-            </div>
+          <div class="sains-row" data-src="Nematy M et al. (2012). Effects of Ramadan fasting on cardiovascular risk factors. Nutrition Journal, 11(1), 69.">
+            <div class="sains-row-top"><span class="sains-ico">❤️</span><span class="sains-label">Trigliserida &amp; LDL turun</span><span class="sains-pct">↓48%</span></div>
             <div class="sains-track"><div class="sains-fill" style="background:linear-gradient(90deg,#c9a84c,#b8860b)" data-w="48%"></div></div>
             <div class="sains-citation"></div>
           </div>
         </div>
-        <div class="dvz-src">📚 Sumber: Jurnal ilmiah peer-reviewed (Nutrition Journal, NEJM, Cell Stem Cell, Autophagy). Angka merupakan rata-rata hasil uji klinis. Klik setiap baris untuk sitasi lengkap.</div>
+        <div class="dvz-src">📚 Sumber: Nutrition Journal, NEJM, Cell Stem Cell, Autophagy. Klik setiap baris untuk sitasi lengkap.</div>
       </div>
 
-      <!-- CARD 3: TIMELINE 24 JAM PELAJAR -->
+      <!-- CARD 3: Timeline 24 Jam -->
       <div class="dvz-card rv" style="transition-delay:.15s">
         <div class="dvz-title">⏰ 24 Jam Pelajar Ramadhan</div>
         <div class="dvz-sub">Distribusi waktu ideal · Klik baris untuk tips praktis</div>
@@ -284,130 +262,71 @@
           </div>
           <div class="tl24-row" data-tip="⭐ Subuh adalah shalat yang paling ditekankan. Setelahnya, dzikir pagi + 1 halaman tilawah. Manfaatkan sunyi pagi untuk fokus ibadah.">
             <div class="tl24-time">04:15–05:00</div>
-            <div class="tl24-bar"><div class="tl24-fill" style="background:#f0c040;width:100%"></div><span class="tl24-ico">⭐</span><div><div class="tl24-act">Shalat Subuh & Tilawah</div><div class="tl24-dur">45 menit · 3.1%</div></div></div>
+            <div class="tl24-bar"><div class="tl24-fill" style="background:#f0c040;width:100%"></div><span class="tl24-ico">⭐</span><div><div class="tl24-act">Shalat Subuh &amp; Tilawah</div><div class="tl24-dur">45 menit · 3.1%</div></div></div>
           </div>
-          <div class="tl24-row" data-tip="😴 Tidur setelah Subuh tidak dilarang, tapi batasi maksimal 2 jam. Riset menunjukkan tidur singkat lebih restoratif dibanding langsung aktif.">
+          <div class="tl24-row" data-tip="😴 Tidur setelah Subuh tidak dilarang, tapi batasi maksimal 2 jam. Tidur singkat lebih restoratif dibanding langsung aktif.">
             <div class="tl24-time">05:00–06:30</div>
             <div class="tl24-bar"><div class="tl24-fill" style="background:#6b9e6b;width:100%"></div><span class="tl24-ico">😴</span><div><div class="tl24-act">Tidur / Istirahat</div><div class="tl24-dur">90 menit · 6.3%</div></div></div>
           </div>
-          <div class="tl24-row" data-tip="📚 Puasa justru meningkatkan konsentrasi belajar melalui stabilitas gula darah. Hindari olahraga berat. Shalat Dhuha 2–4 rakaat sebelum kelas ideal.">
+          <div class="tl24-row" data-tip="📚 Puasa justru meningkatkan konsentrasi belajar. Hindari olahraga berat. Shalat Dhuha 2–4 rakaat sebelum kelas sangat dianjurkan.">
             <div class="tl24-time">06:30–14:00</div>
-            <div class="tl24-bar"><div class="tl24-fill" style="background:#14b8a6;width:100%"></div><span class="tl24-ico">📚</span><div><div class="tl24-act">Sekolah & Belajar</div><div class="tl24-dur">7.5 jam · 31.3%</div></div></div>
+            <div class="tl24-bar"><div class="tl24-fill" style="background:#14b8a6;width:100%"></div><span class="tl24-ico">📚</span><div><div class="tl24-act">Sekolah &amp; Belajar</div><div class="tl24-dur">7.5 jam · 31.3%</div></div></div>
           </div>
-          <div class="tl24-row" data-tip="☀️ Shalat Dzuhur dan Ashar tepat waktu. Manfaatkan waktu istirahat siang untuk tilawah ringan. Tidur siang 20 menit (power nap) sangat disarankan.">
+          <div class="tl24-row" data-tip="☀️ Shalat Dzuhur dan Ashar tepat waktu. Tidur siang 20 menit (power nap) sangat disarankan untuk pemulihan energi.">
             <div class="tl24-time">14:00–17:30</div>
             <div class="tl24-bar"><div class="tl24-fill" style="background:#c9a84c;width:100%"></div><span class="tl24-ico">☀️</span><div><div class="tl24-act">Dzuhur · Ashar · Istirahat</div><div class="tl24-dur">3.5 jam · 14.6%</div></div></div>
           </div>
-          <div class="tl24-row" data-tip="🤲 Waktu menjelang buka adalah saat mustajab untuk berdoa. Siapkan kurma dan air. Bacaan: 'Allahumma laka shumtu...' segera saat Magrib.">
+          <div class="tl24-row" data-tip="🤲 Waktu menjelang buka adalah saat paling mustajab untuk berdoa. Siapkan kurma dan air. Bacaan: 'Allahumma laka shumtu...'">
             <div class="tl24-time">17:30–18:00</div>
-            <div class="tl24-bar"><div class="tl24-fill" style="background:#b8860b;width:100%"></div><span class="tl24-ico">🤲</span><div><div class="tl24-act">Persiapan & Doa Buka</div><div class="tl24-dur">30 menit · 2.1%</div></div></div>
+            <div class="tl24-bar"><div class="tl24-fill" style="background:#b8860b;width:100%"></div><span class="tl24-ico">🤲</span><div><div class="tl24-act">Persiapan &amp; Doa Buka</div><div class="tl24-dur">30 menit · 2.1%</div></div></div>
           </div>
-          <div class="tl24-row" data-tip="🌅 Buka dengan kurma dan air terlebih dahulu, kemudian shalat Magrib. Jangan langsung makan berat — beri waktu 15 menit untuk organ pencernaan menyesuaikan.">
+          <div class="tl24-row" data-tip="🌅 Buka dengan kurma dan air dulu, kemudian shalat Magrib. Beri waktu 15 menit sebelum makan berat agar pencernaan menyesuaikan.">
             <div class="tl24-time">18:00–19:00</div>
-            <div class="tl24-bar"><div class="tl24-fill" style="background:#e07a30;width:100%"></div><span class="tl24-ico">🌅</span><div><div class="tl24-act">Buka Puasa & Magrib</div><div class="tl24-dur">60 menit · 4.2%</div></div></div>
+            <div class="tl24-bar"><div class="tl24-fill" style="background:#e07a30;width:100%"></div><span class="tl24-ico">🌅</span><div><div class="tl24-act">Buka Puasa &amp; Magrib</div><div class="tl24-dur">60 menit · 4.2%</div></div></div>
           </div>
-          <div class="tl24-row" data-tip="🕌 Tarawih adalah amalan sunnah yang sangat dianjurkan di Ramadhan. Ikuti 20 rakaat + Witir dengan khusyuk. Pahami satu ayat yang dibaca imam setiap malam.">
+          <div class="tl24-row" data-tip="🕌 Tarawih adalah amalan sunnah yang sangat dianjurkan. Hadir berjamaah dan pahami satu ayat yang dibaca imam setiap malam.">
             <div class="tl24-time">19:00–21:30</div>
-            <div class="tl24-bar"><div class="tl24-fill" style="background:#4a7a4a;width:100%"></div><span class="tl24-ico">🕌</span><div><div class="tl24-act">Isya & Tarawih</div><div class="tl24-dur">2.5 jam · 10.4%</div></div></div>
+            <div class="tl24-bar"><div class="tl24-fill" style="background:#4a7a4a;width:100%"></div><span class="tl24-ico">🕌</span><div><div class="tl24-act">Isya &amp; Tarawih</div><div class="tl24-dur">2.5 jam · 10.4%</div></div></div>
           </div>
-          <div class="tl24-row" data-tip="🌙 Tidur cukup sangat penting agar ibadah esok tetap optimal. Hindari gadget 30 menit sebelum tidur. Baca doa tidur dan niat bangun untuk sahur.">
+          <div class="tl24-row" data-tip="🌙 Tidur cukup penting agar ibadah esok tetap optimal. Hindari gadget 30 menit sebelum tidur. Baca doa tidur dan niat bangun sahur.">
             <div class="tl24-time">21:30–03:30</div>
             <div class="tl24-bar"><div class="tl24-fill" style="background:#0d6e78;width:100%"></div><span class="tl24-ico">🌙</span><div><div class="tl24-act">Tidur Malam</div><div class="tl24-dur">6 jam · 25.0%</div></div></div>
           </div>
         </div>
-        <div class="dvz-src">📚 Berdasarkan jadwal imsakiyah Kotawaringin Timur 1447H · Rekomendasi aktivitas berdasarkan WHO sleep guidelines & panduan ibadah Kemenag RI</div>
+        <div class="dvz-src">📚 Jadwal imsakiyah Kotawaringin Timur 1447H · WHO sleep guidelines · panduan ibadah Kemenag RI</div>
       </div>
 
-      <!-- CARD 4: EFEK PUASA PER JAM (FULL WIDTH) -->
+      <!-- CARD 4: Efek Per Jam (Full Width) -->
       <div class="dvz-card full rv" style="transition-delay:.2s">
         <div class="dvz-title">⚡ Apa yang Terjadi di Dalam Tubuhmu Saat Berpuasa?</div>
-        <div class="dvz-sub">Perubahan fisiologis per jam · Berdasarkan riset biokimia & neurosains · Klik kartu untuk penjelasan lengkap</div>
+        <div class="dvz-sub">Perubahan fisiologis per jam · Riset biokimia &amp; neurosains · Klik kartu untuk penjelasan lengkap</div>
         <div class="efek-tabs">
           <button class="efek-tab active" data-pane="efek-meta">🔥 Metabolisme</button>
           <button class="efek-tab" data-pane="efek-sel">🔬 Seluler</button>
-          <button class="efek-tab" data-pane="efek-otak">🧠 Otak & Saraf</button>
+          <button class="efek-tab" data-pane="efek-otak">🧠 Otak &amp; Saraf</button>
         </div>
 
         <div id="efek-meta" class="efek-pane active">
-          <div class="efek-card gold">
-            <span class="efek-jam">JAM 1–2</span>
-            <div class="efek-judul">Gula Darah Stabil ✅</div>
-            <span class="efek-toggle">▼ Selengkapnya</span>
-            <div class="efek-isi">Tubuh menggunakan glukosa dari sahur. Insulin mulai turun, gula darah stabil tanpa lonjakan. Ini justru meningkatkan kejernihan pikiran dan menghindari "food coma" pasca makan. <br><em>Sumber: Mattson, NEJM 381:2541 (2019)</em></div>
-          </div>
-          <div class="efek-card gold">
-            <span class="efek-jam">JAM 4–6</span>
-            <div class="efek-judul">Pembakaran Lemak Mulai 🔥</div>
-            <span class="efek-toggle">▼ Selengkapnya</span>
-            <div class="efek-isi">Setelah cadangan glikogen hati habis, tubuh beralih membakar lemak sebagai sumber energi (lipolisis). Metabolisme meningkat efisiensi. Inilah kenapa puasa efektif untuk kontrol berat badan. <br><em>Sumber: Anton et al. Obesity 26(2) (2018)</em></div>
-          </div>
-          <div class="efek-card gold">
-            <span class="efek-jam">JAM 8–10</span>
-            <div class="efek-judul">Produksi Keton Dimulai ⚗️</div>
-            <span class="efek-toggle">▼ Selengkapnya</span>
-            <div class="efek-isi">Hati mulai memproduksi keton dari lemak. Keton adalah bahan bakar bersih untuk otak — lebih efisien dari glukosa. Banyak orang melaporkan pikiran lebih jernih di jam ini. <br><em>Sumber: Cahill GF, Annu Rev Nutr 26:1 (2006)</em></div>
-          </div>
-          <div class="efek-card gold">
-            <span class="efek-jam">JAM 12+</span>
-            <div class="efek-judul">Ketosis Parsial Tercapai 🎯</div>
-            <span class="efek-toggle">▼ Selengkapnya</span>
-            <div class="efek-isi">Tubuh kini beroperasi penuh pada mode ketosis parsial. Nafsu makan menurun secara alami (hormon ghrelin turun). Energi stabil tanpa fluktuasi — persis kondisi optimal untuk fokus dan ibadah. <br><em>Sumber: Owen OE, J Clin Invest 46:1589 (1967)</em></div>
-          </div>
+          <div class="efek-card gold"><span class="efek-jam">JAM 1–2</span><div class="efek-judul">Gula Darah Stabil ✅</div><span class="efek-toggle">▼ Selengkapnya</span><div class="efek-isi">Tubuh menggunakan glukosa dari sahur. Insulin mulai turun, gula darah stabil tanpa lonjakan. Ini meningkatkan kejernihan pikiran dan menghindari "food coma" pasca makan.<br><em>Sumber: Mattson, NEJM 381:2541 (2019)</em></div></div>
+          <div class="efek-card gold"><span class="efek-jam">JAM 4–6</span><div class="efek-judul">Pembakaran Lemak Mulai 🔥</div><span class="efek-toggle">▼ Selengkapnya</span><div class="efek-isi">Setelah cadangan glikogen hati habis, tubuh beralih membakar lemak (lipolisis). Metabolisme meningkat efisiensi. Inilah kenapa puasa efektif untuk kontrol berat badan.<br><em>Sumber: Anton et al. Obesity 26(2) (2018)</em></div></div>
+          <div class="efek-card gold"><span class="efek-jam">JAM 8–10</span><div class="efek-judul">Produksi Keton Dimulai ⚗️</div><span class="efek-toggle">▼ Selengkapnya</span><div class="efek-isi">Hati mulai memproduksi keton dari lemak. Keton adalah bahan bakar bersih untuk otak — lebih efisien dari glukosa. Banyak orang melaporkan pikiran lebih jernih di jam ini.<br><em>Sumber: Cahill GF, Annu Rev Nutr 26:1 (2006)</em></div></div>
+          <div class="efek-card gold"><span class="efek-jam">JAM 12+</span><div class="efek-judul">Ketosis Parsial Tercapai 🎯</div><span class="efek-toggle">▼ Selengkapnya</span><div class="efek-isi">Tubuh kini beroperasi pada mode ketosis parsial. Nafsu makan menurun alami (ghrelin turun). Energi stabil tanpa fluktuasi — kondisi optimal untuk fokus dan ibadah.<br><em>Sumber: Owen OE, J Clin Invest 46:1589 (1967)</em></div></div>
         </div>
 
         <div id="efek-sel" class="efek-pane">
-          <div class="efek-card teal">
-            <span class="efek-jam">JAM 6–8</span>
-            <div class="efek-judul">Autophagy Diaktifkan ♻️</div>
-            <span class="efek-toggle">▼ Selengkapnya</span>
-            <div class="efek-isi">Sel-sel mulai "memakan" komponen sel yang rusak atau tua (autophagy). Proses ini membersihkan protein abnormal yang berkaitan dengan Alzheimer & Parkinson. Nobel Prize 2016 diberikan untuk penemuan ini. <br><em>Sumber: Ohsumi Y, Nobel Prize Lecture (2016); Alirezaei, Autophagy 6:702 (2010)</em></div>
-          </div>
-          <div class="efek-card teal">
-            <span class="efek-jam">JAM 10+</span>
-            <div class="efek-judul">Perbaikan DNA Aktif 🧬</div>
-            <span class="efek-toggle">▼ Selengkapnya</span>
-            <div class="efek-isi">Protein SIRT1 dan SIRT3 (sirtuins) yang berperan dalam perbaikan DNA teraktivasi. Keduanya juga memperlambat proses penuaan seluler dan meningkatkan panjang telomer. <br><em>Sumber: Haigis MC & Guarente LP, Genes Dev 20:2913 (2006)</em></div>
-          </div>
-          <div class="efek-card teal">
-            <span class="efek-jam">JAM 16+</span>
-            <div class="efek-judul">Regenerasi Sel Imun 🛡️</div>
-            <span class="efek-toggle">▼ Selengkapnya</span>
-            <div class="efek-isi">Puasa berkepanjangan memicu regenerasi sel-sel imun baru. IGF-1 (pemicu pertumbuhan sel kanker) turun, sementara sel-sel darah putih baru diproduksi. Sistem imun "di-reset" secara alami. <br><em>Sumber: Cheng CW, Cell Stem Cell 14:810 (2014)</em></div>
-          </div>
-          <div class="efek-card teal">
-            <span class="efek-jam">BULAN PENUH</span>
-            <div class="efek-judul">Profil Lipid Membaik ❤️</div>
-            <span class="efek-toggle">▼ Selengkapnya</span>
-            <div class="efek-isi">Setelah 30 hari Ramadhan, penelitian prospektif menunjukkan penurunan trigliserida 20–48%, penurunan LDL, dan peningkatan HDL (kolesterol baik). Manfaat kardiovaskular ini bertahan hingga 1 bulan pasca Ramadhan. <br><em>Sumber: Nematy M, Nutrition Journal 11:69 (2012)</em></div>
-          </div>
+          <div class="efek-card teal"><span class="efek-jam">JAM 6–8</span><div class="efek-judul">Autophagy Diaktifkan ♻️</div><span class="efek-toggle">▼ Selengkapnya</span><div class="efek-isi">Sel-sel mulai "memakan" komponen sel rusak (autophagy). Membersihkan protein abnormal terkait Alzheimer &amp; Parkinson. Nobel Prize 2016 diberikan untuk penemuan ini.<br><em>Sumber: Ohsumi Y, Nobel Prize Lecture (2016); Alirezaei, Autophagy 6:702 (2010)</em></div></div>
+          <div class="efek-card teal"><span class="efek-jam">JAM 10+</span><div class="efek-judul">Perbaikan DNA Aktif 🧬</div><span class="efek-toggle">▼ Selengkapnya</span><div class="efek-isi">Protein SIRT1 dan SIRT3 (sirtuins) yang berperan dalam perbaikan DNA teraktivasi. Keduanya memperlambat penuaan seluler dan meningkatkan panjang telomer.<br><em>Sumber: Haigis MC &amp; Guarente LP, Genes Dev 20:2913 (2006)</em></div></div>
+          <div class="efek-card teal"><span class="efek-jam">JAM 16+</span><div class="efek-judul">Regenerasi Sel Imun 🛡️</div><span class="efek-toggle">▼ Selengkapnya</span><div class="efek-isi">Puasa memicu regenerasi sel-sel imun baru. IGF-1 turun, sel darah putih baru diproduksi. Sistem imun "di-reset" secara alami oleh tubuh sendiri.<br><em>Sumber: Cheng CW, Cell Stem Cell 14:810 (2014)</em></div></div>
+          <div class="efek-card teal"><span class="efek-jam">BULAN PENUH</span><div class="efek-judul">Profil Lipid Membaik ❤️</div><span class="efek-toggle">▼ Selengkapnya</span><div class="efek-isi">Setelah 30 hari Ramadhan: trigliserida turun 20–48%, LDL turun, HDL (kolesterol baik) naik. Manfaat kardiovaskular ini bertahan hingga 1 bulan pasca Ramadhan.<br><em>Sumber: Nematy M, Nutrition Journal 11:69 (2012)</em></div></div>
         </div>
 
         <div id="efek-otak" class="efek-pane">
-          <div class="efek-card sage">
-            <span class="efek-jam">JAM 4–8</span>
-            <div class="efek-judul">BDNF Meningkat ⚡</div>
-            <span class="efek-toggle">▼ Selengkapnya</span>
-            <div class="efek-isi">Brain-Derived Neurotrophic Factor (BDNF) — protein yang mendukung pertumbuhan neuron baru — meningkat signifikan. Ini meningkatkan kemampuan belajar, memori jangka panjang, dan daya tahan terhadap depresi. <br><em>Sumber: Mattson MP, NEJM 381:2541 (2019)</em></div>
-          </div>
-          <div class="efek-card sage">
-            <span class="efek-jam">JAM 6+</span>
-            <div class="efek-judul">Kortisol Menurun 😌</div>
-            <span class="efek-toggle">▼ Selengkapnya</span>
-            <div class="efek-isi">Hormon stres kortisol turun secara signifikan selama Ramadhan. Ini berkaitan dengan peningkatan rasa tenang, berkurangnya kecemasan, dan perbaikan kualitas tidur yang dilaporkan banyak individu berpuasa. <br><em>Sumber: Husain I, Nutrition Journal 12:43 (2013)</em></div>
-          </div>
-          <div class="efek-card sage">
-            <span class="efek-jam">JAM 12+</span>
-            <div class="efek-judul">Fokus & Konsentrasi Optimal 🎯</div>
-            <span class="efek-toggle">▼ Selengkapnya</span>
-            <div class="efek-isi">Kombinasi keton sebagai bahan bakar otak + penurunan kortisol menciptakan kondisi optimal untuk konsentrasi. Ini menjelaskan mengapa banyak pelajar justru lebih produktif belajar saat berpuasa. <br><em>Sumber: Fond G, Psychiatry Research 205(1):69 (2013)</em></div>
-          </div>
-          <div class="efek-card sage">
-            <span class="efek-jam">SEPANJANG RAMADHAN</span>
-            <div class="efek-judul">Neuroplastisitas Meningkat 🌱</div>
-            <span class="efek-toggle">▼ Selengkapnya</span>
-            <div class="efek-isi">Puasa periodik memicu neuroplastisitas — kemampuan otak membentuk koneksi saraf baru. Penelitian menunjukkan peningkatan volume hippocampus (pusat memori). Ramadhan literally membuat otakmu lebih kuat. <br><em>Sumber: Mattson MP, Ageing Research Reviews 10(3):271 (2011)</em></div>
-          </div>
+          <div class="efek-card sage"><span class="efek-jam">JAM 4–8</span><div class="efek-judul">BDNF Meningkat ⚡</div><span class="efek-toggle">▼ Selengkapnya</span><div class="efek-isi">Brain-Derived Neurotrophic Factor (BDNF) — protein pertumbuhan neuron baru — meningkat signifikan. Meningkatkan kemampuan belajar, memori jangka panjang, dan daya tahan terhadap depresi.<br><em>Sumber: Mattson MP, NEJM 381:2541 (2019)</em></div></div>
+          <div class="efek-card sage"><span class="efek-jam">JAM 6+</span><div class="efek-judul">Kortisol Menurun 😌</div><span class="efek-toggle">▼ Selengkapnya</span><div class="efek-isi">Hormon stres kortisol turun signifikan selama Ramadhan. Berkaitan dengan peningkatan rasa tenang, berkurangnya kecemasan, dan perbaikan kualitas tidur.<br><em>Sumber: Husain I, Nutrition Journal 12:43 (2013)</em></div></div>
+          <div class="efek-card sage"><span class="efek-jam">JAM 12+</span><div class="efek-judul">Fokus &amp; Konsentrasi Optimal 🎯</div><span class="efek-toggle">▼ Selengkapnya</span><div class="efek-isi">Kombinasi keton sebagai bahan bakar otak + penurunan kortisol menciptakan kondisi optimal untuk konsentrasi. Ini kenapa pelajar justru lebih produktif saat berpuasa.<br><em>Sumber: Fond G, Psychiatry Research 205(1):69 (2013)</em></div></div>
+          <div class="efek-card sage"><span class="efek-jam">SEPANJANG RAMADHAN</span><div class="efek-judul">Neuroplastisitas Meningkat 🌱</div><span class="efek-toggle">▼ Selengkapnya</span><div class="efek-isi">Puasa periodik memicu neuroplastisitas — kemampuan otak membentuk koneksi saraf baru. Penelitian menunjukkan peningkatan volume hippocampus (pusat memori).<br><em>Sumber: Mattson MP, Ageing Research Reviews 10(3):271 (2011)</em></div></div>
         </div>
+
         <div class="dvz-src" style="margin-top:1.2rem;">📚 Semua data berdasarkan jurnal peer-reviewed: NEJM, Cell Stem Cell, Nutrition Journal, Autophagy, Nobel Prize Lecture. Data merupakan rata-rata dari berbagai uji klinis pada populasi Muslim berpuasa.</div>
       </div>
 
@@ -419,7 +338,9 @@
 <section id="karya">
   <div class="sc">
     <div class="sh rv"><span class="se">✦ Karya Visual Siswa ✦</span><h2 class="st">Poster <em>Kreatif</em></h2><div class="sl2"></div></div>
-      <div class="poster-card rv" style="aspect-ratio:3/4;max-height:640px;">
+    <p class="karya-note rv">🎨 Tim Designer: untuk upload poster, hapus <code>&lt;div class="poster-ph"&gt;</code> dan ganti dengan <code>&lt;img class="poster-img" src="../images/poster-1.jpg" alt="Poster Ramadhan"&gt;</code></p>
+    <div style="max-width:520px;margin:0 auto;">
+      <div class="poster-card rv">
         <div class="poster-ph">
           <span class="poster-ph-ico">🖼️</span>
           <span class="poster-ph-txt">Poster Ramadhan 1447H</span>
@@ -429,9 +350,8 @@
     </div>
   </div>
 </section>
-        </div>
-      </div>
-      <div class="dv-card rv" style="transition-delay:.1s;">
+
+<!-- KARYA SASTRA SISWA -->
 <section id="cerpen" style="background:var(--bg2);">
   <div class="sc">
     <div class="sh rv"><span class="se">✦ Karya Sastra Siswa ✦</span><h2 class="st">Cerpen &amp; <em>Puisi</em></h2><div class="sl2"></div></div>
@@ -490,87 +410,80 @@
 <script src="../assets/js/main.js"></script>
 <script>
 // ═══ DATAVIZ INTERAKTIF ═══
-
-// ── Intersection Observer untuk trigger animasi saat scroll masuk ──
-const dvSection = document.getElementById('dataviz');
-if(dvSection){
-  const dvObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(!e.isIntersecting) return;
-
-      // Chart 1: Animasi bar kota
-      document.querySelectorAll('.city-fill[data-w]').forEach((el,i) => {
-        setTimeout(() => { el.style.width = el.dataset.w; }, i * 160);
+(function(){
+  // Animasi bar saat section masuk viewport
+  const dvSection = document.getElementById('dataviz');
+  if(dvSection){
+    const dvObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(!e.isIntersecting) return;
+        document.querySelectorAll('.city-fill[data-w]').forEach((el,i) => {
+          setTimeout(() => { el.style.width = el.dataset.w; }, i * 160);
+        });
+        document.querySelectorAll('.sains-fill[data-w]').forEach((el,i) => {
+          setTimeout(() => { el.style.width = el.dataset.w; }, i * 200 + 300);
+        });
+        dvObs.disconnect();
       });
-
-      // Chart 2: Animasi bar sains
-      document.querySelectorAll('.sains-fill[data-w]').forEach((el,i) => {
-        setTimeout(() => { el.style.width = el.dataset.w; }, i * 200 + 300);
-      });
-
-      dvObs.disconnect();
-    });
-  }, { threshold: 0.08 });
-  dvObs.observe(dvSection);
-}
-
-// ── Chart 1: Klik baris kota ──
-document.querySelectorAll('.city-row').forEach(row => {
-  row.addEventListener('click', function(){
-    const isOpen = this.classList.contains('active');
-    document.querySelectorAll('.city-row').forEach(r => r.classList.remove('active'));
-    if(!isOpen) this.classList.add('active');
-  });
-});
-
-// ── Chart 2: Klik sains row → tampilkan sitasi ──
-document.querySelectorAll('.sains-row').forEach(row => {
-  const src = row.dataset.src;
-  const cite = row.querySelector('.sains-citation');
-  if(cite && src) cite.textContent = '📖 ' + src;
-  row.addEventListener('click', function(){
-    const isOpen = this.classList.contains('open');
-    document.querySelectorAll('.sains-row').forEach(r => r.classList.remove('open'));
-    if(!isOpen) this.classList.add('open');
-  });
-});
-
-// ── Chart 3: Klik timeline 24 jam → tampilkan tips ──
-document.querySelectorAll('.tl24-row').forEach(row => {
-  const tip = row.dataset.tip;
-  if(tip){
-    const tipEl = document.createElement('div');
-    tipEl.className = 'tl24-tip';
-    tipEl.textContent = tip;
-    row.appendChild(tipEl);
+    }, { threshold: 0.08 });
+    dvObs.observe(dvSection);
   }
-  row.addEventListener('click', function(){
-    const isOpen = this.classList.contains('open');
-    document.querySelectorAll('.tl24-row').forEach(r => r.classList.remove('open'));
-    if(!isOpen) this.classList.add('open');
-  });
-});
 
-// ── Chart 4: Tab efek per jam ──
-document.querySelectorAll('.efek-tab').forEach(tab => {
-  tab.addEventListener('click', function(){
-    document.querySelectorAll('.efek-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.efek-pane').forEach(p => p.classList.remove('active'));
-    this.classList.add('active');
-    const pane = document.getElementById(this.dataset.pane);
-    if(pane) pane.classList.add('active');
+  // Chart 1: Klik kota
+  document.querySelectorAll('.city-row').forEach(row => {
+    row.addEventListener('click', function(){
+      const isOpen = this.classList.contains('active');
+      document.querySelectorAll('.city-row').forEach(r => r.classList.remove('active'));
+      if(!isOpen) this.classList.add('active');
+    });
   });
-});
 
-// ── Chart 4: Klik kartu efek → expand ──
-document.querySelectorAll('.efek-card').forEach(card => {
-  card.addEventListener('click', function(){
-    const isOpen = this.classList.contains('open');
-    // Tutup semua dalam pane yang sama
-    this.closest('.efek-pane').querySelectorAll('.efek-card').forEach(c => c.classList.remove('open'));
-    if(!isOpen) this.classList.add('open');
+  // Chart 2: Klik sains → sitasi
+  document.querySelectorAll('.sains-row').forEach(row => {
+    const cite = row.querySelector('.sains-citation');
+    if(cite && row.dataset.src) cite.textContent = '📖 ' + row.dataset.src;
+    row.addEventListener('click', function(){
+      const isOpen = this.classList.contains('open');
+      document.querySelectorAll('.sains-row').forEach(r => r.classList.remove('open'));
+      if(!isOpen) this.classList.add('open');
+    });
   });
-});
+
+  // Chart 3: Klik timeline → tips
+  document.querySelectorAll('.tl24-row').forEach(row => {
+    if(row.dataset.tip){
+      const tipEl = document.createElement('div');
+      tipEl.className = 'tl24-tip';
+      tipEl.textContent = row.dataset.tip;
+      row.appendChild(tipEl);
+    }
+    row.addEventListener('click', function(){
+      const isOpen = this.classList.contains('open');
+      document.querySelectorAll('.tl24-row').forEach(r => r.classList.remove('open'));
+      if(!isOpen) this.classList.add('open');
+    });
+  });
+
+  // Chart 4: Tab efek
+  document.querySelectorAll('.efek-tab').forEach(tab => {
+    tab.addEventListener('click', function(){
+      document.querySelectorAll('.efek-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.efek-pane').forEach(p => p.classList.remove('active'));
+      this.classList.add('active');
+      const pane = document.getElementById(this.dataset.pane);
+      if(pane) pane.classList.add('active');
+    });
+  });
+
+  // Chart 4: Klik kartu → expand
+  document.querySelectorAll('.efek-card').forEach(card => {
+    card.addEventListener('click', function(){
+      const isOpen = this.classList.contains('open');
+      this.closest('.efek-pane').querySelectorAll('.efek-card').forEach(c => c.classList.remove('open'));
+      if(!isOpen) this.classList.add('open');
+    });
+  });
+})();
 </script>
 </body>
 </html>

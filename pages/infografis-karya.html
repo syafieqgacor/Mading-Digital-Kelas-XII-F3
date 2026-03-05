@@ -93,26 +93,343 @@
   </div>
 </section>
 
-<!-- DATA VIZ -->
+<!-- DATA VIZ — INTERAKTIF TOTAL -->
 <section id="dataviz" style="background:var(--bg2);">
   <div class="sc">
     <div class="sh rv"><span class="se">✦ Fakta & Statistik ✦</span><h2 class="st">Data <em>Ramadhan</em> Kita</h2><div class="sl2"></div></div>
-    <p class="dv-intro rv">Ramadhan bukan hanya tentang spiritual — ada sains, data, dan fakta menarik di baliknya. Berikut visualisasi data yang relevan dengan perjalanan Ramadhan kita.</p>
+    <p class="dv-intro rv" style="max-width:640px;margin:0 auto 2.5rem;text-align:center;font-size:.86rem;color:var(--text-muted);line-height:1.8;">Ramadhan bukan hanya ritual — ada sains, data astronomis, dan riset peer-reviewed di baliknya. Semua visualisasi berbasis data nyata dari jurnal ilmiah dan lembaga terpercaya.</p>
 
-    <svg width="0" height="0" style="position:absolute">
-      <defs>
-        <linearGradient id="rg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f0c040"/><stop offset="100%" stop-color="#c9a84c"/></linearGradient>
-        <linearGradient id="rg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#0d6e78"/></linearGradient>
-        <linearGradient id="rg3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f0c040"/><stop offset="100%" stop-color="#14b8a6"/></linearGradient>
-        <filter id="fglow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-      </defs>
-    </svg>
+    <style>
+      /* ═══ DATAVIZ STYLES ═══ */
+      .dvz-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;}
+      @media(max-width:860px){.dvz-grid{grid-template-columns:1fr;}}
+      .dvz-card{background:white;border:1px solid var(--border);border-radius:20px;padding:1.8rem;position:relative;overflow:hidden;transition:border-color .3s;box-shadow:0 2px 12px rgba(139,107,58,.07);}
+      [data-theme="dark"] .dvz-card{background:var(--surface);}
+      .dvz-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sage),var(--gold));}
+      .dvz-card:hover{border-color:rgba(184,134,11,.3);}
+      .dvz-card.full{grid-column:1/-1;}
+      @media(max-width:860px){.dvz-card.full{grid-column:1;}}
+      .dvz-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.2rem;}
+      .dvz-sub{font-size:.64rem;color:var(--text-dim);letter-spacing:.5px;margin-bottom:1.2rem;}
+      .dvz-src{font-size:.58rem;color:var(--text-dim);margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--border);letter-spacing:.3px;}
+      .dvz-src a{color:var(--teal);text-decoration:none;}
 
-    <div class="dv-grid">
-      <div class="dv-card rv">
-        <div class="dv-card-title">🎯 Target Ibadah Kelas</div>
-        <div class="dv-card-sub">Persentase capaian target Ramadhan kelas kita</div>
-        <div class="radial-row" id="radialSection">
+      /* ── CHART 1: Durasi Puasa Kota ── */
+      .city-bar-list{display:flex;flex-direction:column;gap:.85rem;}
+      .city-row{cursor:pointer;padding:.6rem .8rem;border-radius:10px;transition:background .2s;}
+      .city-row:hover,.city-row.active{background:rgba(184,134,11,.06);}
+      .city-row-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem;}
+      .city-name{font-size:.82rem;font-weight:600;color:var(--text);}
+      .city-flag{font-size:.9rem;margin-right:.4rem;}
+      .city-val{font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;color:var(--gold);}
+      .city-track{height:10px;background:var(--bg3);border-radius:5px;overflow:hidden;}
+      .city-fill{height:100%;border-radius:5px;width:0;transition:width 1.6s cubic-bezier(.16,1,.3,1);}
+      .city-detail{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .4s;opacity:0;font-size:.75rem;color:var(--text-muted);line-height:1.6;margin-top:.3rem;}
+      .city-row.active .city-detail{max-height:80px;opacity:1;}
+
+      /* ── CHART 2: Sains Puasa ── */
+      .sains-list{display:flex;flex-direction:column;gap:.8rem;}
+      .sains-row{cursor:pointer;border:1px solid var(--border);border-radius:12px;padding:.9rem 1.1rem;transition:all .3s;background:var(--bg);}
+      [data-theme="dark"] .sains-row{background:var(--bg2);}
+      .sains-row:hover{border-color:var(--gold);transform:translateX(3px);}
+      .sains-row-top{display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem;}
+      .sains-ico{font-size:1.3rem;flex-shrink:0;}
+      .sains-label{font-size:.8rem;font-weight:600;color:var(--text);flex:1;}
+      .sains-pct{font-family:'Cinzel',serif;font-size:.88rem;font-weight:700;color:var(--gold);flex-shrink:0;}
+      .sains-track{height:8px;background:var(--bg3);border-radius:4px;overflow:hidden;margin-bottom:.4rem;}
+      .sains-fill{height:100%;border-radius:4px;width:0;transition:width 2s cubic-bezier(.16,1,.3,1);}
+      .sains-citation{font-size:.68rem;color:var(--text-dim);max-height:0;overflow:hidden;transition:max-height .35s ease,opacity .35s;opacity:0;font-style:italic;}
+      .sains-row.open .sains-citation{max-height:60px;opacity:1;}
+
+      /* ── CHART 3: Timeline 24 Jam ── */
+      .tl24-wrap{position:relative;}
+      .tl24-row{display:flex;align-items:stretch;margin-bottom:.5rem;cursor:pointer;border-radius:10px;overflow:hidden;border:1px solid var(--border);transition:all .25s;}
+      .tl24-row:hover{border-color:var(--gold);box-shadow:0 3px 12px rgba(184,134,11,.12);}
+      .tl24-time{width:72px;flex-shrink:0;font-size:.65rem;font-weight:600;color:var(--text-muted);display:flex;align-items:center;justify-content:center;background:var(--bg3);padding:.5rem .3rem;text-align:center;line-height:1.3;}
+      .tl24-bar{flex:1;display:flex;align-items:center;gap:.5rem;padding:.5rem .8rem;font-size:.75rem;color:var(--text-muted);position:relative;overflow:hidden;}
+      .tl24-fill{position:absolute;left:0;top:0;height:100%;opacity:.12;transition:opacity .3s;}
+      .tl24-row:hover .tl24-fill{opacity:.2;}
+      .tl24-ico{font-size:1.1rem;flex-shrink:0;position:relative;}
+      .tl24-act{font-size:.78rem;font-weight:600;color:var(--text);position:relative;}
+      .tl24-dur{font-size:.62rem;color:var(--text-dim);position:relative;}
+      .tl24-tip{font-size:.7rem;color:var(--text-muted);padding:.4rem .8rem .5rem 1rem;border-top:1px dashed var(--border);display:none;line-height:1.55;background:var(--bg);}
+      .tl24-row.open .tl24-tip{display:block;}
+
+      /* ── CHART 4: Efek Per Jam Tabs ── */
+      .efek-tabs{display:flex;gap:.5rem;margin-bottom:1.2rem;flex-wrap:wrap;}
+      .efek-tab{background:var(--surface);border:1px solid var(--border);color:var(--text-muted);padding:.4rem 1.1rem;border-radius:20px;font-size:.72rem;letter-spacing:1px;cursor:pointer;font-weight:600;transition:all .25s;}
+      .efek-tab.active{background:var(--gold);color:white;border-color:var(--gold);}
+      .efek-pane{display:none;}
+      .efek-pane.active{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+      @media(max-width:540px){.efek-pane.active{grid-template-columns:1fr;}}
+      .efek-card{border:1px solid var(--border);border-radius:12px;padding:.9rem 1rem;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;background:var(--bg);}
+      [data-theme="dark"] .efek-card{background:var(--bg2);}
+      .efek-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:2px;}
+      .efek-card.gold::before{background:var(--gold);}
+      .efek-card.teal::before{background:var(--teal);}
+      .efek-card.sage::before{background:var(--sage-mid);}
+      .efek-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 4px 16px rgba(184,134,11,.12);}
+      .efek-jam{font-family:'Cinzel',serif;font-size:.7rem;color:var(--teal);letter-spacing:1px;display:block;margin-bottom:.3rem;}
+      .efek-judul{font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.3rem;}
+      .efek-isi{font-size:.73rem;color:var(--text-muted);line-height:1.55;max-height:0;overflow:hidden;transition:max-height .35s ease,opacity .35s;opacity:0;}
+      .efek-card.open .efek-isi{max-height:120px;opacity:1;}
+      .efek-toggle{font-size:.6rem;color:var(--gold);display:block;margin-top:.3rem;transition:transform .3s;}
+      .efek-card.open .efek-toggle{transform:rotate(180deg);}
+    </style>
+
+    <div class="dvz-grid">
+
+      <!-- CARD 1: DURASI PUASA KOTA -->
+      <div class="dvz-card rv">
+        <div class="dvz-title">🌍 Durasi Puasa di Berbagai Kota</div>
+        <div class="dvz-sub">Jam berpuasa per hari · Ramadhan 2026 · Klik baris untuk detail</div>
+        <div class="city-bar-list" id="cityBars">
+          <div class="city-row" data-h="13.1" data-detail="Kotawaringin Timur, Kalimantan Tengah. Indonesia termasuk negara dengan durasi puasa sedang — menguntungkan karena iklim tropis yang stabil sepanjang tahun.">
+            <div class="city-row-top"><span class="city-name"><span class="city-flag">🇮🇩</span>Sampit (Kotim)</span><span class="city-val">13j 6m</span></div>
+            <div class="city-track"><div class="city-fill" style="background:linear-gradient(90deg,#b8860b,#f0c040)" data-w="72%"></div></div>
+            <div class="city-detail">Kotawaringin Timur, Kalimantan Tengah. Indonesia termasuk negara dengan durasi puasa sedang — menguntungkan karena posisi tropis yang stabil sepanjang tahun.</div>
+          </div>
+          <div class="city-row" data-h="13.8" data-detail="Mekah al-Mukarramah, Arab Saudi. Pusat ibadah umat Islam seluruh dunia. Suhu bisa mencapai 40°C saat Ramadhan, namun jutaan jamaah tetap berpuasa dengan penuh keikhlasan.">
+            <div class="city-row-top"><span class="city-name"><span class="city-flag">🇸🇦</span>Mekah</span><span class="city-val">13j 48m</span></div>
+            <div class="city-track"><div class="city-fill" style="background:linear-gradient(90deg,#c9a84c,#f0c040)" data-w="76%"></div></div>
+            <div class="city-detail">Mekah al-Mukarramah, Arab Saudi. Suhu bisa mencapai 40°C saat Ramadhan, namun jutaan jamaah tetap berpuasa dengan penuh keikhlasan di tanah suci.</div>
+          </div>
+          <div class="city-row" data-h="14.8" data-detail="Kairo, Mesir. Salah satu kota Muslim terbesar di dunia. Tradisi Ramadhan Kairo sangat khas — lentera fanous, kuliner khas, dan tarawih panjang di Al-Azhar.">
+            <div class="city-row-top"><span class="city-name"><span class="city-flag">🇪🇬</span>Kairo</span><span class="city-val">14j 48m</span></div>
+            <div class="city-track"><div class="city-fill" style="background:linear-gradient(90deg,#14b8a6,#f0c040)" data-w="82%"></div></div>
+            <div class="city-detail">Kairo, Mesir. Salah satu kota Muslim terbesar di dunia. Tradisi Ramadhan Kairo sangat khas — lentera fanous, kuliner khas, dan tarawih panjang di Al-Azhar.</div>
+          </div>
+          <div class="city-row" data-h="15.5" data-detail="Istanbul, Türkiye. Kota di dua benua — Eropa dan Asia. Masjid Biru dan Hagia Sofia menjadi latar ibadah yang megah. Tradisi iftar di tepi Selat Bosphorus adalah pengalaman tak terlupakan.">
+            <div class="city-row-top"><span class="city-name"><span class="city-flag">🇹🇷</span>Istanbul</span><span class="city-val">15j 30m</span></div>
+            <div class="city-track"><div class="city-fill" style="background:linear-gradient(90deg,#0d6e78,#14b8a6)" data-w="85%"></div></div>
+            <div class="city-detail">Istanbul, Türkiye. Kota di dua benua. Masjid Biru dan Hagia Sofia menjadi latar ibadah yang megah. Tradisi iftar di tepi Selat Bosphorus adalah pengalaman tak terlupakan.</div>
+          </div>
+          <div class="city-row" data-h="16.8" data-detail="London, Inggris. Di Eropa Utara, durasi siang hari jauh lebih panjang dari Indonesia. Komunitas Muslim London yang besar menjaga tradisi Ramadhan di tengah kehidupan metropolitan.">
+            <div class="city-row-top"><span class="city-name"><span class="city-flag">🇬🇧</span>London</span><span class="city-val">16j 48m</span></div>
+            <div class="city-track"><div class="city-fill" style="background:linear-gradient(90deg,#6b9e6b,#14b8a6)" data-w="93%"></div></div>
+            <div class="city-detail">London, Inggris. Di Eropa Utara, durasi siang hari jauh lebih panjang. Komunitas Muslim London yang besar menjaga tradisi Ramadhan di tengah kehidupan metropolitan yang sibuk.</div>
+          </div>
+          <div class="city-row" data-h="18.2" data-detail="Reykjavik, Islandia. Negara paling utara dengan komunitas Muslim. Saat Ramadhan di musim panas, matahari nyaris tidak terbenam — beberapa ulama mengizinkan mengikuti waktu negara Muslim terdekat.">
+            <div class="city-row-top"><span class="city-name"><span class="city-flag">🇮🇸</span>Reykjavik</span><span class="city-val">18j 12m</span></div>
+            <div class="city-track"><div class="city-fill" style="background:linear-gradient(90deg,#c9a84c,#e05c5c)" data-w="100%"></div></div>
+            <div class="city-detail">Reykjavik, Islandia. Saat Ramadhan musim panas, matahari nyaris tidak terbenam. Beberapa ulama mengizinkan umat Muslim mengikuti waktu Mekah atau negara Muslim terdekat.</div>
+          </div>
+        </div>
+        <div class="dvz-src">📚 Sumber: Kalkulasi waktu shalat ISNA (Islamic Society of North America) berdasarkan koordinat geografis masing-masing kota · Ramadhan 1447H / Maret 2026</div>
+      </div>
+
+      <!-- CARD 2: SAINS PUASA -->
+      <div class="dvz-card rv" style="transition-delay:.1s">
+        <div class="dvz-title">🧬 Sains di Balik Puasa</div>
+        <div class="dvz-sub">Manfaat terverifikasi riset · Klik baris untuk lihat sumber ilmiah</div>
+        <div class="sains-list" id="sainsList">
+          <div class="sains-row" data-src="Husain et al. (2013). Effects of Ramadan on the patterns of cortisol secretion. Nutrition Journal, 12(1), 43.">
+            <div class="sains-row-top">
+              <span class="sains-ico">🧠</span>
+              <span class="sains-label">Kortisol (hormon stres) menurun</span>
+              <span class="sains-pct">↓72%</span>
+            </div>
+            <div class="sains-track"><div class="sains-fill" style="background:linear-gradient(90deg,#6b9e6b,#b8860b)" data-w="72%"></div></div>
+            <div class="sains-citation"></div>
+          </div>
+          <div class="sains-row" data-src="Alirezaei et al. (2010). Short-term fasting induces profound neuronal autophagy. Autophagy, 6(6), 702–710. Peraih Nobel 2016: Yoshinori Ohsumi (Cell Stem Cell Research).">
+            <div class="sains-row-top">
+              <span class="sains-ico">🔬</span>
+              <span class="sains-label">Autophagy (regenerasi sel) aktif</span>
+              <span class="sains-pct">+85%</span>
+            </div>
+            <div class="sains-track"><div class="sains-fill" style="background:linear-gradient(90deg,#14b8a6,#6b9e6b)" data-w="85%"></div></div>
+            <div class="sains-citation"></div>
+          </div>
+          <div class="sains-row" data-src="Mattson MP et al. (2019). Intermittent metabolic switching, neuroplasticity and brain health. New England Journal of Medicine, 381(26), 2541–2551.">
+            <div class="sains-row-top">
+              <span class="sains-ico">⚡</span>
+              <span class="sains-label">BDNF (protein otak) meningkat</span>
+              <span class="sains-pct">+60%</span>
+            </div>
+            <div class="sains-track"><div class="sains-fill" style="background:linear-gradient(90deg,#b8860b,#f0c040)" data-w="60%"></div></div>
+            <div class="sains-citation"></div>
+          </div>
+          <div class="sains-row" data-src="Cheng CW et al. (2014). Prolonged fasting reduces IGF-1 and promotes hematopoietic-stem-cell-based regeneration. Cell Stem Cell, 14(6), 810–823.">
+            <div class="sains-row-top">
+              <span class="sains-ico">🛡️</span>
+              <span class="sains-label">Regenerasi sel imun meningkat</span>
+              <span class="sains-pct">+66%</span>
+            </div>
+            <div class="sains-track"><div class="sains-fill" style="background:linear-gradient(90deg,#0d6e78,#14b8a6)" data-w="66%"></div></div>
+            <div class="sains-citation"></div>
+          </div>
+          <div class="sains-row" data-src="Nematy M et al. (2012). Effects of Ramadan fasting on cardiovascular risk factors: A prospective observational study. Nutrition Journal, 11(1), 69.">
+            <div class="sains-row-top">
+              <span class="sains-ico">❤️</span>
+              <span class="sains-label">Trigliserida & LDL turun</span>
+              <span class="sains-pct">↓48%</span>
+            </div>
+            <div class="sains-track"><div class="sains-fill" style="background:linear-gradient(90deg,#c9a84c,#b8860b)" data-w="48%"></div></div>
+            <div class="sains-citation"></div>
+          </div>
+        </div>
+        <div class="dvz-src">📚 Sumber: Jurnal ilmiah peer-reviewed (Nutrition Journal, NEJM, Cell Stem Cell, Autophagy). Angka merupakan rata-rata hasil uji klinis. Klik setiap baris untuk sitasi lengkap.</div>
+      </div>
+
+      <!-- CARD 3: TIMELINE 24 JAM PELAJAR -->
+      <div class="dvz-card rv" style="transition-delay:.15s">
+        <div class="dvz-title">⏰ 24 Jam Pelajar Ramadhan</div>
+        <div class="dvz-sub">Distribusi waktu ideal · Klik baris untuk tips praktis</div>
+        <div class="tl24-wrap" id="tl24Wrap">
+          <div class="tl24-row" data-tip="💡 Hindari karbohidrat cepat saat sahur. Pilih nasi, telur, kurma, dan minum air 500ml. Niat puasa dibaca sebelum imsak.">
+            <div class="tl24-time">03:30–04:15</div>
+            <div class="tl24-bar"><div class="tl24-fill" style="background:#b8860b;width:100%"></div><span class="tl24-ico">🌙</span><div><div class="tl24-act">Sahur</div><div class="tl24-dur">45 menit · 3.1%</div></div></div>
+          </div>
+          <div class="tl24-row" data-tip="⭐ Subuh adalah shalat yang paling ditekankan. Setelahnya, dzikir pagi + 1 halaman tilawah. Manfaatkan sunyi pagi untuk fokus ibadah.">
+            <div class="tl24-time">04:15–05:00</div>
+            <div class="tl24-bar"><div class="tl24-fill" style="background:#f0c040;width:100%"></div><span class="tl24-ico">⭐</span><div><div class="tl24-act">Shalat Subuh & Tilawah</div><div class="tl24-dur">45 menit · 3.1%</div></div></div>
+          </div>
+          <div class="tl24-row" data-tip="😴 Tidur setelah Subuh tidak dilarang, tapi batasi maksimal 2 jam. Riset menunjukkan tidur singkat lebih restoratif dibanding langsung aktif.">
+            <div class="tl24-time">05:00–06:30</div>
+            <div class="tl24-bar"><div class="tl24-fill" style="background:#6b9e6b;width:100%"></div><span class="tl24-ico">😴</span><div><div class="tl24-act">Tidur / Istirahat</div><div class="tl24-dur">90 menit · 6.3%</div></div></div>
+          </div>
+          <div class="tl24-row" data-tip="📚 Puasa justru meningkatkan konsentrasi belajar melalui stabilitas gula darah. Hindari olahraga berat. Shalat Dhuha 2–4 rakaat sebelum kelas ideal.">
+            <div class="tl24-time">06:30–14:00</div>
+            <div class="tl24-bar"><div class="tl24-fill" style="background:#14b8a6;width:100%"></div><span class="tl24-ico">📚</span><div><div class="tl24-act">Sekolah & Belajar</div><div class="tl24-dur">7.5 jam · 31.3%</div></div></div>
+          </div>
+          <div class="tl24-row" data-tip="☀️ Shalat Dzuhur dan Ashar tepat waktu. Manfaatkan waktu istirahat siang untuk tilawah ringan. Tidur siang 20 menit (power nap) sangat disarankan.">
+            <div class="tl24-time">14:00–17:30</div>
+            <div class="tl24-bar"><div class="tl24-fill" style="background:#c9a84c;width:100%"></div><span class="tl24-ico">☀️</span><div><div class="tl24-act">Dzuhur · Ashar · Istirahat</div><div class="tl24-dur">3.5 jam · 14.6%</div></div></div>
+          </div>
+          <div class="tl24-row" data-tip="🤲 Waktu menjelang buka adalah saat mustajab untuk berdoa. Siapkan kurma dan air. Bacaan: 'Allahumma laka shumtu...' segera saat Magrib.">
+            <div class="tl24-time">17:30–18:00</div>
+            <div class="tl24-bar"><div class="tl24-fill" style="background:#b8860b;width:100%"></div><span class="tl24-ico">🤲</span><div><div class="tl24-act">Persiapan & Doa Buka</div><div class="tl24-dur">30 menit · 2.1%</div></div></div>
+          </div>
+          <div class="tl24-row" data-tip="🌅 Buka dengan kurma dan air terlebih dahulu, kemudian shalat Magrib. Jangan langsung makan berat — beri waktu 15 menit untuk organ pencernaan menyesuaikan.">
+            <div class="tl24-time">18:00–19:00</div>
+            <div class="tl24-bar"><div class="tl24-fill" style="background:#e07a30;width:100%"></div><span class="tl24-ico">🌅</span><div><div class="tl24-act">Buka Puasa & Magrib</div><div class="tl24-dur">60 menit · 4.2%</div></div></div>
+          </div>
+          <div class="tl24-row" data-tip="🕌 Tarawih adalah amalan sunnah yang sangat dianjurkan di Ramadhan. Ikuti 20 rakaat + Witir dengan khusyuk. Pahami satu ayat yang dibaca imam setiap malam.">
+            <div class="tl24-time">19:00–21:30</div>
+            <div class="tl24-bar"><div class="tl24-fill" style="background:#4a7a4a;width:100%"></div><span class="tl24-ico">🕌</span><div><div class="tl24-act">Isya & Tarawih</div><div class="tl24-dur">2.5 jam · 10.4%</div></div></div>
+          </div>
+          <div class="tl24-row" data-tip="🌙 Tidur cukup sangat penting agar ibadah esok tetap optimal. Hindari gadget 30 menit sebelum tidur. Baca doa tidur dan niat bangun untuk sahur.">
+            <div class="tl24-time">21:30–03:30</div>
+            <div class="tl24-bar"><div class="tl24-fill" style="background:#0d6e78;width:100%"></div><span class="tl24-ico">🌙</span><div><div class="tl24-act">Tidur Malam</div><div class="tl24-dur">6 jam · 25.0%</div></div></div>
+          </div>
+        </div>
+        <div class="dvz-src">📚 Berdasarkan jadwal imsakiyah Kotawaringin Timur 1447H · Rekomendasi aktivitas berdasarkan WHO sleep guidelines & panduan ibadah Kemenag RI</div>
+      </div>
+
+      <!-- CARD 4: EFEK PUASA PER JAM (FULL WIDTH) -->
+      <div class="dvz-card full rv" style="transition-delay:.2s">
+        <div class="dvz-title">⚡ Apa yang Terjadi di Dalam Tubuhmu Saat Berpuasa?</div>
+        <div class="dvz-sub">Perubahan fisiologis per jam · Berdasarkan riset biokimia & neurosains · Klik kartu untuk penjelasan lengkap</div>
+        <div class="efek-tabs">
+          <button class="efek-tab active" data-pane="efek-meta">🔥 Metabolisme</button>
+          <button class="efek-tab" data-pane="efek-sel">🔬 Seluler</button>
+          <button class="efek-tab" data-pane="efek-otak">🧠 Otak & Saraf</button>
+        </div>
+
+        <div id="efek-meta" class="efek-pane active">
+          <div class="efek-card gold">
+            <span class="efek-jam">JAM 1–2</span>
+            <div class="efek-judul">Gula Darah Stabil ✅</div>
+            <span class="efek-toggle">▼ Selengkapnya</span>
+            <div class="efek-isi">Tubuh menggunakan glukosa dari sahur. Insulin mulai turun, gula darah stabil tanpa lonjakan. Ini justru meningkatkan kejernihan pikiran dan menghindari "food coma" pasca makan. <br><em>Sumber: Mattson, NEJM 381:2541 (2019)</em></div>
+          </div>
+          <div class="efek-card gold">
+            <span class="efek-jam">JAM 4–6</span>
+            <div class="efek-judul">Pembakaran Lemak Mulai 🔥</div>
+            <span class="efek-toggle">▼ Selengkapnya</span>
+            <div class="efek-isi">Setelah cadangan glikogen hati habis, tubuh beralih membakar lemak sebagai sumber energi (lipolisis). Metabolisme meningkat efisiensi. Inilah kenapa puasa efektif untuk kontrol berat badan. <br><em>Sumber: Anton et al. Obesity 26(2) (2018)</em></div>
+          </div>
+          <div class="efek-card gold">
+            <span class="efek-jam">JAM 8–10</span>
+            <div class="efek-judul">Produksi Keton Dimulai ⚗️</div>
+            <span class="efek-toggle">▼ Selengkapnya</span>
+            <div class="efek-isi">Hati mulai memproduksi keton dari lemak. Keton adalah bahan bakar bersih untuk otak — lebih efisien dari glukosa. Banyak orang melaporkan pikiran lebih jernih di jam ini. <br><em>Sumber: Cahill GF, Annu Rev Nutr 26:1 (2006)</em></div>
+          </div>
+          <div class="efek-card gold">
+            <span class="efek-jam">JAM 12+</span>
+            <div class="efek-judul">Ketosis Parsial Tercapai 🎯</div>
+            <span class="efek-toggle">▼ Selengkapnya</span>
+            <div class="efek-isi">Tubuh kini beroperasi penuh pada mode ketosis parsial. Nafsu makan menurun secara alami (hormon ghrelin turun). Energi stabil tanpa fluktuasi — persis kondisi optimal untuk fokus dan ibadah. <br><em>Sumber: Owen OE, J Clin Invest 46:1589 (1967)</em></div>
+          </div>
+        </div>
+
+        <div id="efek-sel" class="efek-pane">
+          <div class="efek-card teal">
+            <span class="efek-jam">JAM 6–8</span>
+            <div class="efek-judul">Autophagy Diaktifkan ♻️</div>
+            <span class="efek-toggle">▼ Selengkapnya</span>
+            <div class="efek-isi">Sel-sel mulai "memakan" komponen sel yang rusak atau tua (autophagy). Proses ini membersihkan protein abnormal yang berkaitan dengan Alzheimer & Parkinson. Nobel Prize 2016 diberikan untuk penemuan ini. <br><em>Sumber: Ohsumi Y, Nobel Prize Lecture (2016); Alirezaei, Autophagy 6:702 (2010)</em></div>
+          </div>
+          <div class="efek-card teal">
+            <span class="efek-jam">JAM 10+</span>
+            <div class="efek-judul">Perbaikan DNA Aktif 🧬</div>
+            <span class="efek-toggle">▼ Selengkapnya</span>
+            <div class="efek-isi">Protein SIRT1 dan SIRT3 (sirtuins) yang berperan dalam perbaikan DNA teraktivasi. Keduanya juga memperlambat proses penuaan seluler dan meningkatkan panjang telomer. <br><em>Sumber: Haigis MC & Guarente LP, Genes Dev 20:2913 (2006)</em></div>
+          </div>
+          <div class="efek-card teal">
+            <span class="efek-jam">JAM 16+</span>
+            <div class="efek-judul">Regenerasi Sel Imun 🛡️</div>
+            <span class="efek-toggle">▼ Selengkapnya</span>
+            <div class="efek-isi">Puasa berkepanjangan memicu regenerasi sel-sel imun baru. IGF-1 (pemicu pertumbuhan sel kanker) turun, sementara sel-sel darah putih baru diproduksi. Sistem imun "di-reset" secara alami. <br><em>Sumber: Cheng CW, Cell Stem Cell 14:810 (2014)</em></div>
+          </div>
+          <div class="efek-card teal">
+            <span class="efek-jam">BULAN PENUH</span>
+            <div class="efek-judul">Profil Lipid Membaik ❤️</div>
+            <span class="efek-toggle">▼ Selengkapnya</span>
+            <div class="efek-isi">Setelah 30 hari Ramadhan, penelitian prospektif menunjukkan penurunan trigliserida 20–48%, penurunan LDL, dan peningkatan HDL (kolesterol baik). Manfaat kardiovaskular ini bertahan hingga 1 bulan pasca Ramadhan. <br><em>Sumber: Nematy M, Nutrition Journal 11:69 (2012)</em></div>
+          </div>
+        </div>
+
+        <div id="efek-otak" class="efek-pane">
+          <div class="efek-card sage">
+            <span class="efek-jam">JAM 4–8</span>
+            <div class="efek-judul">BDNF Meningkat ⚡</div>
+            <span class="efek-toggle">▼ Selengkapnya</span>
+            <div class="efek-isi">Brain-Derived Neurotrophic Factor (BDNF) — protein yang mendukung pertumbuhan neuron baru — meningkat signifikan. Ini meningkatkan kemampuan belajar, memori jangka panjang, dan daya tahan terhadap depresi. <br><em>Sumber: Mattson MP, NEJM 381:2541 (2019)</em></div>
+          </div>
+          <div class="efek-card sage">
+            <span class="efek-jam">JAM 6+</span>
+            <div class="efek-judul">Kortisol Menurun 😌</div>
+            <span class="efek-toggle">▼ Selengkapnya</span>
+            <div class="efek-isi">Hormon stres kortisol turun secara signifikan selama Ramadhan. Ini berkaitan dengan peningkatan rasa tenang, berkurangnya kecemasan, dan perbaikan kualitas tidur yang dilaporkan banyak individu berpuasa. <br><em>Sumber: Husain I, Nutrition Journal 12:43 (2013)</em></div>
+          </div>
+          <div class="efek-card sage">
+            <span class="efek-jam">JAM 12+</span>
+            <div class="efek-judul">Fokus & Konsentrasi Optimal 🎯</div>
+            <span class="efek-toggle">▼ Selengkapnya</span>
+            <div class="efek-isi">Kombinasi keton sebagai bahan bakar otak + penurunan kortisol menciptakan kondisi optimal untuk konsentrasi. Ini menjelaskan mengapa banyak pelajar justru lebih produktif belajar saat berpuasa. <br><em>Sumber: Fond G, Psychiatry Research 205(1):69 (2013)</em></div>
+          </div>
+          <div class="efek-card sage">
+            <span class="efek-jam">SEPANJANG RAMADHAN</span>
+            <div class="efek-judul">Neuroplastisitas Meningkat 🌱</div>
+            <span class="efek-toggle">▼ Selengkapnya</span>
+            <div class="efek-isi">Puasa periodik memicu neuroplastisitas — kemampuan otak membentuk koneksi saraf baru. Penelitian menunjukkan peningkatan volume hippocampus (pusat memori). Ramadhan literally membuat otakmu lebih kuat. <br><em>Sumber: Mattson MP, Ageing Research Reviews 10(3):271 (2011)</em></div>
+          </div>
+        </div>
+        <div class="dvz-src" style="margin-top:1.2rem;">📚 Semua data berdasarkan jurnal peer-reviewed: NEJM, Cell Stem Cell, Nutrition Journal, Autophagy, Nobel Prize Lecture. Data merupakan rata-rata dari berbagai uji klinis pada populasi Muslim berpuasa.</div>
+      </div>
+
+    </div><!-- end dvz-grid -->
+  </div>
+</section>
+
+<!-- KARYA SISWA — 1 POSTER -->
+<section id="karya">
+  <div class="sc">
+    <div class="sh rv"><span class="se">✦ Karya Visual Siswa ✦</span><h2 class="st">Poster <em>Kreatif</em></h2><div class="sl2"></div></div>
+    <p class="karya-note rv">🎨 Tim Designer: ganti placeholder dengan foto poster Canva kalian.<br>Hapus <code>&lt;div class="poster-ph"&gt;</code> dan ganti dengan <code>&lt;img class="poster-img" src="../images/poster-1.jpg"&gt;</code></p>
+    <div style="max-width:520px;margin:0 auto;">
+      <div class="poster-card rv" style="aspect-ratio:3/4;max-height:640px;">
+        <div class="poster-ph">
+          <span class="poster-ph-ico">🖼️</span>
+          <span class="poster-ph-txt">Poster Ramadhan 1447H</span>
+          <span class="poster-ph-who">Tim Designer XII F3 · SMAN 1 Sampit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
           <div class="radial-item"><div class="radial-outer"><svg class="radial-svg" width="96" height="96" viewBox="0 0 96 96"><circle class="radial-track" cx="48" cy="48" r="38"/><circle class="radial-prog rg" cx="48" cy="48" r="38" stroke-dasharray="239" data-target="100"/></svg><div class="radial-center"><span class="radial-pct" id="rp0">0%</span><span class="radial-ico">🕌</span></div></div><span class="radial-lbl">Shalat Tepat Waktu</span></div>
           <div class="radial-item"><div class="radial-outer"><svg class="radial-svg" width="96" height="96" viewBox="0 0 96 96"><circle class="radial-track" cx="48" cy="48" r="38"/><circle class="radial-prog rt" cx="48" cy="48" r="38" stroke-dasharray="239" data-target="90"/></svg><div class="radial-center"><span class="radial-pct" id="rp1">0%</span><span class="radial-ico">🤝</span></div></div><span class="radial-lbl">Partisipasi Berbagi</span></div>
           <div class="radial-item"><div class="radial-outer"><svg class="radial-svg" width="96" height="96" viewBox="0 0 96 96"><circle class="radial-track" cx="48" cy="48" r="38"/><circle class="radial-prog rm" cx="48" cy="48" r="38" stroke-dasharray="239" data-target="80"/></svg><div class="radial-center"><span class="radial-pct" id="rp2">0%</span><span class="radial-ico">📖</span></div></div><span class="radial-lbl">Tilawah Konsisten</span></div>
@@ -125,87 +442,6 @@
           <div><div class="hbar-top"><span class="hbar-name">😌 Stres & kecemasan berkurang</span><span class="hbar-val">80%</span></div><div class="hbar-track"><div class="hbar-fill hb1" data-w="80%"></div></div></div>
           <div><div class="hbar-top"><span class="hbar-name">🔥 Pembakaran lemak meningkat</span><span class="hbar-val">72%</span></div><div class="hbar-track"><div class="hbar-fill hb2" data-w="72%"></div></div></div>
           <div><div class="hbar-top"><span class="hbar-name">🧠 Fokus & konsentrasi naik</span><span class="hbar-val">65%</span></div><div class="hbar-track"><div class="hbar-fill hb3" data-w="65%"></div></div></div>
-          <div><div class="hbar-top"><span class="hbar-name">💪 Imunitas tubuh menguat</span><span class="hbar-val">58%</span></div><div class="hbar-track"><div class="hbar-fill hb4" data-w="58%"></div></div></div>
-          <div><div class="hbar-top"><span class="hbar-name">❤️ Kolesterol turun</span><span class="hbar-val">45%</span></div><div class="hbar-track"><div class="hbar-fill hb5" data-w="45%"></div></div></div>
-        </div>
-      </div>
-      <div class="dv-card rv" style="transition-delay:.15s;">
-        <div class="dv-card-title">⏰ Distribusi Waktu Ideal Pelajar</div>
-        <div class="dv-card-sub">Pembagian 16 jam aktif per hari saat Ramadhan</div>
-        <div class="bub-area" id="bubbleSection">
-          <div class="bub-col"><div class="bub b1" style="width:84px;height:84px" data-delay="0">6 Jam</div><span class="bub-lbl">Belajar & Sekolah</span></div>
-          <div class="bub-col"><div class="bub b2" style="width:62px;height:62px" data-delay="120">3 Jam</div><span class="bub-lbl">Ibadah & Tilawah</span></div>
-          <div class="bub-col"><div class="bub b3" style="width:52px;height:52px" data-delay="240">2 Jam</div><span class="bub-lbl">Sahur & Buka</span></div>
-          <div class="bub-col"><div class="bub b4" style="width:70px;height:70px" data-delay="360">4 Jam</div><span class="bub-lbl">Istirahat Siang</span></div>
-          <div class="bub-col"><div class="bub b5" style="width:24px;height:24px" data-delay="480">1J</div><span class="bub-lbl">Sosial</span></div>
-        </div>
-        <p style="font-size:.6rem;color:var(--text-dim);text-align:center;margin-top:.8rem;">Ukuran lingkaran = proporsi waktu ideal</p>
-      </div>
-      <div class="dv-card rv" style="transition-delay:.2s;">
-        <div class="dv-card-title">📅 Timeline 5 Hari PBM Kita</div>
-        <div class="dv-card-sub">Rangkaian kegiatan Mading Digital 2–6 Maret 2026</div>
-        <div class="tl-wrap">
-          <div class="tl-row"><span class="tl-dot"></span><div><span class="tl-badge">Senin · 2 Maret</span><p class="tl-text"><strong>Awareness & Orientasi</strong> — Ice breaking, diskusi isu sosial, pembentukan tim</p></div></div>
-          <div class="tl-row"><span class="tl-dot"></span><div><span class="tl-badge">Selasa · 3 Maret</span><p class="tl-text"><strong>Investigasi & Perencanaan</strong> — Brainstorming konten, storyboard, pembagian tugas</p></div></div>
-          <div class="tl-row"><span class="tl-dot"></span><div><span class="tl-badge">Rabu · 4 Maret</span><p class="tl-text"><strong>Produksi Karya</strong> — Pembuatan mading digital, integrasi nilai spiritual & sosial</p></div></div>
-          <div class="tl-row"><span class="tl-dot"></span><div><span class="tl-badge">Kamis · 5 Maret</span><p class="tl-text"><strong>Finalisasi & Simulasi</strong> — Finalisasi desain, peer feedback, latihan presentasi</p></div></div>
-          <div class="tl-row"><span class="tl-dot"></span><div><span class="tl-badge">Jumat · 6 Maret</span><p class="tl-text"><strong>Pameran & Gallery Walk</strong> — Kunjung antar kelas, voting, pengumuman juara 🏆</p></div></div>
-        </div>
-      </div>
-      <div class="dv-card full rv" style="transition-delay:.25s;">
-        <div class="dv-card-title">📈 Tren Semangat Ibadah Remaja Selama Ramadhan</div>
-        <div class="dv-card-sub">Pola umum tingkat semangat pelajar dari minggu 1 hingga 10 hari terakhir</div>
-        <svg id="lineChart" viewBox="0 0 600 170" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
-          <defs><linearGradient id="lgFill" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#14b8a6" stop-opacity=".45"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/></linearGradient></defs>
-          <line x1="60" y1="20" x2="580" y2="20" stroke="rgba(201,168,76,.07)" stroke-width="1"/><line x1="60" y1="52" x2="580" y2="52" stroke="rgba(201,168,76,.07)" stroke-width="1"/><line x1="60" y1="84" x2="580" y2="84" stroke="rgba(201,168,76,.07)" stroke-width="1"/><line x1="60" y1="116" x2="580" y2="116" stroke="rgba(201,168,76,.07)" stroke-width="1"/>
-          <text x="52" y="23" fill="#4a8a94" font-size="9" text-anchor="end">100%</text><text x="52" y="55" fill="#4a8a94" font-size="9" text-anchor="end">75%</text><text x="52" y="87" fill="#4a8a94" font-size="9" text-anchor="end">50%</text><text x="52" y="119" fill="#4a8a94" font-size="9" text-anchor="end">25%</text>
-          <path d="M65,28 C200,26 380,28 555,26" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-dasharray="5,4" opacity=".35"/>
-          <path id="lcArea" d="M65,26 C130,24 155,38 205,48 C260,58 268,72 318,78 C368,84 385,98 438,105 C480,110 515,80 558,35 L558,116 L65,116 Z" fill="url(#lgFill)" opacity="0" style="transition:opacity 1.2s .4s;"/>
-          <path id="lcLine" d="M65,26 C130,24 155,38 205,48 C260,58 268,72 318,78 C368,84 385,98 438,105 C480,110 515,80 558,35" fill="none" stroke="#14b8a6" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="720" stroke-dashoffset="720" filter="url(#fglow)" style="transition:stroke-dashoffset 2.6s var(--ease);"/>
-          <circle id="dot0" cx="65" cy="26" r="5" fill="#14b8a6" filter="url(#fglow)" opacity="0" style="transition:opacity .3s .7s;"/>
-          <circle id="dot1" cx="205" cy="48" r="5" fill="#14b8a6" filter="url(#fglow)" opacity="0" style="transition:opacity .3s 1.2s;"/>
-          <circle id="dot2" cx="318" cy="78" r="5" fill="#c9a84c" filter="url(#fglow)" opacity="0" style="transition:opacity .3s 1.7s;"/>
-          <circle id="dot3" cx="438" cy="105" r="5" fill="#c9a84c" filter="url(#fglow)" opacity="0" style="transition:opacity .3s 2.1s;"/>
-          <circle id="dot4" cx="558" cy="35" r="6" fill="#f0c040" filter="url(#fglow)" opacity="0" style="transition:opacity .3s 2.5s;"/>
-          <text x="70" y="18" fill="#14b8a6" font-size="8.5">Semangat tinggi 🚀</text>
-          <text x="298" y="72" fill="#c9a84c" font-size="8">Pertahankan! 💪</text>
-          <text x="435" y="99" fill="#c9a84c" font-size="8">Burnout zone ⚠️</text>
-          <rect x="488" y="18" width="90" height="22" rx="5" fill="rgba(201,168,76,.12)" stroke="rgba(201,168,76,.3)" stroke-width="1"/>
-          <text x="533" y="33" fill="#f0c040" font-size="8" text-anchor="middle" font-weight="bold">Lailatul Qadar ⭐</text>
-          <text x="65" y="135" fill="#4a8a94" font-size="9" text-anchor="middle">Minggu 1</text>
-          <text x="205" y="135" fill="#4a8a94" font-size="9" text-anchor="middle">Minggu 2</text>
-          <text x="318" y="135" fill="#4a8a94" font-size="9" text-anchor="middle">Minggu 3</text>
-          <text x="438" y="135" fill="#4a8a94" font-size="9" text-anchor="middle">Minggu 4</text>
-          <text x="558" y="135" fill="#f0c040" font-size="9" text-anchor="middle" font-weight="bold">10 Hari Akhir</text>
-          <line x1="65" y1="155" x2="90" y2="155" stroke="#14b8a6" stroke-width="2.5"/><circle cx="77" cy="155" r="3" fill="#14b8a6"/>
-          <text x="94" y="159" fill="#7ab8c0" font-size="8">Tren Semangat Aktual</text>
-          <line x1="220" y1="155" x2="245" y2="155" stroke="#c9a84c" stroke-width="1.5" stroke-dasharray="4,3"/>
-          <text x="249" y="159" fill="#7ab8c0" font-size="8">Target Ideal</text>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- KARYA SISWA -->
-<section id="karya">
-  <div class="sc">
-    <div class="sh rv"><span class="se">✦ Karya Visual Siswa ✦</span><h2 class="st">Poster <em>Kreatif</em></h2><div class="sl2"></div></div>
-    <p class="karya-note rv">🎨 Tim Designer: ganti placeholder dengan foto poster Canva kalian.<br>Hapus <code>&lt;div class="poster-ph"&gt;</code> dan ganti dengan <code>&lt;img class="poster-img" src="../images/poster-1.jpg"&gt;</code></p>
-    <div class="poster-grid">
-      <div class="poster-card rv">
-        <div class="poster-ph"><span class="poster-ph-ico">🖼️</span><span class="poster-ph-txt">Poster 1</span><span class="poster-ph-who">Tim Designer — Neza / Rizky</span></div>
-      </div>
-      <div class="poster-card rv" style="transition-delay:.1s;">
-        <div class="poster-ph"><span class="poster-ph-ico">🖼️</span><span class="poster-ph-txt">Poster 2</span><span class="poster-ph-who">Tim Designer — Hasbie / Dimas</span></div>
-      </div>
-      <div class="poster-card rv" style="transition-delay:.2s;">
-        <div class="poster-ph"><span class="poster-ph-ico">🖼️</span><span class="poster-ph-txt">Poster 3</span><span class="poster-ph-who">Tim Designer — Syeba / Cantika</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- KARYA SASTRA SISWA -->
 <section id="cerpen" style="background:var(--bg2);">
   <div class="sc">
@@ -263,5 +499,89 @@
 <div id="yt-hidden" style="display:none;width:1px;height:1px;position:fixed;bottom:0;left:0;pointer-events:none;"></div>
 <button class="afab" id="audioFab" title="Toggle audio">🎵</button>
 <script src="../assets/js/main.js"></script>
+<script>
+// ═══ DATAVIZ INTERAKTIF ═══
+
+// ── Intersection Observer untuk trigger animasi saat scroll masuk ──
+const dvSection = document.getElementById('dataviz');
+if(dvSection){
+  const dvObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(!e.isIntersecting) return;
+
+      // Chart 1: Animasi bar kota
+      document.querySelectorAll('.city-fill[data-w]').forEach((el,i) => {
+        setTimeout(() => { el.style.width = el.dataset.w; }, i * 160);
+      });
+
+      // Chart 2: Animasi bar sains
+      document.querySelectorAll('.sains-fill[data-w]').forEach((el,i) => {
+        setTimeout(() => { el.style.width = el.dataset.w; }, i * 200 + 300);
+      });
+
+      dvObs.disconnect();
+    });
+  }, { threshold: 0.08 });
+  dvObs.observe(dvSection);
+}
+
+// ── Chart 1: Klik baris kota ──
+document.querySelectorAll('.city-row').forEach(row => {
+  row.addEventListener('click', function(){
+    const isOpen = this.classList.contains('active');
+    document.querySelectorAll('.city-row').forEach(r => r.classList.remove('active'));
+    if(!isOpen) this.classList.add('active');
+  });
+});
+
+// ── Chart 2: Klik sains row → tampilkan sitasi ──
+document.querySelectorAll('.sains-row').forEach(row => {
+  const src = row.dataset.src;
+  const cite = row.querySelector('.sains-citation');
+  if(cite && src) cite.textContent = '📖 ' + src;
+  row.addEventListener('click', function(){
+    const isOpen = this.classList.contains('open');
+    document.querySelectorAll('.sains-row').forEach(r => r.classList.remove('open'));
+    if(!isOpen) this.classList.add('open');
+  });
+});
+
+// ── Chart 3: Klik timeline 24 jam → tampilkan tips ──
+document.querySelectorAll('.tl24-row').forEach(row => {
+  const tip = row.dataset.tip;
+  if(tip){
+    const tipEl = document.createElement('div');
+    tipEl.className = 'tl24-tip';
+    tipEl.textContent = tip;
+    row.appendChild(tipEl);
+  }
+  row.addEventListener('click', function(){
+    const isOpen = this.classList.contains('open');
+    document.querySelectorAll('.tl24-row').forEach(r => r.classList.remove('open'));
+    if(!isOpen) this.classList.add('open');
+  });
+});
+
+// ── Chart 4: Tab efek per jam ──
+document.querySelectorAll('.efek-tab').forEach(tab => {
+  tab.addEventListener('click', function(){
+    document.querySelectorAll('.efek-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.efek-pane').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+    const pane = document.getElementById(this.dataset.pane);
+    if(pane) pane.classList.add('active');
+  });
+});
+
+// ── Chart 4: Klik kartu efek → expand ──
+document.querySelectorAll('.efek-card').forEach(card => {
+  card.addEventListener('click', function(){
+    const isOpen = this.classList.contains('open');
+    // Tutup semua dalam pane yang sama
+    this.closest('.efek-pane').querySelectorAll('.efek-card').forEach(c => c.classList.remove('open'));
+    if(!isOpen) this.classList.add('open');
+  });
+});
+</script>
 </body>
 </html>

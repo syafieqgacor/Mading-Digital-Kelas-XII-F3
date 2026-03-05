@@ -59,16 +59,9 @@
       nav{padding:1rem 1.5rem;}
     }
 
-    /* CURSOR — desktop only */
+    /* CURSOR */
     .cursor{position:fixed;width:10px;height:10px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:difference;}
     .cursor-ring{position:fixed;width:34px;height:34px;border:1.5px solid var(--gold);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .1s ease-out,top .1s ease-out,width .3s,height .3s;}
-    /* Hide custom cursor on touch/mobile — restore system cursor */
-    @media (hover:none),(pointer:coarse){
-      .cursor,.cursor-ring{display:none !important;}
-      body{cursor:auto !important;}
-      .slider-track{cursor:default;}
-      .slider-track:active{cursor:default;}
-    }
 
     /* CANVAS & MOSQUE BG */
     #bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.18;}
@@ -701,3 +694,163 @@
 .art-full .art-content strong{color:var(--gold);}
 .art-full .art-content em{color:var(--sage-mid);}
 [data-theme="dark"] .art-full .art-content em{color:var(--teal);}
+
+/* ══════════════════════════════════════════════════════
+   MOBILE-FIRST FIXES — max 480px
+   Mengatasi: spacing boros, font terlalu besar, line-height
+   terlalu tinggi, padding kartu berlebihan, teks tengah
+   yang memecah kata di layar sempit.
+══════════════════════════════════════════════════════ */
+@media(max-width:480px){
+
+  /* ── GLOBAL SPACING ── */
+  .sc{padding:2.8rem 1.1rem;}
+  .sh{margin-bottom:1.6rem;}
+  .st{font-size:clamp(1.5rem,6vw,2rem);}
+
+  /* ── NAVBAR ── */
+  nav{padding:.75rem 1rem;}
+  .nav-logo{font-size:.85rem;}
+
+  /* ── PAGE HERO (sub-pages) ── */
+  .page-hero{padding:4.5rem 1.2rem 2rem;}
+  .page-hero-title{font-size:clamp(1.6rem,7vw,2.4rem);}
+
+  /* ── HERO SECTION (index) ── */
+  .hero-content{padding:0 .5rem;}
+  .hero-tag{font-size:.52rem;letter-spacing:2.5px;}
+  .hero-title{font-size:clamp(2rem,9vw,3rem);line-height:1.15;}
+  .hero-sub{font-size:.78rem;line-height:1.6;}
+  .hero-cta{flex-direction:column;gap:.6rem;}
+  .logo-kelas-wrap{gap:.6rem;}
+
+  /* ── COUNTDOWN ── */
+  .cd{gap:.5rem;}
+  .cd-item{min-width:52px;padding:.6rem .7rem;}
+  .cd-n{font-size:1.5rem;}
+  .cd-l{font-size:.48rem;letter-spacing:1px;}
+
+  /* ── EDITORIAL — paling bermasalah ── */
+  .ed-card{padding:1.4rem 1.1rem;}
+  .ed-arabic{font-size:1.45rem;margin-bottom:1rem;opacity:.6;}
+  .ed-body{
+    font-size:.93rem;       /* dari 1.15rem */
+    line-height:1.65;       /* dari 1.9 — ini biang keroknya */
+    text-align:left;        /* dari center — mencegah kata terpenggal */
+    font-style:normal;      /* italic + center = boros di HP */
+  }
+  .ed-sig{margin-top:1rem;padding-top:.8rem;}
+
+  /* ── ARTICLES ── */
+  .art-main,.art-card-s{border-radius:14px;}
+  .art-ph-wrap .art-ph-ico{font-size:2.8rem;}
+  .art-full{padding:1.4rem 1.1rem;border-radius:14px;}
+  .art-full::before{margin-bottom:1.2rem;}
+  .art-full h2{font-size:clamp(1.3rem,5vw,1.8rem);}
+  .art-full .art-content{font-size:.84rem;line-height:1.75;}
+
+  /* ── OPINI ── */
+  .opini-card,.op-full{padding:1.4rem 1.1rem;border-radius:14px;}
+
+  /* ── INFO / 3 PILAR ── */
+  .info-layout{gap:1.5rem;}
+  .info-point{padding:.9rem 1rem;gap:.7rem;}
+  .info-point-num{font-size:1.1rem;width:1.6rem;}
+  .info-point-title{font-size:.8rem;}
+  .info-point-desc{font-size:.74rem;}
+  .info-stats{grid-template-columns:1fr 1fr;gap:.6rem;}
+  .i-stat{padding:.7rem;}
+  .i-stat-n{font-size:1.2rem;}
+  .i-stat-l{font-size:.62rem;}
+
+  /* ── DATA VIZ CARDS ── */
+  .dv-card{padding:1.3rem 1rem;border-radius:14px;}
+  .dv-card-title{font-size:.98rem;}
+  .dv-grid{gap:1rem;}
+
+  /* ── IMSAKIYAH ── */
+  .jadwal-head{padding:1.1rem 1.2rem;}
+  .jadwal-head h3{font-size:1rem;}
+  .shalat-grid{gap:.4rem;}
+  .shalat-item{padding:.5rem .3rem;}
+  .shalat-name{font-size:.58rem;letter-spacing:.5px;}
+  .shalat-time{font-size:.88rem;}
+
+  /* ── TIPS RAMADHAN ── */
+  .tip-c{padding:1.2rem 1rem;}
+  .tip-ico{font-size:1.7rem;margin-bottom:.6rem;}
+  .tip-title{font-size:1rem;}
+  .tip-desc{font-size:.75rem;line-height:1.65;}
+
+  /* ── DOA HARIAN ── */
+  .doa-card{padding:1.2rem 1rem;border-radius:14px;}
+  .doa-title{font-size:1rem;}
+  .doa-arabic{font-size:1.25rem;line-height:1.8;}
+  .doa-latin{font-size:.76rem;line-height:1.65;}
+  .doa-arti{font-size:.73rem;line-height:1.65;}
+
+  /* ── CERPEN & PUISI ── */
+  .cerpen-card{padding:1.4rem 1.1rem;border-radius:14px;}
+  .cerpen-title{font-size:clamp(1.2rem,5vw,1.6rem);margin-bottom:1rem;}
+  .cerpen-body{
+    font-size:.9rem;
+    line-height:1.75;  /* dari 2.0 */
+  }
+  .cerpen-body p{margin-bottom:.75rem;}
+  .puisi-body{
+    font-size:.98rem;
+    line-height:1.85;  /* dari 2.1 */
+    font-style:italic;
+  }
+
+  /* ── FAKTA FLIP CARDS ── */
+  .fakta-flip{height:180px;}
+  .fakta-grid{gap:.9rem;}
+
+  /* ── KARYA POSTER ── */
+  .poster-grid{grid-template-columns:1fr 1fr;gap:.9rem;}
+  .poster-card{border-radius:14px;}
+
+  /* ── FOOTER ── */
+  footer{padding:3rem 1.2rem 2rem;}
+  .ft-title{font-size:clamp(.9rem,4vw,1.3rem);letter-spacing:2px;}
+  .ft-q{font-size:.87rem;line-height:1.6;}
+  .ft-ar{font-size:1.3rem;}
+  .f-chip{font-size:.67rem;padding:.4rem .8rem;}
+
+  /* ── AUDIO FAB ── */
+  .afab{bottom:1.2rem;right:1.2rem;width:42px;height:42px;font-size:1rem;}
+
+  /* ── SLIDER ── */
+  .slider-section-wrap{padding:3rem 0;}
+  .slider-header{padding:0 1.2rem 1.8rem;}
+
+  /* ── QUIZ ── */
+  .quiz-wrap{padding:1.5rem 1.1rem;border-radius:14px;}
+  .quiz-q{font-size:.9rem;line-height:1.65;}
+  .quiz-opt{padding:.8rem 1rem;font-size:.8rem;}
+
+  /* ── TIM GRID ── */
+  .tim-grid{grid-template-columns:repeat(2,1fr);gap:.8rem;}
+  .tim-card{padding:1rem .8rem;}
+  .tim-av{width:56px;height:56px;font-size:1.2rem;}
+  .tim-name{font-size:.82rem;}
+
+  /* ── AYAT STRIP ── */
+  #ayat-strip{padding:2.5rem 1.2rem;}
+  .ayat-ar{font-size:clamp(1.3rem,5vw,1.8rem) !important;line-height:1.8;}
+  .ayat-tr{font-size:.8rem;line-height:1.6;}
+  .ayat-label{font-size:.55rem;letter-spacing:2px;}
+  .ayat-orn{display:none;}
+}
+
+/* ── Extra-small (≤380px, mis. iPhone SE gen 1) ── */
+@media(max-width:380px){
+  .sc{padding:2.2rem .9rem;}
+  .ed-body{font-size:.88rem;line-height:1.6;}
+  .cerpen-body{font-size:.86rem;}
+  .puisi-body{font-size:.92rem;}
+  .tim-grid{grid-template-columns:repeat(2,1fr);}
+  .cd-item{min-width:46px;padding:.5rem .5rem;}
+  .cd-n{font-size:1.3rem;}
+}

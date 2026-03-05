@@ -1,7 +1,9 @@
 // ===== SHARED MAIN.JS — Mading Digital Ramadhan =====
 
-// CURSOR
+// CURSOR — desktop only (skip on touch devices)
 (function(){
+  const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0 || window.matchMedia('(hover:none)').matches;
+  if(isTouch) return;
   const cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
   if(!cur||!ring)return;
   let mx=0,my=0,rx=0,ry=0;
